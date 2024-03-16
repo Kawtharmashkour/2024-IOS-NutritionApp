@@ -1,1 +1,14 @@
+2024/03/15 Kawthar
+1- Done/ UI Mockup
+2- To do/ Recipes Edamam API, UI setup colors (light & dark modes), responsive design & safe area
+3- Need assistance/ Non for now
 
+2024/03/15 Behnaze
+1- Done/ Report proposal
+2- To do/ firebase database, read more on SwiftUI
+3- Need assistance/ Non for now
+
+2024/03/15 Shadan
+1- Done/ UML Database
+2- To do/ signup authentication using email, read more on SwiftUI
+3- Need assistance/ Non for now
