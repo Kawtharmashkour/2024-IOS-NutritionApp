@@ -1,4 +1,11 @@
 # Xcode
+.DS_Store
+NutriScan/.DS_Store
+xcworkspace/xcuserdata/
+
+# User-specific state files
+*.xcuserstate
+
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
