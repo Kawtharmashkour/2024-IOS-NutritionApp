@@ -12,6 +12,8 @@
 		EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FE2BA54F9A0033987F /* Item.swift */; };
 		EF5FD3012BA54F9E0033987F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5FD3002BA54F9E0033987F /* Assets.xcassets */; };
 		EF5FD3042BA54F9E0033987F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5FD3032BA54F9E0033987F /* Preview Assets.xcassets */; };
+		EF5FD30F2BA552D00033987F /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD30E2BA552D00033987F /* server.swift */; };
+		EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD3102BA552E70033987F /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		EF5FD2FE2BA54F9A0033987F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		EF5FD3002BA54F9E0033987F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF5FD3032BA54F9E0033987F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF5FD30E2BA552D00033987F /* server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
+		EF5FD3102BA552E70033987F /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		EF5FD30B2BA54FF90033987F /* views */ = {
 			isa = PBXGroup;
 			children = (
+				EF5FD3102BA552E70033987F /* SwiftUIView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 		EF5FD30D2BA550260033987F /* server */ = {
 			isa = PBXGroup;
 			children = (
+				EF5FD30E2BA552D00033987F /* server.swift */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -166,7 +172,9 @@
 			files = (
 				EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
+				EF5FD30F2BA552D00033987F /* server.swift in Sources */,
 				EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */,
+				EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
