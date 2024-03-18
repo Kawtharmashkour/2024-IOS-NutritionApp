@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F12BA7D84A0025F8EE /* InputView.swift */; };
+		69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F32BA7D87E0025F8EE /* SettingsRowView.swift */; };
+		69BD61F62BA7D8E10025F8EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F52BA7D8E10025F8EE /* User.swift */; };
 		EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */; };
 		EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FC2BA54F9A0033987F /* ContentView.swift */; };
 		EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FE2BA54F9A0033987F /* Item.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69BD61F12BA7D84A0025F8EE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		69BD61F32BA7D87E0025F8EE /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		69BD61F52BA7D8E10025F8EE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF5FD2F72BA54F9A0033987F /* NutriScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriScanApp.swift; sourceTree = "<group>"; };
 		EF5FD2FC2BA54F9A0033987F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +44,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69BD61EB2BA7D6810025F8EE /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		69BD61EC2BA7D68F0025F8EE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				69BD61F12BA7D84A0025F8EE /* InputView.swift */,
+				69BD61F32BA7D87E0025F8EE /* SettingsRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		69BD61EE2BA7D6B80025F8EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		69BD61F02BA7D77F0025F8EE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		EF5FD2EE2BA54F9A0033987F = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +93,10 @@
 		EF5FD2F92BA54F9A0033987F /* NutriScan */ = {
 			isa = PBXGroup;
 			children = (
+				69BD61F02BA7D77F0025F8EE /* Core */,
+				69BD61EB2BA7D6810025F8EE /* App */,
+				69BD61EC2BA7D68F0025F8EE /* Components */,
+				69BD61EE2BA7D6B80025F8EE /* Model */,
 				EF5FD30D2BA550260033987F /* server */,
 				EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */,
 				EF5FD2FC2BA54F9A0033987F /* ContentView.swift */,
@@ -80,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5FD2FE2BA54F9A0033987F /* Item.swift */,
+				69BD61F52BA7D8E10025F8EE /* User.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -173,8 +214,11 @@
 				EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
 				EF5FD30F2BA552D00033987F /* server.swift in Sources */,
+				69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */,
+				69BD61F62BA7D8E10025F8EE /* User.swift in Sources */,
 				EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */,
 				EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */,
+				69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
