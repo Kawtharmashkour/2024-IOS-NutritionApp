@@ -10,6 +10,9 @@
 		69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F12BA7D84A0025F8EE /* InputView.swift */; };
 		69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F32BA7D87E0025F8EE /* SettingsRowView.swift */; };
 		69BD61F62BA7D8E10025F8EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F52BA7D8E10025F8EE /* User.swift */; };
+		69BD61FB2BA7DA300025F8EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61FA2BA7DA300025F8EE /* LoginView.swift */; };
+		69BD61FD2BA7DA8C0025F8EE /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61FC2BA7DA8C0025F8EE /* RegistrationView.swift */; };
+		69BD61FF2BA7DAD20025F8EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61FE2BA7DAD20025F8EE /* ProfileView.swift */; };
 		EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */; };
 		EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FC2BA54F9A0033987F /* ContentView.swift */; };
 		EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FE2BA54F9A0033987F /* Item.swift */; };
@@ -23,6 +26,9 @@
 		69BD61F12BA7D84A0025F8EE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		69BD61F32BA7D87E0025F8EE /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		69BD61F52BA7D8E10025F8EE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		69BD61FA2BA7DA300025F8EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		69BD61FC2BA7DA8C0025F8EE /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		69BD61FE2BA7DAD20025F8EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EF5FD2F72BA54F9A0033987F /* NutriScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriScanApp.swift; sourceTree = "<group>"; };
 		EF5FD2FC2BA54F9A0033987F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,8 +76,35 @@
 		69BD61F02BA7D77F0025F8EE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				69BD61F92BA7D9E90025F8EE /* Authentication */,
+				69BD61F82BA7D9DB0025F8EE /* Profile */,
+				69BD61F72BA7D9D00025F8EE /* Root */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		69BD61F72BA7D9D00025F8EE /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		69BD61F82BA7D9DB0025F8EE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				69BD61FE2BA7DAD20025F8EE /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		69BD61F92BA7D9E90025F8EE /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				69BD61FA2BA7DA300025F8EE /* LoginView.swift */,
+				69BD61FC2BA7DA8C0025F8EE /* RegistrationView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		EF5FD2EE2BA54F9A0033987F = {
@@ -214,11 +247,14 @@
 				EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
 				EF5FD30F2BA552D00033987F /* server.swift in Sources */,
+				69BD61FB2BA7DA300025F8EE /* LoginView.swift in Sources */,
 				69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */,
 				69BD61F62BA7D8E10025F8EE /* User.swift in Sources */,
 				EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */,
 				EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */,
 				69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */,
+				69BD61FF2BA7DAD20025F8EE /* ProfileView.swift in Sources */,
+				69BD61FD2BA7DA8C0025F8EE /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
