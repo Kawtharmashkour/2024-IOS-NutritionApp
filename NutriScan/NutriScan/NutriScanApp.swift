@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+
 @main
 struct NutriScanApp: App {
     var sharedModelContainer: ModelContainer = {
