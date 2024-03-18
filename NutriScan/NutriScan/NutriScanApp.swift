@@ -11,6 +11,8 @@ import SwiftData
 
 @main
 struct NutriScanApp: App {
+    @StateObject var viewModel = AuthViewModel()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -26,7 +28,9 @@ struct NutriScanApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            LoginView()
+                .environmentObject(viewModel)
         }
         .modelContainer(sharedModelContainer)
     }
