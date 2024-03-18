@@ -1,3 +1,4 @@
+Day: 1
 2024/03/15 Kawthar
 1- Done/ UI Mockup
 2- To do/ Recipes Edamam API, UI setup colors (light & dark modes), responsive design & safe area
@@ -12,3 +13,28 @@
 1- Done/ UML Database
 2- To do/ signup authentication using email, read more on SwiftUI
 3- Need assistance/ Non for now
+
+Day: 2
+2024/03/15 Kawthar
+1- Done/ Network connection with "the Search Recipes API"
+2- To do/ 
+	- UI recipes list view 
+	- Create API model 
+	- Connect API to UI
+3- Need assistance/ Non for now
+
+2024/03/15 Behnaze
+1- Done/ Create email and account for Firebase
+2- To do/ Read more
+3- Need assistance/
+	- Figure out more about Firebase
+
+2024/03/15 Shadan
+1- Done/ 
+	- Create firebase project
+	- add firebase libraries to make like to the project
+	- UI sign up
+	- UI sign in
+	- UI user profile
+2- To do/ signUp, signIn with firebase
+3- Need assistance/ read more about firebase
