@@ -38,3 +38,19 @@ Day: 2
 	- UI user profile
 2- To do/ signUp, signIn with firebase
 3- Need assistance/ read more about firebase
+
+Day: 3
+2024/03/19 Kawthar
+1- Done/ 95% of previous scrum
+2- To do/ solve error, if done will work on add new recipe
+3- Need assistance/ Read more about other Edamam APIs
+
+2024/03/19 Behnaze
+1- Done/ previuos scrum
+2- To do/ UI chosen meals
+3- Need assistance/NA
+
+2024/03/19 Shadan
+1- Done/ 95% of previous scrum
+2- To do/ solving error, if error solve will work on user account (delete, signout)
+3- Need assistance/ NA
