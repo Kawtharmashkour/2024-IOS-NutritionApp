@@ -7,12 +7,16 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
 
 @main
 struct NutriScanApp: App {
     @StateObject var viewModel = AuthViewModel()
     
+    init(){
+        FirebaseApp.configure()
+    }
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -28,8 +32,8 @@ struct NutriScanApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            LoginView()
+           ContentView()
+//            LoginView()
                 .environmentObject(viewModel)
         }
         .modelContainer(sharedModelContainer)

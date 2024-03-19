@@ -9,90 +9,95 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var bmi = 0.0
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
-        List{
-            Section{
-                HStack {
-                    Text(User.MOCK_USER.initials)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(width: 72, height: 72)
-                        .background(Color(.systemGray3))
-                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    
-                    VStack(alignment: .leading, spacing:4) {
-                        Text(User.MOCK_USER.fullname)
-                            .font(.subheadline)
+        if let user = viewModel.currentUser {
+            List{
+                Section{
+                    HStack {
+                        Text(user.initials)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .fontWeight(.semibold)
-                            .padding(.top, 4)
+                            .foregroundColor(.white)
+                            .frame(width: 72, height: 72)
+                            .background(Color(.systemGray3))
+                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                         
-                        Text(User.MOCK_USER.email)
-                            .font(.footnote)
+                        VStack(alignment: .leading, spacing:4) {
+                            Text(user.fullname)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .padding(.top, 4)
+                            
+                            Text(user.email)
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                            
+                        }
+                    }
+                }
+                Section("general"){
+                    HStack{
+                        SettingsRowView(imageName: "gear", title: "Version", tintcolor: Color(.systemGray))
+                        Spacer()
+                        
+                        Text("1.0.0")
+                            .font(.headline)
                             .foregroundColor(.gray)
                         
                     }
                 }
-            }
-            Section("general"){
-                HStack{
-                    SettingsRowView(imageName: "gear", title: "Version", tintcolor: Color(.systemGray))
-                    Spacer()
-                    
-                    Text("1.0.0")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                    
-                }
-            }
-            
-            Section( "Account"){
-                Button  {
-                    print ("Sign Out ...")
-                } label: {
-                    SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintcolor: .red)
-                }
                 
-                Button  {
-                    print ("Sign Out ...")
-                } label: {
-                    SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintcolor: .red)
-                }
-                
-                
-            }
-            
-            Section("BMI Calculation"){
-                VStack(alignment: .leading, spacing: 4){
-             
-                        Text ("Your height : \(User.MOCK_USER.height) cm")
-                        Text ("Your weight : \(User.MOCK_USER.weight) kg")
-                        Text ("Your goal : \(User.MOCK_USER.targetWeight) kg")
-                        
+                Section( "Account"){
+                    Button  {
+                        print ("Sign Out ...")
+                    } label: {
+                        SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintcolor: .red)
                     }
                     
-                    HStack {
-                        Image ("BMI")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .padding(.vertical,5)
-                        
-                        VStack(alignment: .leading, spacing:4){
-                            let gender = User.MOCK_USER.gender
-                            let (bmi, feedback) = BMICalculator(weight: 65, height: 170, gender :"Male")
-                            Text ("BMI: \(bmi)")
+                    Button  {
+                        print ("Sign Out ...")
+                    } label: {
+                        SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintcolor: .red)
+                    }
+                    
+                    
+                }
+                
+                Section("BMI Calculation"){
+                    VStack(alignment: .leading, spacing: 4){
+                 
+                            Text ("Your height : \(user.height) cm")
+                            Text ("Your weight : \(user.weight) kg")
+                            Text ("Your goal : \(user.targetWeight) kg")
                             
-                            Text("Feedback : \(feedback)")
+                        }
+                        
+                        HStack {
+                            Image ("BMI")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .padding(.vertical,5)
+                            
+                            VStack(alignment: .leading, spacing:4){
+                                let gender = user.gender
+                                let (bmi, feedback) = BMICalculator(weight: 65, height: 170, gender :"Male")
+                                Text ("BMI: \(bmi)")
+                                
+                                Text("Feedback : \(feedback)")
+                            }
                         }
                     }
-                }
-            .font(.system(size: 14))
-                .foregroundColor(.black)
-                .font(.subheadline)
+                .font(.system(size: 14))
+                    .foregroundColor(.black)
+                    .font(.subheadline)
+            }
+            
         }
-        
-    }
+        }
+    
     func BMICalculator(weight: Double, height: Double, gender: String) -> (Double, String) {
         let heightInMeters = height / 100
         let BMI = weight / pow(heightInMeters, 2)

@@ -58,17 +58,17 @@ struct RegistrationView: View {
                     .foregroundColor(.black)
                    
                 HStack{
-                    ForEach(0..<genders.count) { index in
+                    ForEach(genders, id: \.self) { gender in
                         Button(action: {
-                            self.selectedGender = genders[index]
+                            self.selectedGender = gender
                         }) {
                             HStack {
-                                if self.selectedGender  == genders[index] {
+                                if self.selectedGender  == gender {
                                     Image(systemName: "largecircle.fill.circle").foregroundColor(.green)
                                 } else {
                                     Image(systemName: "circle")
                                 }
-                                Text(genders[index])
+                                Text(gender)
                             }
                         }
                         .font(.subheadline)
@@ -84,10 +84,14 @@ struct RegistrationView: View {
             .padding(.top, 3)
             
             Button {
-//                Task{
-//                    try await viewModel.createUser(withEmail: email, password: password, fullname: fullname, weight: weight, height: height, targetWeight: targetWeight, gender: [Int])
-//                    
-//                }
+                Task{
+                    guard let gender = selectedGender else {
+                              // Handle the case where the gender is not selected
+                              return
+                          }
+                    try await viewModel.createUser(withEmail: email, password: password, fullname: fullname, weight: weight, height: height, targetWeight: targetWeight, gender: gender)
+                    
+                }
                 
             } label: {
                 HStack{
