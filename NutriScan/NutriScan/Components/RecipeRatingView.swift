@@ -13,7 +13,7 @@ struct RecipeRatingView: View {
     var body: some View {
         
         HStack (alignment: .center, spacing: 5) {
-            ForEach(1...(recipe.rating), id:\.self) { _ in
+            ForEach(1...5/*(recipe.rating)*/, id:\.self) { _ in
                 Image(systemName: "star.fill")
                     .font(.body)
                     .foregroundColor(.yellow)
@@ -22,6 +22,7 @@ struct RecipeRatingView: View {
     }
 }
 
-#Preview {
+/*#Preview {
     RecipeRatingView(recipe: Recipe.recipesList[0])
 }
+*/

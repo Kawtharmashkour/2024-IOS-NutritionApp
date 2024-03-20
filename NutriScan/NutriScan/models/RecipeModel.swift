@@ -5,7 +5,7 @@
 //  Created by KAWTHAR on 2024-03-19.
 //
 
-import Foundation
+/*import Foundation
 import SwiftUI
 
 struct Recipe: Identifiable {
@@ -281,4 +281,4 @@ extension Recipe{
         )*/
     ]
 }
-
+*/

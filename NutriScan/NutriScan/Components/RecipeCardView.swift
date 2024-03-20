@@ -15,45 +15,34 @@ struct RecipeCardView: View {
     var body: some View {
         // Image card
         VStack {
-            VStack{
-            Image(recipe.image ?? "placeholderImage")
+            ImageCardView(recipe: recipe)
+           /* VStack{
+                Image(recipe.recipe.image)
                             .resizable()
                             .scaledToFit()
                             .overlay(
-                                HStack {
-                                    Spacer()
-                                    VStack {
-                                        Image(systemName: "bookmark")
-                                            .font(Font.title.weight(.light))
-                                            .foregroundColor(.white)
-                                            .imageScale(.small)
-                                            .shadow(color: Color("ColorBlackTransparentLight"), radius: 2, x:0, y:0)
-                                            .padding(.trailing, 20)
-                                            .padding(.top, 22)
-                                        Spacer()
-                                    }
-                                }
+                                BookMarkView()
                             )
                     }
                     //.padding()
                     .background(Color.white)
                     .cornerRadius(10)
                     .shadow(radius: 5)
-        
+        */
         
             VStack (alignment: .leading, spacing: 12) {
                 //Title
-                Text(recipe.title)
+                Text(recipe.recipe.label)
                     .font(.system(.title, design: .serif))
                     .fontWeight(.bold)
-                    .foregroundColor(Color("ColorGreenMedium"))
+                    .foregroundColor(Color("ColorGreenAdaptive"))
                     .lineLimit(1)
                 
                 //Headline
-                Text(recipe.headline)
+               /* Text(recipe.headline)
                     .font(.system(.body, design: .serif))
                     .foregroundColor(.gray)
-                    .italic()
+                    .italic()*/
                 
                 //Rates
                 RecipeRatingView(recipe: recipe)
@@ -81,8 +70,8 @@ struct RecipeCardView: View {
     
 }
 
-#Preview {
+/*#Preview {
     RecipeCardView(recipe: Recipe.recipesList[0])
         .previewLayout(.sizeThatFits)
-}
+}*/
 

@@ -32,10 +32,10 @@ struct NutriScanApp: App {
 
     var body: some Scene {
         WindowGroup {
-           // RecipesListView(recipes: Recipe.recipesList)
-           ContentView()
+            RecipesListView()
+           //ContentView()
 //            LoginView()
-                .environmentObject(viewModel) 
+        //        .environmentObject(viewModel)
         }
         .modelContainer(sharedModelContainer)
     }
