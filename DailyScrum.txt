@@ -54,3 +54,24 @@ Day: 3
 1- Done/ 95% of previous scrum
 2- To do/ solving error, if error solve will work on user account (delete, signout)
 3- Need assistance/ NA
+
+Day: 4
+2024/03/20 Kawthar
+1- Done/ previous scrum
+2- To do/ 
+	- add app icons
+	- UI homepage
+	- Navigation tab
+3- Need assistance/ Read more about other Edamam APIs
+
+2024/03/20 Behnaze
+1- Done/ previuos scrum
+2- To do/ UI report chart
+3- Need assistance/read about API
+
+2024/03/20 Shadan
+1- Done/ previous scrum
+2- To do/ 
+	- user account (delete, sign-out)
+	- proper navigation among sugn-in, sign-out, profile pages
+3- Need assistance/ NA
