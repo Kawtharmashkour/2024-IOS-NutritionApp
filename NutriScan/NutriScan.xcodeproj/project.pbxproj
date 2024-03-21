@@ -25,6 +25,9 @@
 		69BD62122BA7F2740025F8EE /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 69BD62112BA7F2740025F8EE /* FirebaseStorageCombine-Community */; };
 		D7D6AA0C2BA89ACE0011E276 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7D6AA0B2BA89ACE0011E276 /* FirebaseAnalyticsSwift */; };
 		D7D6AA0E2BA8A75F0011E276 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */; };
+		D7F4742C2BAC93CB0058B0EC /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */; };
+		D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */; };
+		D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742F2BAC94420058B0EC /* CalendarView.swift */; };
 		EF0ACDAE2BAC49DC00530C2B /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */; };
 		EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */; };
 		EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FC2BA54F9A0033987F /* ContentView.swift */; };
@@ -58,6 +61,9 @@
 		69BD61FE2BA7DAD20025F8EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		69BD62002BA7EDCA0025F8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = SOURCE_ROOT; };
+		D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
+		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
+		D7F4742F2BAC94420058B0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		EF5FD2F72BA54F9A0033987F /* NutriScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriScanApp.swift; sourceTree = "<group>"; };
@@ -187,6 +193,9 @@
 		D7D6AAC72BAC882E0011E276 /* DailyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */,
+				D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */,
+				D7F4742F2BAC94420058B0EC /* CalendarView.swift */,
 			);
 			path = DailyTracker;
 			sourceTree = "<group>";
@@ -376,14 +385,17 @@
 				EF8263E92BA9F4E000AF2517 /* RecipeModel.swift in Sources */,
 				EFA6A1842BAB51C7008CA405 /* HomeView.swift in Sources */,
 				EF9B7ACF2BAB5CED00190A41 /* SlideOutMenu.swift in Sources */,
+				D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */,
 				EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
 				EF5FD30F2BA552D00033987F /* WebService.swift in Sources */,
 				69BD61FB2BA7DA300025F8EE /* LoginView.swift in Sources */,
+				D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */,
 				69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */,
 				D7D6AA0E2BA8A75F0011E276 /* ItemViewModel.swift in Sources */,
 				69BD61F62BA7D8E10025F8EE /* User.swift in Sources */,
 				EF9B7AD32BAB926300190A41 /* DishesView.swift in Sources */,
+				D7F4742C2BAC93CB0058B0EC /* NutritionView.swift in Sources */,
 				EF8263EB2BA9F55300AF2517 /* RecipeRatingView.swift in Sources */,
 				EF8263EF2BA9FE9C00AF2517 /* RecipesListView.swift in Sources */,
 				EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */,
