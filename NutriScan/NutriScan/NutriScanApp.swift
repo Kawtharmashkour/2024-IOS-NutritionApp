@@ -36,6 +36,7 @@ struct NutriScanApp: App {
            //ContentView()
           LoginView()
              .environmentObject(viewModel)
+
         }
         .modelContainer(sharedModelContainer)
     }

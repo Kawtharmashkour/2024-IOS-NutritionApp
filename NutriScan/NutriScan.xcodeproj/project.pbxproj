@@ -39,6 +39,13 @@
 		EF8263F12BA9FF7500AF2517 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8263F02BA9FF7500AF2517 /* RecipeDetailView.swift */; };
 		EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF997E692BAAE22D00FBF0F3 /* BookMarkView.swift */; };
 		EF997E6C2BAAE52C00FBF0F3 /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF997E6B2BAAE52C00FBF0F3 /* ImageCardView.swift */; };
+		EF9B7ACF2BAB5CED00190A41 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7ACE2BAB5CED00190A41 /* ReportView.swift */; };
+		EF9B7AD12BAB685C00190A41 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */; };
+		EF9B7AD32BAB926300190A41 /* DishesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7AD22BAB926300190A41 /* DishesView.swift */; };
+		EF9B7AD52BABBE5400190A41 /* AppMenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7AD42BABBE5400190A41 /* AppMenuList.swift */; };
+		EF9B7AD72BABC89E00190A41 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7AD62BABC89E00190A41 /* HeaderView.swift */; };
+		EFA6A1822BAB519F008CA405 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A1812BAB519F008CA405 /* AppView.swift */; };
+		EFA6A1842BAB51C7008CA405 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A1832BAB51C7008CA405 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +73,13 @@
 		EF8263F02BA9FF7500AF2517 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		EF997E692BAAE22D00FBF0F3 /* BookMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkView.swift; sourceTree = "<group>"; };
 		EF997E6B2BAAE52C00FBF0F3 /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
+		EF9B7ACE2BAB5CED00190A41 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		EF9B7AD22BAB926300190A41 /* DishesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesView.swift; sourceTree = "<group>"; };
+		EF9B7AD42BABBE5400190A41 /* AppMenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenuList.swift; sourceTree = "<group>"; };
+		EF9B7AD62BABC89E00190A41 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		EFA6A1812BAB519F008CA405 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		EFA6A1832BAB51C7008CA405 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,8 @@
 				EF8263EA2BA9F55300AF2517 /* RecipeRatingView.swift */,
 				EF997E692BAAE22D00FBF0F3 /* BookMarkView.swift */,
 				EF997E6B2BAAE52C00FBF0F3 /* ImageCardView.swift */,
+				EF9B7AD22BAB926300190A41 /* DishesView.swift */,
+				EF9B7AD62BABC89E00190A41 /* HeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -250,6 +266,11 @@
 			children = (
 				EF8263EE2BA9FE9C00AF2517 /* RecipesListView.swift */,
 				EF8263F02BA9FF7500AF2517 /* RecipeDetailView.swift */,
+				EFA6A1812BAB519F008CA405 /* AppView.swift */,
+				EFA6A1832BAB51C7008CA405 /* HomeView.swift */,
+				EF9B7ACE2BAB5CED00190A41 /* ReportView.swift */,
+				EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */,
+				EF9B7AD42BABBE5400190A41 /* AppMenuList.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -327,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5FD3042BA54F9E0033987F /* Preview Assets.xcassets in Resources */,
+				EF9B7AD12BAB685C00190A41 /* SplashScreen.storyboard in Resources */,
 				EF5FD3012BA54F9E0033987F /* Assets.xcassets in Resources */,
 				69BD62012BA7EDCA0025F8EE /* GoogleService-Info.plist in Resources */,
 			);
@@ -344,6 +366,8 @@
 				EF8263F12BA9FF7500AF2517 /* RecipeDetailView.swift in Sources */,
 				EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */,
 				EF8263E92BA9F4E000AF2517 /* RecipeModel.swift in Sources */,
+				EFA6A1842BAB51C7008CA405 /* HomeView.swift in Sources */,
+				EF9B7ACF2BAB5CED00190A41 /* ReportView.swift in Sources */,
 				EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
 				EF5FD30F2BA552D00033987F /* WebService.swift in Sources */,
@@ -351,14 +375,18 @@
 				69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */,
 				D7D6AA0E2BA8A75F0011E276 /* ItemViewModel.swift in Sources */,
 				69BD61F62BA7D8E10025F8EE /* User.swift in Sources */,
+				EF9B7AD32BAB926300190A41 /* DishesView.swift in Sources */,
 				EF8263EB2BA9F55300AF2517 /* RecipeRatingView.swift in Sources */,
 				EF8263EF2BA9FE9C00AF2517 /* RecipesListView.swift in Sources */,
 				EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */,
 				EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */,
 				69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */,
+				EFA6A1822BAB519F008CA405 /* AppView.swift in Sources */,
+				EF9B7AD52BABBE5400190A41 /* AppMenuList.swift in Sources */,
 				69BD61FF2BA7DAD20025F8EE /* ProfileView.swift in Sources */,
 				6967A16D2BA8C15B00DFF06A /* AuthViewModel.swift in Sources */,
 				69BD61FD2BA7DA8C0025F8EE /* RegistrationView.swift in Sources */,
+				EF9B7AD72BABC89E00190A41 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -474,6 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
