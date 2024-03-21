@@ -2,6 +2,13 @@
 //  ProfileView.swift
 //  NutriScan
 //
+//  Created by Shadan Farahbakhsh on 2024-03-19.
+//
+
+//
+//  ProfileView.swift
+//  NutriScan
+//
 //  Created by Shadan Farahbakhsh on 2024-03-17.
 //
 
@@ -12,7 +19,9 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        if let user = viewModel.currentUser {
+       
+        if let user = viewModel.currentUser
+        {
             List{
                 Section{
                     HStack {
@@ -51,7 +60,7 @@ struct ProfileView: View {
                 
                 Section( "Account"){
                     Button  {
-                        print ("Sign Out ...")
+                        viewModel.signOut()
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintcolor: .red)
                     }
@@ -83,7 +92,7 @@ struct ProfileView: View {
                             
                             VStack(alignment: .leading, spacing:4){
                                 let gender = user.gender
-                                let (bmi, feedback) = BMICalculator(weight: 65, height: 170, gender :"Male")
+                                let (bmi, feedback) = BMICalculator(weight: user.doubleWeight ?? 0, height: user.doubleHeight ?? 0, gender : gender)
                                 Text ("BMI: \(bmi)")
                                 
                                 Text("Feedback : \(feedback)")
@@ -95,8 +104,12 @@ struct ProfileView: View {
                     .font(.subheadline)
             }
             
+        } else {
+            LoginView()
         }
-        }
+    }
+        
+
     
     func BMICalculator(weight: Double, height: Double, gender: String) -> (Double, String) {
         let heightInMeters = height / 100

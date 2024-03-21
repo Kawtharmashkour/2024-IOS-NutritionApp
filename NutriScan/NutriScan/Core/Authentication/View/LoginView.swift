@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var isLoggedIn = false
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
@@ -40,6 +41,7 @@ struct LoginView: View {
                 Button {
                     Task{
                         try await viewModel.signIn(withEmail: email, password: password)
+                        isLoggedIn = true
                     }
                 } label: {
                     HStack{
@@ -52,11 +54,21 @@ struct LoginView: View {
                     .frame(width: UIScreen.main.bounds.width - 32 , height: 48)
                 }
                 .background(Color(.systemGreen))
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1 : 0.5)
                 .cornerRadius(10)
                 .padding(.top, 24)
                 
+                NavigationLink(
+                                   destination: RecipesListView(),
+                                   isActive: $isLoggedIn, // Activate the navigation link
+                                   label: {
+                                       EmptyView() // Empty view since navigation is performed programmatically
+                                   }
+                               )
                 Spacer()
                 //sign up button
+               
                 
                 NavigationLink{
                     RegistrationView()
@@ -75,6 +87,19 @@ struct LoginView: View {
             }
         }
     }
+}
+
+//AuthenticationForm protocol
+extension LoginView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count>5
+        
+    }
+    
+    
 }
 
 #Preview {

@@ -11,8 +11,8 @@ struct User: Identifiable,Codable {
     let id : String
     let fullname : String
     let email : String
-    let weight: String
     let height: String
+    let weight: String
     let targetWeight : String
     let gender : String
     
@@ -28,7 +28,24 @@ struct User: Identifiable,Codable {
     
 }
 
+extension User {
+    // Computed property to convert height from String to Double
+    var doubleHeight: Double? {
+        return Double(height)
+    }
+    
+    // Computed property to convert weight from String to Double
+    var doubleWeight: Double? {
+        return Double(weight)
+    }
+    
+    // Computed property to convert targetWeight from String to Double
+    var doubleTargetWeight: Double? {
+        return Double(targetWeight)
+    }
+}
+
 extension User{
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Ted Lasso", email: "test@gmail.com", weight: "70", height: "175", targetWeight: "68", gender: "Mail")
+    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Ted Lasso", email: "test@gmail.com", height: "175",weight: "70", targetWeight: "68", gender: "Mail")
 }
 

@@ -105,13 +105,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		69BD61EB2BA7D6810025F8EE /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		69BD61EC2BA7D68F0025F8EE /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				69BD61F02BA7D77F0025F8EE /* Core */,
-				69BD61EB2BA7D6810025F8EE /* App */,
 				69BD61EC2BA7D68F0025F8EE /* Components */,
 				69BD61EE2BA7D6B80025F8EE /* Model */,
 				EF5FD30D2BA550260033987F /* server */,
