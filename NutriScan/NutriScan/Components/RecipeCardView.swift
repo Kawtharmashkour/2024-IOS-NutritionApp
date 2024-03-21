@@ -59,7 +59,7 @@ struct RecipeCardView: View {
 }
 
 /*#Preview {
-    RecipeCardView(recipe: Recipe.recipesList[0])
+    RecipeCardView(recipe: )
         .previewLayout(.sizeThatFits)
-}*/
-
+}
+*/
