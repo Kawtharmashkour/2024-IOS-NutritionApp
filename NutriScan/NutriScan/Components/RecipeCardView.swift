@@ -16,19 +16,6 @@ struct RecipeCardView: View {
         // Image card
         VStack {
             ImageCardView(recipe: recipe)
-           /* VStack{
-                Image(recipe.recipe.image)
-                            .resizable()
-                            .scaledToFit()
-                            .overlay(
-                                BookMarkView()
-                            )
-                    }
-                    //.padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-        */
         
             VStack (alignment: .leading, spacing: 12) {
                 //Title
@@ -56,7 +43,7 @@ struct RecipeCardView: View {
                 .foregroundColor(.gray)
             }
         }
-        .background(Color.white)
+        .background(Color("ColorAppearanceAdaptive"))
         .cornerRadius(12)
         .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x:0, y:0)
         .onTapGesture {
@@ -66,6 +53,7 @@ struct RecipeCardView: View {
         .sheet(isPresented: self.$showModel){
             RecipeDetailView(recipe: self.recipe)
         }
+        .background(Color("ColorAppearanceAdaptive"))
     }
     
 }
