@@ -60,7 +60,7 @@ struct LoginView: View {
                 .padding(.top, 24)
                 
                 NavigationLink(
-                                   destination: RecipesListView(),
+                                   destination: AppView(),
                                    isActive: $isLoggedIn, // Activate the navigation link
                                    label: {
                                        EmptyView() // Empty view since navigation is performed programmatically

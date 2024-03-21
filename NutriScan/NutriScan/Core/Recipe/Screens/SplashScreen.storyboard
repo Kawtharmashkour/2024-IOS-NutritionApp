@@ -22,15 +22,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Designer-6" translatesAutoresizingMaskIntoConstraints="NO" id="WlB-de-E2Q">
-                                <rect key="frame" x="-39" y="217" width="471" height="251"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="NutriScan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDp-bA-kQj">
                                 <rect key="frame" x="99.666666666666686" y="433" width="194" height="52"/>
                                 <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="42"/>
                                 <color key="textColor" name="ColorGreenAdaptive"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Designer-6" translatesAutoresizingMaskIntoConstraints="NO" id="WlB-de-E2Q">
+                                <rect key="frame" x="40" y="268" width="312" height="171"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.78039217000000005" green="0.85098040100000005" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -27,7 +27,7 @@ struct AppView: View {
                         .renderingMode(.template) // Set rendering mode to template
                     Text("My Meals")
                 }
-            ReportView()
+            SlideOutMenu()
                 .tabItem {
                     Image("tabicon-menu")
                         .renderingMode(.template) // Set rendering mode to template
