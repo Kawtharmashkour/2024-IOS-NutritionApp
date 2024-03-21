@@ -184,6 +184,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D7D6AAC72BAC882E0011E276 /* DailyTracker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DailyTracker;
+			sourceTree = "<group>";
+		};
 		EF5FD2EE2BA54F9A0033987F = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +211,7 @@
 		EF5FD2F92BA54F9A0033987F /* NutriScan */ = {
 			isa = PBXGroup;
 			children = (
+				D7D6AAC72BAC882E0011E276 /* DailyTracker */,
 				69BD61F02BA7D77F0025F8EE /* Core */,
 				69BD61EC2BA7D68F0025F8EE /* Components */,
 				69BD61EE2BA7D6B80025F8EE /* Model */,
