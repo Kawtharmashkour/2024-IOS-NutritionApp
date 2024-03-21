@@ -75,3 +75,38 @@ Day: 4
 	- user account (delete, sign-out)
 	- proper navigation among sugn-in, sign-out, profile pages
 3- Need assistance/ NA
+
+
+Day: 5
+2024/03/21 Kawthar
+1- Done/ previous scrum
+	+ Launch screen
+	+ App. menu list
+2- To do/ 
+	- General API connection function and utiles
+	- Find out API data type Number how to deal with it
+	- Adjust UI for launch screen 
+3- Need assistance/ Read more about other Edamam APIs
+
+2024/03/21 Behnaze
+1- Done/ previous scrum
+2- To do/ continue with report chart to connect to firebase DB
+3- Need assistance/NA
+
+2024/03/21 Shadan
+1- Done/ previous scrum
+2- To do/ Edit profile, if available time will work on server validation
+3- Need assistance/ NA
+
+
+
+
+
+
+
+
+
+
+
+
+
