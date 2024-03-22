@@ -99,6 +99,31 @@ Day: 5
 3- Need assistance/ NA
 
 
+Day: 6
+2024/03/22 Kawthar
+1- Done/ 
+	- General API request function
+	- during build MVVM model: having error "Type of expression is ambiguous without a 		  type annotation", when mapping response model to view model
+2- To do/ 
+	- continue on previous srum
+	- Add API property of data type Number
+	- Adjust .gitignore to ignore xcuserdata
+3- Need assistance/ NA
+
+2024/03/22 Behnaze
+1- Done/ UI of previous scrum
+2- To do/ 
+	- More Adjustment on UI
+	- to connect UI to firebase DB
+3- Need assistance/ Read more about API model
+
+2024/03/22 Shadan
+1- Done/ 
+	 - previous scrum found is complicated to do
+	 - move to Google signIn/SignUp
+2- To do/ Google signIn/SignUp
+3- Need assistance/ Read more about the process of Google signIn/SignUp and what kind of 			    information need to deal with
+
 
 
 

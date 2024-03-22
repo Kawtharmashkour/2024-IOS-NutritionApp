@@ -93,7 +93,7 @@ struct RecipesListView: View {
     RecipesListView()
 }
 
-struct RecipeListResponse: Codable {
+/*struct RecipeListResponse: Codable {
     let hits: [Recipe]
 }
 
@@ -107,7 +107,7 @@ struct RItem: Codable {
     let image: String
     let ingredientLines: [String]
     let calories: Double
-}
+}*/
 
 enum GHError: Error {
     case invalidURL
