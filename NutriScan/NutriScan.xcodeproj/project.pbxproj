@@ -23,6 +23,9 @@
 		69BD620E2BA7F2740025F8EE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69BD620D2BA7F2740025F8EE /* FirebaseFirestoreSwift */; };
 		69BD62102BA7F2740025F8EE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 69BD620F2BA7F2740025F8EE /* FirebaseStorage */; };
 		69BD62122BA7F2740025F8EE /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 69BD62112BA7F2740025F8EE /* FirebaseStorageCombine-Community */; };
+		D70F4B6E2BACAA2A00C2F72B /* MealSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F4B6D2BACAA2A00C2F72B /* MealSectionView.swift */; };
+		D70F4B702BADF0C900C2F72B /* MealDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F4B6F2BADF0C900C2F72B /* MealDataManager.swift */; };
+		D76F9AD02BAE51D900AD97BE /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */; };
 		D7D6AA0C2BA89ACE0011E276 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7D6AA0B2BA89ACE0011E276 /* FirebaseAnalyticsSwift */; };
 		D7D6AA0E2BA8A75F0011E276 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */; };
 		D7F4742C2BAC93CB0058B0EC /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */; };
@@ -63,6 +66,9 @@
 		69BD61FC2BA7DA8C0025F8EE /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		69BD61FE2BA7DAD20025F8EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		69BD62002BA7EDCA0025F8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D70F4B6D2BACAA2A00C2F72B /* MealSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSectionView.swift; sourceTree = "<group>"; };
+		D70F4B6F2BADF0C900C2F72B /* MealDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDataManager.swift; sourceTree = "<group>"; };
+		D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
 		D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
 		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
@@ -202,6 +208,9 @@
 				D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */,
 				D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */,
 				D7F4742F2BAC94420058B0EC /* CalendarView.swift */,
+				D70F4B6D2BACAA2A00C2F72B /* MealSectionView.swift */,
+				D70F4B6F2BADF0C900C2F72B /* MealDataManager.swift */,
+				D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */,
 			);
 			path = DailyTracker;
 			sourceTree = "<group>";
@@ -405,11 +414,14 @@
 			files = (
 				EF997E6C2BAAE52C00FBF0F3 /* ImageCardView.swift in Sources */,
 				EF8263E72BA9F44A00AF2517 /* RecipeCardView.swift in Sources */,
+				D70F4B6E2BACAA2A00C2F72B /* MealSectionView.swift in Sources */,
 				EF8263F12BA9FF7500AF2517 /* RecipeDetailView.swift in Sources */,
+				D70F4B702BADF0C900C2F72B /* MealDataManager.swift in Sources */,
 				EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */,
 				EF8263E92BA9F4E000AF2517 /* RecipeModel.swift in Sources */,
 				EFA6A1842BAB51C7008CA405 /* HomeView.swift in Sources */,
 				EF9B7ACF2BAB5CED00190A41 /* SlideOutMenu.swift in Sources */,
+				D76F9AD02BAE51D900AD97BE /* AddMealView.swift in Sources */,
 				D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */,
 				EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */,
 				EF720F4B2BAD12A400AC9635 /* Constants.swift in Sources */,

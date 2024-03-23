@@ -9,32 +9,50 @@ import SwiftUI
 
 struct NutritionView: View {
     @State private var selectedDate: Date = Date()
+    @State private var breakfastData: [MealData] = []
+    @State private var lunchData: MealData?
+    @State private var dinnerData: MealData?
+    @State private var showAddMealView = false
     var body: some View {
+        
         NavigationView {
-                    VStack {
-                        // Calendar navigation bar
-                        CalendarView(days: generateDays(), selectedDate: $selectedDate)
-                                   
-                                   Text("Selected Date: \(selectedDate, formatter: dateFormatter)")
-                                       .padding()
-                        
-                        // Nutritional elements circular graph
-                        NutritionalGraphView()
-                        
-                        // Breakfast section
-                        //MealSectionView(mealType: "Breakfast", goalCalories: 545, items: [
-                          //  MealItem(name: "Fried Egg", calories: 91.94, protein: 6.26, carbs: //0.92, fat: 6.83),
-                            //MealItem(name: "Hot Tea", calories: 0, protein: 0, carbs: 0, fat: 0)
-                        //])
-                        
-                        // Lunch section (partially visible)
-                        //MealSectionView(mealType: "Lunch", goalCalories: 954, items: [
-                            // Add your lunch items here
-                        //])
-                        
-                        Spacer()
+           // ScrollView {
+                VStack {
+                    // Calendar navigation bar
+                    CalendarView(days: generateDays(), selectedDate: $selectedDate)
+                    
+                    Text("Selected Date: \(selectedDate, formatter: dateFormatter)")
+                        .padding()
+                    
+                    // Nutritional elements circular graph
+                    NutritionalGraphView()
+                    Divider()
+                    Spacer()
+                    VStack{
+                        MealSectionView(
+                            mealType: "Breakfast",
+                            meals: breakfastData,  // Pass the array of breakfast items
+                            showAddMealView: $showAddMealView
+                        )
+                        .sheet(isPresented: $showAddMealView) {
+                            AddMealView()
+                        }
+                      /*  MealSectionView(mealType: "Lunch", calories: lunchData?.calories ?? 0, proteins: lunchData?.proteins ?? 0, carbs: lunchData?.carbs ?? 0, fat: lunchData?.fat ?? 0)
+                        MealSectionView(mealType: "Dinner", calories: dinnerData?.calories ?? 0, proteins: dinnerData?.proteins ?? 0, carbs: dinnerData?.carbs ?? 0, fat: dinnerData?.fat ?? 0)*/
                     }
-                    .navigationTitle("Today")
+                    
+                    
+                }
+                .navigationTitle("Today")
+                .onAppear {
+                    let userId = "DDVmxDPbFZZhEs4QebM8HTQQLVi1"  // Replace with the actual user ID
+                    let dateString = "20240322"  // Example date, use your own logic to get the date string
+
+                    MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "breakfast") { meals in
+                                    breakfastData = meals
+                    }
+                }
+            //}
                 }
             }
         }
