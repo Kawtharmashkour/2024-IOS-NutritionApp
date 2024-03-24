@@ -16,6 +16,7 @@ struct MealDataManager {
                         let data = document.data()
                         print("Document data: \(data)")
                         let meal = MealData(
+                            id: document.documentID,
                             carbs: data["carbs"] as? Double ?? 0,
                             fats: data["fats"] as? Double ?? 0,
                             proteins: data["proteins"] as? Double ?? 0,
@@ -53,10 +54,24 @@ struct MealDataManager {
               }
           }
       }
+    
+    static func deleteMealData(userId: String, mealId: String, completion: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).collection("meals").document(mealId).delete { error in
+            if let error = error {
+                print("Error deleting meal: \(error)")
+                completion(false)
+            } else {
+                print("Meal deleted successfully")
+                completion(true)
+            }
+        }
+    }
+    
   }
 
 struct MealData {
-    let id = UUID() 
+    let id: String?
     var carbs: Double
     var fats: Double
     var proteins: Double

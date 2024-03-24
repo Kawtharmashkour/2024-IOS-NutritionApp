@@ -46,6 +46,7 @@ struct AddMealView: View {
         let dateString = "20240322"  // Example date, use your own logic to get the date string
 
         let mealData = MealData(
+            id: "",
             carbs: carbs,
             fats: fats,
             proteins: proteins,

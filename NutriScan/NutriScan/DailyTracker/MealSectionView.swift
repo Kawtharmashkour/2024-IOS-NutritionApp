@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MealSectionView: View {
     let mealType: String
-    let meals: [MealData]
+    @Binding var meals: [MealData]
     @Binding var showAddMealView: Bool
+    let userId: String
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -63,14 +64,34 @@ struct MealSectionView: View {
             HStack {
                 Text(meal.name)
                 Spacer()
+                if let imageUrl = URL(string: meal.image) {
+                    AsyncImage(url: imageUrl) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 30, height: 30) // Adjust the size as needed
+                        .clipShape(Circle()) // Optional: make the image circular
+                    }
+                Spacer()
                 Button(action: {
-                    // Handle meal cancellation
+                    if let mealId = meal.id {
+                           deleteMeal(mealId: mealId)
+                       }
                 }) {
                     Image(systemName: "xmark.circle")
                 }
             }
         }
             }
+    private func deleteMeal(mealId: String) {
+        MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
+               if success {
+                   meals.removeAll { $0.id == mealId }
+               }
+           }
+    }
+
         }
 
 //#Preview {

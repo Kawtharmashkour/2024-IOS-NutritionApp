@@ -14,10 +14,9 @@ struct NutritionView: View {
     @State private var dinnerData: MealData?
     @State private var showAddMealView = false
     var body: some View {
-        
         NavigationView {
            // ScrollView {
-                VStack {
+                 VStack {
                     // Calendar navigation bar
                     CalendarView(days: generateDays(), selectedDate: $selectedDate)
                     
@@ -31,14 +30,15 @@ struct NutritionView: View {
                     VStack{
                         MealSectionView(
                             mealType: "Breakfast",
-                            meals: breakfastData,  // Pass the array of breakfast items
-                            showAddMealView: $showAddMealView
+                            meals: $breakfastData,  // Pass the array of breakfast items
+                            showAddMealView: $showAddMealView,
+                            userId: "DDVmxDPbFZZhEs4QebM8HTQQLVi1" 
                         )
                         .sheet(isPresented: $showAddMealView) {
                             AddMealView()
                         }
-                      /*  MealSectionView(mealType: "Lunch", calories: lunchData?.calories ?? 0, proteins: lunchData?.proteins ?? 0, carbs: lunchData?.carbs ?? 0, fat: lunchData?.fat ?? 0)
-                        MealSectionView(mealType: "Dinner", calories: dinnerData?.calories ?? 0, proteins: dinnerData?.proteins ?? 0, carbs: dinnerData?.carbs ?? 0, fat: dinnerData?.fat ?? 0)*/
+                        /*  MealSectionView(mealType: "Lunch", calories: lunchData?.calories ?? 0, proteins: lunchData?.proteins ?? 0, carbs: lunchData?.carbs ?? 0, fat: lunchData?.fat ?? 0)
+                         MealSectionView(mealType: "Dinner", calories: dinnerData?.calories ?? 0, proteins: dinnerData?.proteins ?? 0, carbs: dinnerData?.carbs ?? 0, fat: dinnerData?.fat ?? 0)*/
                     }
                     
                     
@@ -47,21 +47,22 @@ struct NutritionView: View {
                 .onAppear {
                     let userId = "DDVmxDPbFZZhEs4QebM8HTQQLVi1"  // Replace with the actual user ID
                     let dateString = "20240322"  // Example date, use your own logic to get the date string
-
+                    
                     MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "breakfast") { meals in
-                                    breakfastData = meals
+                        breakfastData = meals
                     }
                 }
-            //}
-                }
+                
             }
         }
-private func generateDays() -> [Date] {
+    }
+    private func generateDays() -> [Date] {
         let today = Date()
         let calendar = Calendar.current
-        let range = -45...45
+        let range = -15...15
         return range.map { calendar.date(byAdding: .day, value: $0, to: today)! }
     }
+//}
 
 
 private let dateFormatter: DateFormatter = {
