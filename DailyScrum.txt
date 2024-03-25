@@ -126,6 +126,26 @@ Day: 6
 
 
 
+Day: 7
+2024/03/25 Kawthar
+1- Done/ Previous scrum
+2- To do/ Search recipes based on ingredient, diet, meal type
+3- Need assistance/ NA
+
+2024/03/25 Behnaze
+1- Done/ UI of previous scrum
+	+ user goal setting UI page
+2- To do/ add sections (lunch, diner, snacks) in daily tracking page and connect to DB
+3- Need assistance/ NA
+
+2024/03/25 Shadan
+1- Done/ previous scrum
+2- To do/ - solve error in previous scrum
+	  - work on (user can edit their profile)
+3- Need assistance/ NA
+
+
+
 
 
 
