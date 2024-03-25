@@ -20,5 +20,10 @@ struct RItem: Codable {
     let label: String
     let image: String
     let ingredientLines: [String]
+    let ingredients: [Ingredient]
     let calories: Double
+}
+
+struct Ingredient: Codable, Hashable {
+    let food: String
 }

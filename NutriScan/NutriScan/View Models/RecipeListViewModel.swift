@@ -48,6 +48,18 @@ struct RecipeViewModel: Identifiable {
     var image: URL? {
         URL(string: recipeVM.recipe.image)
     }
+    
+    var ingredientLines: [String] {
+        recipeVM.recipe.ingredientLines
+    }
+    
+    var ingredients: [Ingredient] {
+        recipeVM.recipe.ingredients
+    }
+    
+    var calories: Double {
+        recipeVM.recipe.calories
+    }
 }
 
 

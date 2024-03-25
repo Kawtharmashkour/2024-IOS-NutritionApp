@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ImageCardView: View {
-    let recipe: Recipe
+    let recipe: RecipeViewModel
     var body: some View {
         VStack{
-            AsyncImage(url: URL(string: recipe.recipe.image)) { image in
+            AsyncImage(url: recipe.image) { image in
                 image
                     .resizable()
                     .scaledToFit()

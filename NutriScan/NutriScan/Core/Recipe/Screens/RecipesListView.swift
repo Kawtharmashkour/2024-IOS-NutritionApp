@@ -8,24 +8,9 @@
 import SwiftUI
 
 struct RecipesListView: View {
-    //for test puposes
-    //var recipes: [Recipe] //= Recipe.recipesList
-    /*@State private var recipes: [Recipe?]
-    
-    var body: some View {
-        List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-            
-            ForEach(recipes, id:\.self) { item in
-                    RecipeCardView(recipe: item)
-                }
-                
-            
-        }
-        .frame(maxWidth: 640)
-        .listStyle(.grouped)
-        //.padding(.horizontal)
-    }*/
-    @State private var recipes: [Recipe] = []
+    @StateObject private var recipeListVM = RecipeListViewModel() //class name
+    //@State private var recipes: [RecipeViewModel]
+    //@State private var recipes: [Recipe] = []
     @State private var isLoading = false
     
     var body: some View {
@@ -33,7 +18,7 @@ struct RecipesListView: View {
             if isLoading {
                 ProgressView("Loading...")
             } else {
-                List(recipes, id: \.recipe.uri) { recipe in
+                List(recipeListVM.recipeList) { recipe in
                     RecipeCardView(recipe: recipe)
                 }
                 .listStyle(.grouped)
@@ -49,7 +34,9 @@ struct RecipesListView: View {
         isLoading = true
         Task {
             do {
-                recipes = try await getUser()
+                //recipes = try await getUser()
+                await recipeListVM.populateRecipeList()
+                
             } catch {
                 print("Error fetching data: \(error)")
             }
@@ -89,9 +76,9 @@ struct RecipesListView: View {
     
 }
 
-#Preview {
+/*#Preview {
     RecipesListView()
-}
+}*/
 
 /*struct RecipeListResponse: Codable {
     let hits: [Recipe]

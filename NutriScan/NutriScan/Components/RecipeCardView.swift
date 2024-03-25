@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeCardView: View {
-    var recipe: Recipe
+    var recipe: RecipeViewModel
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
     
@@ -19,24 +19,29 @@ struct RecipeCardView: View {
         
             VStack (alignment: .leading, spacing: 12) {
                 //Title
-                Text(recipe.recipe.label)
+                Text(recipe.title)
                     .font(.system(.title, design: .serif))
                     .fontWeight(.bold)
                     .foregroundColor(Color("ColorGreenAdaptive"))
                     .lineLimit(1)
                 
-                //Headline
+                //Ingredients
+                Text(recipe.ingredients.map { $0.food }.joined(separator: ", "))
+                    .font(.footnote)
+                    .multilineTextAlignment(.leading)
+               
+                
                /* Text(recipe.headline)
                     .font(.system(.body, design: .serif))
                     .foregroundColor(.gray)
                     .italic()*/
                 
                 //Rates
-                RecipeRatingView(recipe: recipe)
+               // RecipeRatingView(recipe: recipe)
                 
-                //Cooking
+                //Nutrition facts
                 HStack (alignment: .center, spacing: 12) {
-                    
+                    Text("Calories\(recipe.calories)")
                     
                 }
                 .font(.footnote)
