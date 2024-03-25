@@ -34,9 +34,9 @@ struct NutriScanApp: App {
         WindowGroup {
            //RecipesListView()
            //ContentView()
-           // LoginView()
-            // .environmentObject(viewModel)
-           NutritionView()
+            LoginView()
+            .environmentObject(viewModel)
+          
 
         }
         .modelContainer(sharedModelContainer)
