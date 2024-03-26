@@ -1,4 +1,8 @@
 {
+<<<<<<< Updated upstream
+=======
+  "originHash" : "7ed78cec4688813732ed048994a6c24c5c081e333197fce4007040cea0ee7d0c",
+>>>>>>> Stashed changes
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -19,6 +23,18 @@
       }
     },
     {
+<<<<<<< Updated upstream
+=======
+      "identity" : "appauth-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/openid/AppAuth-iOS.git",
+      "state" : {
+        "revision" : "7e2c09cbeb3bb799f26c268dbedb26325ea722a9",
+        "version" : "1.7.3"
+      }
+    },
+    {
+>>>>>>> Stashed changes
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
@@ -46,6 +62,18 @@
       }
     },
     {
+<<<<<<< Updated upstream
+=======
+      "identity" : "googlesignin-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GoogleSignIn-iOS",
+      "state" : {
+        "revision" : "7932d33686c1dc4d7df7a919aae47361d1cdfda4",
+        "version" : "7.0.0"
+      }
+    },
+    {
+>>>>>>> Stashed changes
       "identity" : "googleutilities",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleUtilities.git",
@@ -73,6 +101,18 @@
       }
     },
     {
+<<<<<<< Updated upstream
+=======
+      "identity" : "gtmappauth",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GTMAppAuth.git",
+      "state" : {
+        "revision" : "cee3c709307912d040bd1e06ca919875a92339c6",
+        "version" : "2.0.0"
+      }
+    },
+    {
+>>>>>>> Stashed changes
       "identity" : "interop-ios-for-google-sdks",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/interop-ios-for-google-sdks.git",
@@ -118,5 +158,9 @@
       }
     }
   ],
+<<<<<<< Updated upstream
   "version" : 2
+=======
+  "version" : 3
+>>>>>>> Stashed changes
 }

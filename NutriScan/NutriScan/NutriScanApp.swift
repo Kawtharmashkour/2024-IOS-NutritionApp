@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
-import SwiftData
 import Firebase
+import GoogleSignIn
+import SwiftData
+
 
 
 @main
 struct NutriScanApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    init(){
-        FirebaseApp.configure()
-    }
+   
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -34,11 +35,32 @@ struct NutriScanApp: App {
         WindowGroup {
            //RecipesListView()
            //ContentView()
+<<<<<<< Updated upstream
             LoginView()
             .environmentObject(viewModel)
           
+=======
+         // LoginView()
+           //  .environmentObject(viewModel)
+            SocialMediaSignUpView()
+             .environmentObject(SignUpViewModel() )
+>>>>>>> Stashed changes
 
         }
         .modelContainer(sharedModelContainer)
     }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+       
+        FirebaseApp.configure()
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+       }
+    
 }
