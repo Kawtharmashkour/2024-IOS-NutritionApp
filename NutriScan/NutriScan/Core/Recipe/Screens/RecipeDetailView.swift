@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
-    var recipe: Recipe
+    var recipe: RecipeViewModel
     @State private var pullstate: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
@@ -19,14 +19,14 @@ struct RecipeDetailView: View {
                 
               Group{
                     //Title
-                    Text(recipe.recipe.label)
+                  Text(recipe.title)
                         .font(.system(.largeTitle, design: .serif))
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding(.top,10)
                         .foregroundColor(Color("ColorGreenAdaptive"))
                     //Rating
-                     RecipeRatingView(recipe: recipe)
+                    // RecipeRatingView(recipe: recipe)
                     //Ingredient
                     Text("Ingredients")
                         .fontWeight(.bold)
@@ -34,7 +34,7 @@ struct RecipeDetailView: View {
                         .foregroundColor(Color("ColorGreenAdaptive"))
                     
                     VStack (alignment: .leading, spacing: 5) {
-                        ForEach(recipe.recipe.ingredientLines, id:\.self) { item in
+                        ForEach(recipe.ingredientLines, id:\.self) { item in
                             VStack (alignment: .leading, spacing: 5){
                                 HStack {
                                     Text(item)

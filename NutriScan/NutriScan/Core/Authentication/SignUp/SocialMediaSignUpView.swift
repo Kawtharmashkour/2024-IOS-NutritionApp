@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SocialMediaSignUpView: View {
-    @EnvironmentObject var SignupVM: SignUpViewModel
+  //  @EnvironmentObject var SignupVM: SignUpViewModel
+
     @StateObject var signUpViewModel = SignUpViewModel()
+
     
     var body: some View {
         VStack(alignment: .center, spacing: 0){
@@ -43,6 +45,7 @@ struct SocialMediaSignUpView: View {
                 } label :{
                     SignupLongItemView(objectText: "Email", backgroundColor: "loginButtonBackground")
                 }
+
                 
                 //Sign out from google
                 //Signup with email
@@ -51,6 +54,7 @@ struct SocialMediaSignUpView: View {
                 } label :{
                     SignupLongItemView(objectText: "Google sign out", backgroundColor: "loginButtonBackground")
                 }
+
                 //Switch to login porchain
                 Spacer()
             }//VStack

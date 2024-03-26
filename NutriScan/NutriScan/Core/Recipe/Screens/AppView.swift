@@ -21,7 +21,7 @@ struct AppView: View {
                     Image(systemName: "book.pages.fill")
                     Text("Recipes")
                 })
-            ReportView()
+            NutritionView()
                 .tabItem {
                     Image("tabicon-meals")
                         .renderingMode(.template) // Set rendering mode to template
