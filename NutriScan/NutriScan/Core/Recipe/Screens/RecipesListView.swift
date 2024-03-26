@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RecipesListView: View {
+    let url: URL
     @StateObject private var recipeListVM = RecipeListViewModel() //class name
     //@State private var recipes: [RecipeViewModel]
     //@State private var recipes: [Recipe] = []
@@ -18,10 +19,11 @@ struct RecipesListView: View {
             if isLoading {
                 ProgressView("Loading...")
             } else {
+                SearchBar()
                 List(recipeListVM.recipeList) { recipe in
                     RecipeCardView(recipe: recipe)
                 }
-                .listStyle(.grouped)
+                .listStyle(.plain)
                 .frame(maxWidth: 640)
             }
         }
@@ -35,7 +37,7 @@ struct RecipesListView: View {
         Task {
             do {
                 //recipes = try await getUser()
-                await recipeListVM.populateRecipeList()
+                await recipeListVM.populateRecipeList(url: url)
                 
             } catch {
                 print("Error fetching data: \(error)")

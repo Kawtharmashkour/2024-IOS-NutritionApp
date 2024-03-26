@@ -145,6 +145,24 @@ Day: 7
 3- Need assistance/ NA
 
 
+Day: 8
+2024/03/26 Kawthar
+1- Done/ UI Search bar
+2- To do/ back-end Search recipes based on ingredient, diet, meal type 
+3- Need assistance/ UISreachBar, UIViewRepresentable
+
+2024/03/26 Behnaze
+1- Done/ still working on previous scrum
+2- To do/ continue to work on adding sections (lunch, diner, snacks) in daily tracking page and connect to DB
+3- Need assistance/ NA
+
+2024/03/26 Shadan
+1- Done/ previous scrum
+2- To do/ - Adjust Signin/Signup UI
+	  - test functionality of Signin/Signup with email and Google
+3- Need assistance/ NA
+
+
 
 
 

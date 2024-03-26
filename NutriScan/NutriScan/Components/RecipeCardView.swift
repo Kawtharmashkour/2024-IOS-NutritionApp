@@ -29,24 +29,32 @@ struct RecipeCardView: View {
                 Text(recipe.ingredients.map { $0.food }.joined(separator: ", "))
                     .font(.footnote)
                     .multilineTextAlignment(.leading)
-               
-                
-               /* Text(recipe.headline)
-                    .font(.system(.body, design: .serif))
-                    .foregroundColor(.gray)
-                    .italic()*/
                 
                 //Rates
-               // RecipeRatingView(recipe: recipe)
+                RecipeRatingView(recipe: recipe)
                 
                 //Nutrition facts
-                HStack (alignment: .center, spacing: 12) {
-                    Text("Calories\(recipe.calories)")
+                HStack{
+                    HStack (alignment: .center, spacing: 12) {
+                        Text("Calories\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.ENERC_KCAL.quantity)), fat\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.FAT.quantity)), carbs\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.CHOCDF.quantity)), protien\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.PROCNT.quantity))")
+                        
+                    }
+                    .font(.footnote)
+                    .foregroundColor(.gray)
                     
+                    Spacer()
+                    
+                    Button(action: {
+                       //action
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color("ColorGreenAdaptive"))
+                    }
                 }
-                .font(.footnote)
-                .foregroundColor(.gray)
             }
+            .padding()
         }
         .background(Color("ColorAppearanceAdaptive"))
         .cornerRadius(12)
@@ -59,6 +67,7 @@ struct RecipeCardView: View {
             RecipeDetailView(recipe: self.recipe)
         }
         .background(Color("ColorAppearanceAdaptive"))
+        .padding()
     }
     
 }

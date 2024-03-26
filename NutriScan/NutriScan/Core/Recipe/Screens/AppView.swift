@@ -16,7 +16,8 @@ struct AppView: View {
                     Text("Home")
             })
             
-            RecipesListView()
+            //RecipesListView(url: Constants.Urls.searchRecipeURL)
+            RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "Breakfast"))
                 .tabItem ({
                     Image(systemName: "book.pages.fill")
                     Text("Recipes")

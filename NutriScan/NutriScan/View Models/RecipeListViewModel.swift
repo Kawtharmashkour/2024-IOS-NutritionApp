@@ -13,10 +13,10 @@ class RecipeListViewModel: ObservableObject {
     
     @Published var recipeList: [RecipeViewModel] = []
     
-    func populateRecipeList() async -> Void {
+    func populateRecipeList(url: URL) async -> Void {
         
         do {
-            let recipeListResponse = try await WebService().get(url: Constants.Urls.searchRecipeURL) { data in
+            let recipeListResponse = try await WebService().get(url: url) { data in
                     //parsing data: this is the implementation of parse closure
                 
                     //try?: If decoding succeeds, the result will be an optional containing the decoded value. If decoding fails (due to an error being thrown), the result will be nil. because in Webservice if result of parse is nil will thrown an error
@@ -55,6 +55,9 @@ struct RecipeViewModel: Identifiable {
     
     var ingredients: [Ingredient] {
         recipeVM.recipe.ingredients
+    }
+    var totalNutrients: TotalNutrition {
+        recipeVM.recipe.totalNutrients
     }
     
     var calories: Double {
