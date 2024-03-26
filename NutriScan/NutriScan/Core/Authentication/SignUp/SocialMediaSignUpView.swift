@@ -11,6 +11,8 @@ struct SocialMediaSignUpView: View {
   //  @EnvironmentObject var SignupVM: SignUpViewModel
 
     @StateObject var signUpViewModel = SignUpViewModel()
+    @State private var isLoginViewPresented = false
+    
 
     
     var body: some View {
@@ -40,11 +42,14 @@ struct SocialMediaSignUpView: View {
                       .padding(.vertical)
                 
                 //Signup with email
-                Button {
-                    
-                } label :{
-                    SignupLongItemView(objectText: "Email", backgroundColor: "loginButtonBackground")
-                }
+                Button(action: {
+                           self.isLoginViewPresented.toggle()
+                       }) {
+                           SignupLongItemView(objectText: "Email", backgroundColor: "loginButtonBackground")
+                       }
+                       .sheet(isPresented: $isLoginViewPresented) {
+                           LoginView()
+                       }
 
                 
                 //Sign out from google
