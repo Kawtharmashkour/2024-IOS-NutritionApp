@@ -2,11 +2,11 @@ import FirebaseFirestore
 
 struct MealDataManager {
     static func fetchMealData(userId: String, date: String, mealType: String, completion: @escaping ([MealData]) -> Void) {
+        print("Fetching meal data for user: \(userId), date: \(date), mealType: \(mealType)")
         let db = Firestore.firestore()
 
         db.collection("users").document(userId).collection("meals")
-            .whereField("date", isEqualTo: date)
-            .whereField("type", isEqualTo: mealType)
+            .whereField("type", isEqualTo: mealType.lowercased())
             .getDocuments { (querySnapshot, error) in
                 var meals: [MealData] = []
 
@@ -21,8 +21,7 @@ struct MealDataManager {
                             fats: data["fats"] as? Double ?? 0,
                             proteins: data["proteins"] as? Double ?? 0,
                             calories: data["calories"] as? Double ?? 0,
-                            name: data["name"] as? String ?? "",
-                            image: data["image"] as? String ?? ""
+                            name: data["name"] as? String ?? ""
                         )
                         meals.append(meal)
                     }
@@ -31,9 +30,11 @@ struct MealDataManager {
                 }
 
                 completion(meals)
+                print("Completion handler called with meals: \(meals)")
             }
     }
     static func insertMealData(userId: String, date: String, mealType: String, mealData: MealData) {
+        print("Inserting meal data for user: \(userId), date: \(date), mealType: \(mealType), mealData: \(mealData)")
           let db = Firestore.firestore()
           let mealDocument = db.collection("users").document(userId).collection("meals").document()
 
@@ -44,8 +45,7 @@ struct MealDataManager {
               "fats": mealData.fats,
               "proteins": mealData.proteins,
               "calories": mealData.calories,
-              "name": mealData.name,
-              "image": mealData.image
+              "name": mealData.name
           ]) { error in
               if let error = error {
                   print("Error adding meal: \(error)")
@@ -57,6 +57,7 @@ struct MealDataManager {
     
     static func deleteMealData(userId: String, mealId: String, completion: @escaping (Bool) -> Void) {
         let db = Firestore.firestore()
+        print("Deleting meal data for user: \(userId), mealId: \(mealId)")
         db.collection("users").document(userId).collection("meals").document(mealId).delete { error in
             if let error = error {
                 print("Error deleting meal: \(error)")
@@ -77,5 +78,4 @@ struct MealData {
     var proteins: Double
     var calories: Double
     var name: String
-    var image: String
 }

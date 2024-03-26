@@ -17,10 +17,12 @@ protocol AuthenticationFormProtocol {
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var userId: String? //Behnaz
     
     //if the user is sign in store data locally in the device
     init(){
         self.userSession = Auth.auth().currentUser
+        self.userId = userSession?.uid //Behnaz
         Task{
             await fetchUser()
         }
@@ -30,6 +32,7 @@ class AuthViewModel: ObservableObject {
         do {
             let result = try await Auth.auth().signIn(withEmail : email, password: password)
             self.userSession = result.user
+            self.userId = result.user.uid //Behnaz
             await fetchUser()
         } catch {
             print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
@@ -60,6 +63,7 @@ class AuthViewModel: ObservableObject {
             try Auth.auth().signOut() //Sign out user on backend
             self.userSession = nil // Wipes out user session and and takes us back to login screen
             self.currentUser = nil // wipes out current user data model
+            self.userId = nil //Behnaz
         } catch {
             print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
         }

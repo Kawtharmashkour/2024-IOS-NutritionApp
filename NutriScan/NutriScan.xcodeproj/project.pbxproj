@@ -380,11 +380,11 @@
 			children = (
 				EF8263EE2BA9FE9C00AF2517 /* RecipesListView.swift */,
 				EF8263F02BA9FF7500AF2517 /* RecipeDetailView.swift */,
+				EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */,
 				EFA6A1812BAB519F008CA405 /* AppView.swift */,
 				EFA6A1832BAB51C7008CA405 /* HomeView.swift */,
 				EF9B7ACE2BAB5CED00190A41 /* SlideOutMenu.swift */,
 				EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */,
-				EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

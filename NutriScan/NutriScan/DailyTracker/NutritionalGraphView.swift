@@ -2,12 +2,32 @@ import SwiftUI
 import Charts
 
 struct NutritionalGraphView: View {
-    var nutrientData: [NutrientData] = [
-        .init(type: "Calories", total: 2200, intake: 653),
-        .init(type: "Protein", total: 70, intake: 47.77),
-        .init(type: "Carbs", total: 383, intake: 90.34),
-        .init(type: "Fat", total: 90, intake: 25.79)
-    ]
+    var meals: [MealData]
+
+      var totalCalories: Double {
+          meals.reduce(0) { $0 + $1.calories }
+      }
+
+      var totalProteins: Double {
+          meals.reduce(0) { $0 + $1.proteins }
+      }
+
+      var totalCarbs: Double {
+          meals.reduce(0) { $0 + $1.carbs }
+      }
+
+      var totalFats: Double {
+          meals.reduce(0) { $0 + $1.fats }
+      }
+
+      var nutrientData: [NutrientData] {
+          [
+              .init(type: "Calories", total: 2200, intake: totalCalories),
+              .init(type: "Protein", total: 70, intake: totalProteins),
+              .init(type: "Carbs", total: 383, intake: totalCarbs),
+              .init(type: "Fat", total: 90, intake: totalFats)
+          ]
+      }
     
     var body: some View {
         GeometryReader { geometry in
@@ -70,8 +90,8 @@ struct NutrientData {
     }
 }
 
-struct NutritionalGraphView_Previews: PreviewProvider {
-    static var previews: some View {
-        NutritionalGraphView()
-    }
-}
+//struct NutritionalGraphView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NutritionalGraphView()
+//    }
+//}
