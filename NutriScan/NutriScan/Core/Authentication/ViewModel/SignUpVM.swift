@@ -67,14 +67,15 @@ class SignUpViewModel: ObservableObject {
         }
         
         
-        func signOutFromGoogle(){
-            
-            do {
-                try firebaseAuth.signOut()
-                print("Customer signed out")
-            } catch let signOutError as NSError {
-                print("Error signing out: %@", signOutError)
-            }
+        
+    }
+    func signOutFromGoogle(){
+        
+        do {
+            try firebaseAuth.signOut()
+            print("Customer signed out")
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
         }
     }
 }
