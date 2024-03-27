@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecipeCardView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+
     var recipe: RecipeViewModel
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
@@ -45,7 +47,8 @@ struct RecipeCardView: View {
                     Spacer()
                     
                     Button(action: {
-                       //action
+                        //handel meal type?????
+                        MealDataManager.insertMealData(userId: authViewModel.userId ?? "", date: Date(), mealType: "breakfast", mealData: mealData)
                     }) {
                         Image(systemName: "plus.circle")
                             .resizable()

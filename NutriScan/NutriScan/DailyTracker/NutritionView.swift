@@ -38,7 +38,8 @@ struct NutritionView: View {
                             userId: authViewModel.userId ?? ""
                         )
                         .sheet(isPresented: $showAddMealView) {
-                            AddMealView(userId: authViewModel.userId ?? "", date: dateFormatter.string(from: selectedDate), mealType: currentMealType ?? "")
+                            //AddMealView(userId: authViewModel.userId ?? "", date: dateFormatter.string(from: selectedDate), mealType: currentMealType ?? "")
+                            RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "Breakfast"))
                         }
 
                         MealSectionView(

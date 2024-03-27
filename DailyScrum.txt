@@ -163,6 +163,22 @@ Day: 8
 3- Need assistance/ NA
 
 
+Day: 9
+2024/03/27 Kawthar
+1- Done/ previous scrum done by search recipe title, ingredient
+2- To do/ - connect meals tracker view with recipe list view 
+	  - map recipe list view model to database model to be saved in DB
+3- Need assistance/ NA
+
+2024/03/27 Behnaze
+1- Done/ previous scrum
+2- To do/ solve authentication error (error in user id is not the same as it should be)
+3- Need assistance/ NA
+
+2024/03/27 Shadan
+1- Done/ previous scrum
+2- To do/ - Adjust navigation from sign in page to main home app page
+3- Need assistance/ NA
 
 
 
