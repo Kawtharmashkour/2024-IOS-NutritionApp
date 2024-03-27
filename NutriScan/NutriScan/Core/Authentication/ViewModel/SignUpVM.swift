@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class SignUpViewModel: ObservableObject {
     @Published var isLogin: Bool = false
+    
 
     private let firebaseAuth = Auth.auth()
 

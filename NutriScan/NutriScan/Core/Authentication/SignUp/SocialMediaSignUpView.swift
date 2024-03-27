@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SocialMediaSignUpView: View {
-  //  @EnvironmentObject var SignupVM: SignUpViewModel
+  //@EnvironmentObject var SignupVM: SignUpViewModel
+    //@EnvironmentObject var viewModel: AuthViewModel
 
     @StateObject var signUpViewModel = SignUpViewModel()
     @State private var isLoginViewPresented = false

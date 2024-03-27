@@ -35,10 +35,11 @@ struct NutriScanApp: App {
         WindowGroup {
            //RecipesListView()
            //ContentView()
-            // LoginView()
-              //  .environmentObject(viewModel)
-               SocialMediaSignUpView()
-                .environmentObject(SignUpViewModel() )
+//            LoginView()
+//               .environmentObject(viewModel)
+            SocialMediaSignUpView()
+                        .environmentObject(viewModel) // Attach AuthViewModel instance
+                        .environmentObject(SignUpViewModel()) 
 
         }
         .modelContainer(sharedModelContainer)
