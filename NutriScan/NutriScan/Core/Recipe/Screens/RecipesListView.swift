@@ -10,26 +10,34 @@ import SwiftUI
 struct RecipesListView: View {
     let url: URL
     @StateObject private var recipeListVM = RecipeListViewModel() //class name
-    //@State private var recipes: [RecipeViewModel]
-    //@State private var recipes: [Recipe] = []
     @State private var isLoading = false
+    @State private var searchText = ""
+    @State private var filteredRecipes: [RecipeViewModel] = []
     
     var body: some View {
         VStack {
             if isLoading {
                 ProgressView("Loading...")
             } else {
-                SearchBar()
-                List(recipeListVM.recipeList) { recipe in
-                    RecipeCardView(recipe: recipe)
+                //SearchBar()
+                NavigationView {
+                    List(filteredRecipes) { recipe in
+                        RecipeCardView(recipe: recipe)
+                            .listRowSeparator(.hidden, edges: .all)
+                    }
+                    .listStyle(.plain)
+                    .frame(maxWidth: 640)
+                    .searchable(text: $searchText)
+                    
                 }
-                .listStyle(.plain)
-                .frame(maxWidth: 640)
             }
         }
         .onAppear {
             fetchData()
         }
+        .onChange(of: searchText) {
+                    filterRecipes()
+                }
     }
     
     func fetchData() {
@@ -38,6 +46,7 @@ struct RecipesListView: View {
             do {
                 //recipes = try await getUser()
                 await recipeListVM.populateRecipeList(url: url)
+                filteredRecipes = recipeListVM.recipeList
                 
             } catch {
                 print("Error fetching data: \(error)")
@@ -46,7 +55,20 @@ struct RecipesListView: View {
         }
     }
     
-    func getUser() async throws -> [Recipe] {
+    func filterRecipes() {
+            if searchText.isEmpty {
+                filteredRecipes = recipeListVM.recipeList
+            } else {
+                filteredRecipes = recipeListVM.recipeList.filter { recipe in
+                   recipe.title.localizedCaseInsensitiveContains(searchText) ||
+                   recipe.ingredients.contains { ingredient in
+                                    ingredient.food.localizedCaseInsensitiveContains(searchText)
+                                }
+                    }
+            }
+        //print("Reachable")
+        }
+ /*   func getUser() async throws -> [Recipe] {
         //let app_id = "b6bfd343"
        // let app_key = "9f8b9dde8d42741c7dd5f9dbfeb447ac"
         let endpoint = "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac&cuisineType=Asian&mealType=Breakfast&dishType=Bread"
@@ -74,7 +96,7 @@ struct RecipesListView: View {
         print(decodedRecipe)
         return decodedRecipe.hits.map { $0 }
         
-    }
+    }*/
     
 }
 
@@ -82,21 +104,6 @@ struct RecipesListView: View {
     RecipesListView()
 }*/
 
-/*struct RecipeListResponse: Codable {
-    let hits: [Recipe]
-}
-
-struct Recipe: Codable {
-    let recipe: RItem
-}
-
-struct RItem: Codable {
-    let uri: String
-    let label: String
-    let image: String
-    let ingredientLines: [String]
-    let calories: Double
-}*/
 
 enum GHError: Error {
     case invalidURL
