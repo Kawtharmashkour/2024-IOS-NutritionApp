@@ -13,6 +13,7 @@ struct NutritionView: View {
     var allMeals: [MealData] {
            breakfastData + lunchData + dinnerData + snackData
        }
+    
 
     var body: some View {
         NavigationView {

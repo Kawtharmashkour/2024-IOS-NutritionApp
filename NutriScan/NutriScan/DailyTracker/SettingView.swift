@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SettingView: View {
-    @State private var calorieGoal: Double = 1500
-    @State private var proteinGoal: Double = 50
-    @State private var fatGoal: Double = 70
-    @State private var carbGoal: Double = 300
+        @AppStorage("calorieGoal") private var calorieGoal: Double = 1500
+        @AppStorage("proteinGoal") private var proteinGoal: Double = 50
+        @AppStorage("fatGoal") private var fatGoal: Double = 70
+        @AppStorage("carbGoal") private var carbGoal: Double = 300
     var body: some View {
         ScrollView {
             VStack {
