@@ -33,19 +33,19 @@ struct MealDataManager {
                 print("Completion handler called with meals: \(meals)")
             }
     }
-    static func insertMealData(userId: String, date: String, mealType: String, mealData: MealData) {
-        print("Inserting meal data for user: \(userId), date: \(date), mealType: \(mealType), mealData: \(mealData)")
+    static func insertMealData(userId: String, mealType: String, mealData: RecipeViewModel) {
+        print("Inserting meal data for user: \(userId), date: \(Date()), mealType: \(mealType), mealData: \(mealData)")
           let db = Firestore.firestore()
           let mealDocument = db.collection("users").document(userId).collection("meals").document()
 
           mealDocument.setData([
-              "date": date,
+              "date": "\(Date())",
               "type": mealType,
-              "carbs": mealData.carbs,
-              "fats": mealData.fats,
-              "proteins": mealData.proteins,
-              "calories": mealData.calories,
-              "name": mealData.name
+              "carbs": mealData.totalNutrients.CHOCDF.quantity,
+              "fats": mealData.totalNutrients.FAT.quantity,
+              "proteins": mealData.totalNutrients.PROCNT.quantity,
+              "calories": mealData.totalNutrients.ENERC_KCAL.quantity,
+              "name": mealData.title
           ]) { error in
               if let error = error {
                   print("Error adding meal: \(error)")

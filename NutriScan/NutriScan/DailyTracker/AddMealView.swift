@@ -53,7 +53,7 @@ struct AddMealView: View {
             name: name
         )
         print("Saving meal data with mealType: \(mealType)")
-        MealDataManager.insertMealData(userId: userId, date: date, mealType: mealType.lowercased(), mealData: mealData)
+      //  MealDataManager.insertMealData(userId: userId, date: date, mealType: mealType.lowercased(), mealData: mealData)
                 presentationMode.wrappedValue.dismiss()
     }
 }

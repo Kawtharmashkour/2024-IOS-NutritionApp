@@ -11,6 +11,37 @@ struct AppView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
+<<<<<<< Updated upstream
+=======
+        TabView {
+            HomeView()
+                .tabItem({
+                    Image(systemName: "house.fill")
+                    Text("Home")
+            })
+            
+            RecipesListView(url: Constants.Urls.searchRecipeURL) 
+           //RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "Breakfast"))
+                .tabItem ({
+                    Image(systemName: "book.pages.fill")
+                    Text("Recipes")
+                })
+            NutritionView()
+                .tabItem {
+                    Image("icon-mealplanner")
+                        .renderingMode(.template) // Set rendering mode to template
+                    Text("Meals Plan")
+                }
+            SlideOutMenu()
+                .tabItem {
+                    Image("tabicon-menu")
+                        .renderingMode(.template) // Set rendering mode to template
+                    Text("Menu")
+                }
+        }
+        //.background(Color.yellow)
+        .accentColor(Color.primary)
+>>>>>>> Stashed changes
         
        
             VStack (alignment: .leading)  {
