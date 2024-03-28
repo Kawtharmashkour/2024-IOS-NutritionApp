@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeCardView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-
+    
     var recipe: RecipeViewModel
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
@@ -35,25 +35,11 @@ struct RecipeCardView: View {
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
                     
-<<<<<<< Updated upstream
-
-//                    Button(action: {
-//                        //handel meal type?????
-//                        MealDataManager.insertMealData(userId: authViewModel.userId ?? "", date: Date(), mealType: "breakfast", mealData: mealData)
-//                    }) {
-//                        Image(systemName: "plus.circle")
-//                            .resizable()
-//                            .frame(width: 24, height: 24)
-//                            .foregroundColor(Color("ColorGreenAdaptive"))
-//                    }
-              }
-
-=======
                     //Rates
                     RecipeRatingView(recipe: recipe)
                 }
                 .padding()
->>>>>>> Stashed changes
+                
             }
             .background(Color("ColorAppearanceAdaptive"))
             .onTapGesture {
@@ -88,23 +74,23 @@ struct RecipeCardView: View {
             .padding(.horizontal,20)
             .padding(.bottom,24)
         }
-            .background(Color("ColorAppearanceAdaptive"))
-            .cornerRadius(12)
-            .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x:0, y:0)
-            .padding()
+        .background(Color("ColorAppearanceAdaptive"))
+        .cornerRadius(12)
+        .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x:0, y:0)
+        .padding()
     }
     
     //Functions
-    private var mealTypeButtons: [Alert.Button] {
-        recipe.mealType.compactMap { mealType in
-            Alert.Button.default(Text(mealType)) {
-                selectedMealType = mealType
-                // Call the function to update the recipes based on the selected meal type
-               // fetchRecipesByMealType(mealType: mealType)
-                print("\(String(describing: selectedMealType))")
-            }
-        }
-    }
+    /*private var mealTypeButtons: [Alert.Button] {
+     recipe.mealType.compactMap { mealType in
+     Alert.Button.default(Text(mealType)) {
+     selectedMealType = mealType
+     // Call the function to update the recipes based on the selected meal type
+     // fetchRecipesByMealType(mealType: mealType)
+     print("\(String(describing: selectedMealType))")
+     }
+     }*/
+    
 }
 
 /*#Preview {

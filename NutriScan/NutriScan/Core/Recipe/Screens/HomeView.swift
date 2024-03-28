@@ -17,7 +17,7 @@ struct HomeView: View {
             
             Text("NutriScan Dishes")
                 .fontWeight(.bold)
-                .padding(40)
+                .padding(10)
             //.modifier(TitleModifier())
             
             VStack {
