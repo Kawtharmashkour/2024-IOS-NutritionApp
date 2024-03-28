@@ -63,6 +63,10 @@ struct RecipeViewModel: Identifiable {
     var calories: Double {
         recipeVM.recipe.calories
     }
+    
+    var mealType: [String] {
+        recipeVM.recipe.mealType
+    }
 }
 
 

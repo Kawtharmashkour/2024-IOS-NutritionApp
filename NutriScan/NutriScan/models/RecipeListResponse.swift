@@ -23,6 +23,7 @@ struct RItem: Codable {
     let ingredients: [Ingredient]
     let totalNutrients: TotalNutrition
     let calories: Double
+    let mealType: [String]
 }
 
 struct Ingredient: Codable, Hashable {
