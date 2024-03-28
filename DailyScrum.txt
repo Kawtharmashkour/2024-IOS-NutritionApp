@@ -181,6 +181,27 @@ Day: 9
 3- Need assistance/ NA
 
 
+Day: 10
+2024/03/28 Kawthar
+1- Done/ previous scrum done for breakfast
+2- To do/ - connect meals tracker Lunch/dinner view with recipe list view 
+	  - in PrecipeViewCard, adding a sheet to ask the user which meal type they want to add to
+3- Need assistance/ NA
+
+2024/03/28 Behnaze
+1- Done/ - set the goals in setting so the user can adjust it access it from another page
+ 	 - fix 2-charts data representing the consuming calories, fat, protein in a day
+2- To do/ study about analyze nutrition data for implementing statistic progress for one user
+3- Need assistance/ NA
+
+2024/03/28 Shadan
+1- Done/ previous scrum
+	- google logout function
+	- adjust validation for user name and password
+2- To do/ 
+	- edit profile page (adjust profile page to be editable from the user)
+3- Need assistance/ NA
+
 
 
 
