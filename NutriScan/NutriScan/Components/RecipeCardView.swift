@@ -46,18 +46,7 @@ struct RecipeCardView: View {
                     
                     Spacer()
                     
-<<<<<<< Updated upstream
-                    Button(action: {
-                        //handel meal type?????
-                        //MealDataManager.insertMealData(userId: authViewModel.userId ?? "", date: Date(), mealType: "breakfast", mealData: mealData)
-                    }) {
-                        Image(systemName: "plus.circle")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(Color("ColorGreenAdaptive"))
-                    }
-                }
-=======
+
 //                    Button(action: {
 //                        //handel meal type?????
 //                        MealDataManager.insertMealData(userId: authViewModel.userId ?? "", date: Date(), mealType: "breakfast", mealData: mealData)
@@ -68,7 +57,7 @@ struct RecipeCardView: View {
 //                            .foregroundColor(Color("ColorGreenAdaptive"))
 //                    }
               }
->>>>>>> Stashed changes
+
             }
             .padding()
         }
