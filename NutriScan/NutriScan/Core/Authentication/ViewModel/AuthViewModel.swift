@@ -32,10 +32,11 @@ class AuthViewModel: ObservableObject {
         do {
             let result = try await Auth.auth().signIn(withEmail : email, password: password)
             self.userSession = result.user
-            self.userId = result.user.uid //Behnaz
+            self.userId = result.user.uid
             await fetchUser()
         } catch {
             print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
+            throw error
         }
     }
     

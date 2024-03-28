@@ -13,7 +13,7 @@ struct SocialMediaSignUpView: View {
 
     @StateObject var signUpViewModel = SignUpViewModel()
     @State private var isLoginViewPresented = false
-    
+    @State private var isLoggedIn = false
 
     
     var body: some View {
@@ -60,6 +60,14 @@ struct SocialMediaSignUpView: View {
                 } label :{
                     SignupLongItemView(objectText: "Google sign out", backgroundColor: "loginButtonBackground")
                 }
+                
+//                NavigationLink(
+//                                   destination: AppView(),
+//                                   isActive: $isLoggedIn, // Activate the navigation link
+//                                   label: {
+//                                       EmptyView() // Empty view since navigation is performed programmatically
+//                                   }
+//                               )
 
                 //Switch to login porchain
                 Spacer()

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var isLoggedIn = false
+    @State private var errorMessage: String?
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
@@ -40,8 +42,13 @@ struct LoginView: View {
                 //sign in button
                 Button {
                     Task{
-                        try await viewModel.signIn(withEmail: email, password: password)
-                        isLoggedIn = true
+                        do{
+                            try await viewModel.signIn(withEmail: email, password: password)
+                            isLoggedIn = true
+                        } catch {
+                            let errorCode = (error as NSError).code
+                            errorMessage = errorMessage(for: errorCode)
+                        }
                     }
                 } label: {
                     HStack{
@@ -58,6 +65,14 @@ struct LoginView: View {
                 .opacity(formIsValid ? 1 : 0.5)
                 .cornerRadius(10)
                 .padding(.top, 24)
+                
+                
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                
                 
                 NavigationLink(
                                    destination: AppView(),
@@ -87,6 +102,19 @@ struct LoginView: View {
             }
         }
     }
+    func errorMessage(for errorCode: Int) -> String {
+        switch errorCode {
+        case AuthErrorCode.wrongPassword.rawValue:
+            return "Incorrect password. Please try again."
+        case AuthErrorCode.userNotFound.rawValue:
+            return "User not found. Please check your email and try again."
+        case AuthErrorCode.networkError.rawValue:
+            return "Network error. Please check your internet connection and try again."
+        default:
+            return "An error occurred. Please try again later."
+        }
+    }
+
 }
 
 //AuthenticationForm protocol
