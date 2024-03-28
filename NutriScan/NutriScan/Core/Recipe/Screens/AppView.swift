@@ -16,7 +16,7 @@ struct AppView: View {
             VStack (alignment: .leading)  {
                 if let fullname = viewModel.currentUser?.fullname {
                     Text("Welcome, \(fullname)")
-                        .font(.system(size: 11))
+                        .font(.system(size: 14))
                         .foregroundColor(Color("ColorGreenAdaptive"))
                         .padding(.trailing, 5)
                         .frame(maxWidth: .infinity, alignment: .trailing)

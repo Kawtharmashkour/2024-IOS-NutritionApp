@@ -8,84 +8,74 @@
 import SwiftUI
 
 struct SocialMediaSignUpView: View {
-  //@EnvironmentObject var SignupVM: SignUpViewModel
+    //@EnvironmentObject var SignupVM: SignUpViewModel
     //@EnvironmentObject var viewModel: AuthViewModel
-
+    
     @StateObject var signUpViewModel = SignUpViewModel()
     @State private var isLoginViewPresented = false
     @State private var isLoggedIn = false
-
+    
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0){
-            //Logo
-            Image("Designer-6")
-                .resizable()
-                .scaledToFit()
-                .frame(height:100)
-                .padding(.vertical, UIScreen.main.bounds.size.height / 10)
-            
-            
-            VStack(alignment: .leading, spacing: 10){
+      NavigationStack {
+            VStack(alignment: .center, spacing: 0){
+                //Logo
+                Image("Designer-6")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height:100)
+                    .padding(.vertical, UIScreen.main.bounds.size.height / 10)
                 
-                //Signup with social Title
-              SignUpTitleView(title: "Get started with")
-                    .padding(.vertical)
                 
-                //SignUp with social
-                SignupItemGroupView()
+                VStack(alignment: .leading, spacing: 10){
+                    
+                    //Signup with social Title
+                    SignUpTitleView(title: "Get started with")
+                        .padding(.vertical)
+                    
+                    //SignUp with social
+                    SignupItemGroupView()
+                    
+                    Spacer()
+                        .frame(height: 30)
+                    
+                    //Signup with email title
+                    SignUpTitleView(title: "Or sign up with")
+                        .padding(.vertical)
+                    
+                                }
+                    NavigationLink(
+                                      destination: LoginView(),
+                                      isActive: $isLoginViewPresented,
+                                      label: {
+                                          Button(action: {
+                                              self.isLoginViewPresented = true
+                                          }) {
+                                              SignupLongItemView(objectText: "Email", backgroundColor: "loginButtonBackground")
+                                          }
+                                          .buttonStyle(PlainButtonStyle()) // Ensure the button doesn't get additional styles from NavigationLink
+                                      }
+                                  )
+                    
+                    
+                    //Switch to login porchain
+                    Spacer()
+                }//VStack
                 
-                Spacer()
-                    .frame(height: 30)
+                .frame(width: 325)
                 
-                //Signup with email title
-                SignUpTitleView(title: "Or sign up with")
-                      .padding(.vertical)
+                SwitchToLoginView (title: "Already onboard?")
+                    .padding(.bottom,UIApplication
+                        .shared.windows
+                        .first?
+                        .safeAreaInsets
+                        .bottom )
                 
-                //Signup with email
-                Button(action: {
-                           self.isLoginViewPresented.toggle()
-                       }) {
-                           SignupLongItemView(objectText: "Email", backgroundColor: "loginButtonBackground")
-                       }
-                       .sheet(isPresented: $isLoginViewPresented) {
-                           LoginView()
-                       }
-
-                
-                //Sign out from google
-                //Signup with email
-                Button {
-                    signUpViewModel.signOutFromGoogle()
-                } label :{
-                    SignupLongItemView(objectText: "Google sign out", backgroundColor: "loginButtonBackground")
-                }
-                
-//                NavigationLink(
-//                                   destination: AppView(),
-//                                   isActive: $isLoggedIn, // Activate the navigation link
-//                                   label: {
-//                                       EmptyView() // Empty view since navigation is performed programmatically
-//                                   }
-//                               )
-
-                //Switch to login porchain
-                Spacer()
-            }//VStack
-            
-            .frame(width: 325)
-            
-            SwitchToLoginView (title: "Already onboard?")
-                .padding(.bottom,UIApplication
-                    .shared.windows
-                    .first?
-                    .safeAreaInsets
-                    .bottom )
-            
-        } // VStack
+            }// VStack
+        .navigationBarHidden(true) // Hides the navigation bar
     }
-}
-
+        }
+  
 #Preview {
     SocialMediaSignUpView()
 }
