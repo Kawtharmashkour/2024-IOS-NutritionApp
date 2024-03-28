@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct AppView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
-    
+
     var body: some View {
-        VStack (alignment: .leading)  {
+       /* VStack (alignment: .leading)  {
             if let fullname = viewModel.currentUser?.fullname {
                 Text("Welcome, \(fullname)")
                     .font(.system(size: 14))
@@ -20,7 +19,8 @@ struct AppView: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 
             }
-        }
+        }*/
+
 
         TabView {
             HomeView()
@@ -50,7 +50,6 @@ struct AppView: View {
         }
         //.background(Color.yellow)
         .accentColor(Color.primary)
-       
             
     }
 }

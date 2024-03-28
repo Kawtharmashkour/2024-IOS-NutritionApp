@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     @State private var showHeadline: Bool = false
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var slideInAnimation: Animation {
       Animation.spring(response: 1.5, dampingFraction: 0.5, blendDuration: 0.5)
@@ -18,9 +19,23 @@ struct HeaderView: View {
     
     var body: some View {
       ZStack {
+          
         Image("header-image")
           .resizable()
           .aspectRatio(contentMode: .fill)
+          
+          VStack (alignment: .leading)  {
+              if let fullname = viewModel.currentUser?.fullname {
+                  Text("Welcome, \(fullname)")
+                      .font(.system(size: 11))
+                      .background(Color("ColorAppearanceAdaptive"))
+                      .foregroundColor(Color("ColorGreenAdaptive"))
+                      .padding()
+                      .frame(maxWidth: .infinity, alignment: .trailing)
+                      .offset(x: -70, y: -90)
+                  
+              }
+          }
         
         HStack(alignment: .top, spacing: 0) {
           Rectangle()

@@ -39,7 +39,6 @@ struct RecipeCardView: View {
                     RecipeRatingView(recipe: recipe)
                 }
                 .padding()
-                
             }
             .background(Color("ColorAppearanceAdaptive"))
             .onTapGesture {
