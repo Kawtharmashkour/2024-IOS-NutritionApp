@@ -45,6 +45,7 @@
 		D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */; };
 		D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742F2BAC94420058B0EC /* CalendarView.swift */; };
 		EF0ACDAE2BAC49DC00530C2B /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */; };
+		EF5572D82BB5B941005436CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5572D72BB5B941005436CE /* Launch Screen.storyboard */; };
 		EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */; };
 		EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FC2BA54F9A0033987F /* ContentView.swift */; };
 		EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FE2BA54F9A0033987F /* Item.swift */; };
@@ -63,7 +64,6 @@
 		EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF997E692BAAE22D00FBF0F3 /* BookMarkView.swift */; };
 		EF997E6C2BAAE52C00FBF0F3 /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF997E6B2BAAE52C00FBF0F3 /* ImageCardView.swift */; };
 		EF9B7ACF2BAB5CED00190A41 /* SlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7ACE2BAB5CED00190A41 /* SlideOutMenu.swift */; };
-		EF9B7AD12BAB685C00190A41 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */; };
 		EF9B7AD32BAB926300190A41 /* DishesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7AD22BAB926300190A41 /* DishesView.swift */; };
 		EF9B7AD72BABC89E00190A41 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B7AD62BABC89E00190A41 /* HeaderView.swift */; };
 		EFA6A1822BAB519F008CA405 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A1812BAB519F008CA405 /* AppView.swift */; };
@@ -101,6 +101,7 @@
 		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
 		D7F4742F2BAC94420058B0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		EF5572D72BB5B941005436CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EF5FD2F72BA54F9A0033987F /* NutriScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriScanApp.swift; sourceTree = "<group>"; };
 		EF5FD2FC2BA54F9A0033987F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		EF997E692BAAE22D00FBF0F3 /* BookMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkView.swift; sourceTree = "<group>"; };
 		EF997E6B2BAAE52C00FBF0F3 /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
 		EF9B7ACE2BAB5CED00190A41 /* SlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutMenu.swift; sourceTree = "<group>"; };
-		EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		EF9B7AD22BAB926300190A41 /* DishesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesView.swift; sourceTree = "<group>"; };
 		EF9B7AD62BABC89E00190A41 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		EFA6A1812BAB519F008CA405 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 				EFA6A1812BAB519F008CA405 /* AppView.swift */,
 				EFA6A1832BAB51C7008CA405 /* HomeView.swift */,
 				EF9B7ACE2BAB5CED00190A41 /* SlideOutMenu.swift */,
-				EF9B7AD02BAB685C00190A41 /* SplashScreen.storyboard */,
+				EF5572D72BB5B941005436CE /* Launch Screen.storyboard */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -462,8 +462,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5572D82BB5B941005436CE /* Launch Screen.storyboard in Resources */,
 				EF5FD3042BA54F9E0033987F /* Preview Assets.xcassets in Resources */,
-				EF9B7AD12BAB685C00190A41 /* SplashScreen.storyboard in Resources */,
 				69CE8FA02BAD1EC300E02F9B /* GoogleService-Info.plist in Resources */,
 				EF5FD3012BA54F9E0033987F /* Assets.xcassets in Resources */,
 				69BD62012BA7EDCA0025F8EE /* GoogleService-Info.plist in Resources */,
@@ -667,7 +667,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -697,7 +697,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
