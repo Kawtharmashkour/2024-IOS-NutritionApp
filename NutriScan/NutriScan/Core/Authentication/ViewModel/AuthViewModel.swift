@@ -72,19 +72,9 @@ class AuthViewModel: ObservableObject {
     
     func deleteAccount() {
         
+        
     }
     
-//    func fetchUser() async {
-//        //get current user id
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//
-//        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
-//        print("Debug: Snahpshot is \(snapshot)")
-//        self.currentUser = try? snapshot.data(as: User.self)
-//
-//      print("Debug: Current user is \(self.currentUser)")
-//
-//    }
     func fetchUser() async {
         do {
             // Get current user ID
@@ -114,5 +104,66 @@ class AuthViewModel: ObservableObject {
         }
     }
 
+    func editFetchUser() async -> User? {
+        do {
+            // Get current user ID
+            guard let uid = Auth.auth().currentUser?.uid else {
+                print("Error: User ID not available.")
+                return nil
+            }
+            
+            // Fetch user document from Firestore
+            let documentSnapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+            
+            // Check if document exists
+            guard let data = documentSnapshot.data() else {
+                print("Error: User document not found.")
+                return nil
+            }
+            
+            // Decode user data into User object
+            if let user = try? documentSnapshot.data(as: User.self) {
+                return user
+            } else {
+                print("Error: Failed to decode user data.")
+                return nil
+            }
+        } catch {
+            // Handle any errors
+            print("Error fetching user: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    func updateProfile(fullname: String, email: String, height: String, weight: String, targetWeight: String, gender: String) async {
+        let db = Firestore.firestore()
+        
+        // Get current user ID
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("Error: User ID not available.")
+            return
+        }
+        
+        let userRef = db.collection("users").document(uid)
+        
+        // Prepare the data to update
+        let data: [String: Any] = [
+            "fullname": fullname,
+            "email": email,
+            "height": height,
+            "weight": weight,
+            "targetWeight": targetWeight,
+            "gender": gender
+        ]
+        
+        do {
+            // Update the user profile data in Firestore
+            try await userRef.setData(data, merge: true)
+            print("User profile updated successfully.")
+        } catch {
+            print("Error updating user profile: \(error.localizedDescription)")
+        }
+    }
+    
     
 }

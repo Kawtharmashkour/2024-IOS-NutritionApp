@@ -24,7 +24,7 @@ struct RegistrationView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-       ScrollView {
+        ScrollView {
             VStack{
                 Image("nutrition")
                     .resizable()
@@ -151,108 +151,25 @@ struct RegistrationView: View {
                 .font(.system(size: 16))
             }
         }
-        .onChange(of: email) { newValue in
-            emailError = validateEmail(newValue)
+        
+        .onChange(of: [email, fullname, password, confirmPassword, height, weight, targetWeight]) { _ in
+            emailError = Validation.validateEmail(email)
+            fullnameError = Validation.validateFullName(fullname)
+            passwordError = Validation.validatePassword(password)
+            confirmPasswordError = Validation.validateConfirmedPassword(password,confirmPassword)
+            heightError = Validation.validateHeight(height)
+            weightError = Validation.validateWeight(weight)
+            targetWeightError = Validation.validateWeight(targetWeight)
         }
-        .onChange(of: fullname) { newValue in
-            fullnameError = validateFullName(newValue)
-        }
-        .onChange(of: password) { newValue in
-            passwordError = validatePassword(newValue)
-        }
-        .onChange(of: confirmPassword) { newValue in
-            confirmPasswordError = validateConfirmedPassword(newValue)
-        }
-        .onChange(of: height) { newValue in
-            heightError = validateHeight(newValue)
-        }
-        .onChange(of: weight) { newValue in
-            weightError = validateWeight(newValue)
-        }
-        .onChange(of: targetWeight) { newValue in
-            targetWeightError = validateWeight (newValue)
-        }
+
     }
     
     var formIsValid: Bool {
         return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
     }
-    
-    private func validateEmail(_ email: String) -> String {
-        return email.isEmpty ? "Email can not be empty" : !isValidEmail(email) ? "Invalid email format" : ""
-    }
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        return emailPredicate.evaluate(with: email)
-    }
-    
-    private func validateFullName(_ fullname: String) -> String {
-        return fullname.isEmpty ? "Full name can not be empty" : !isValidFullName(fullname) ? "Invalid name format" : ""
-    }
-    
-    func isValidFullName(_ name: String) -> Bool {
-        let nameRegex = "^[a-zA-Z ]+$"
-        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
-        return namePredicate.evaluate(with: name)
-    }
-    private func validatePassword(_ password: String) -> String {
-        return password.isEmpty ? "Password can not be empty" : !isValidPassword(password) ? "Invalid password format" : ""
-    }
-    
-    func isValidPassword(_ password: String) -> Bool {
-        let passwordRegex = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$&*]).{6,15}$"
-        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordPredicate.evaluate(with: password)
-    }
-    private func validateConfirmedPassword(_ confirmedPassword: String) -> String {
-        return confirmedPassword.isEmpty ? "Confirmed password can not be empty" : !isValidConfirmedPassword(confirmedPassword) ?"Passwords do not match" : ""
-    }
-    func isValidConfirmedPassword(_ confirmedPassword: String) -> Bool {
-        return password == confirmedPassword
-    }
-
-    private func validateWeight(_ weight: String) -> String {
-        return weight.isEmpty ? "Weight can not be empty" : !isValidWeight(weight) ? "Inavalid Weight format" : ""
-    }
-    
-    func isValidWeight(_ weight: String) -> Bool {
-        let nameRegex = "^[0-9]+$"
-        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
-        return namePredicate.evaluate(with: weight)
-    }
-    private func validateHeight(_ height: String) -> String {
-        return height.isEmpty ? "Height can not be empty" : !isValidHeight(height) ? "Inavalid height format" : ""
-    }
-    
-    func isValidHeight(_ height: String) -> Bool {
-        let nameRegex = "^[0-9]+$"
-        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
-        return namePredicate.evaluate(with: height)
-    }
-    
-}
-//    var formIsValid: Bool {
-//
-//        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-//        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-//        let fullNameRegex = "^[a-zA-Z ]+$"
-//        let fullNamePredicate = NSPredicate(format: "SELF MATCHES %@", fullNameRegex)
-//        let passwordRegex = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$&*]).{6,15}$"
-//        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-//
-//        emailError = email.isEmpty ? "Email can not be empty" : !emailPredicate.evaluate(with: email) ? "Invalid email format" : ""
-//        fullnameError = fullname.isEmpty ? "Full name cannot be empty" : !fullNamePredicate.evaluate(with: fullname) ? "Invalid full name format" : ""
-//        passwordError = password.isEmpty ? "Password cannot be empty" : !passwordPredicate.evaluate(with: password) ? "Password must be 6-15 characters long and contain at least one letter, one number, and one special character" : ""
-//        confirmPasswordError = confirmPassword != password ? "Passwords do not match" : ""
-//        heightError = height.isEmpty ? "Height cannot be empty" : ""
-//        weightError = weight.isEmpty ? "Weight cannot be empty" : ""
-//        targetWeightError = targetWeight.isEmpty ? "Target weight cannot be empty" : ""
-//
-//        return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
-//    }
-//}
-
+ }
 #Preview {
     RegistrationView()
 }
+                                   
+

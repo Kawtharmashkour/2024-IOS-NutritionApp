@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691796312BB8EF8B002EE129 /* EditInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691796302BB8EF8B002EE129 /* EditInputView.swift */; };
+		691796332BB9DDF8002EE129 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691796322BB9DDF8002EE129 /* Validation.swift */; };
 		692167222BB0B435001026EF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692167212BB0B435001026EF /* Application.swift */; };
 		692167242BB130EF001026EF /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692167232BB130EF001026EF /* SignUpVM.swift */; };
 		694C44362BB084C100782A16 /* SignUpTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C44352BB084C100782A16 /* SignUpTitleView.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		691796302BB8EF8B002EE129 /* EditInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInputView.swift; sourceTree = "<group>"; };
+		691796322BB9DDF8002EE129 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		692167212BB0B435001026EF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		692167232BB130EF001026EF /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		694C44352BB084C100782A16 /* SignUpTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTitleView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				69BD61F12BA7D84A0025F8EE /* InputView.swift */,
+				691796302BB8EF8B002EE129 /* EditInputView.swift */,
 				69BD61F32BA7D87E0025F8EE /* SettingsRowView.swift */,
 				EF8263E62BA9F44A00AF2517 /* RecipeCardView.swift */,
 				EF8263EA2BA9F55300AF2517 /* RecipeRatingView.swift */,
@@ -353,6 +358,7 @@
 			children = (
 				EF720F4A2BAD12A400AC9635 /* Constants.swift */,
 				EFC8AADB2BB1F6CF00F4C914 /* GeneralFunc.swift */,
+				691796322BB9DDF8002EE129 /* Validation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -490,8 +496,10 @@
 				EF5FD2FD2BA54F9A0033987F /* ContentView.swift in Sources */,
 				EF8263E92BA9F4E000AF2517 /* RecipeModel.swift in Sources */,
 				EFA6A1842BAB51C7008CA405 /* HomeView.swift in Sources */,
+				691796332BB9DDF8002EE129 /* Validation.swift in Sources */,
 				EF9B7ACF2BAB5CED00190A41 /* SlideOutMenu.swift in Sources */,
 				D76F9AD02BAE51D900AD97BE /* AddMealView.swift in Sources */,
+				691796312BB8EF8B002EE129 /* EditInputView.swift in Sources */,
 				D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */,
 				EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */,
 				EF720F4B2BAD12A400AC9635 /* Constants.swift in Sources */,

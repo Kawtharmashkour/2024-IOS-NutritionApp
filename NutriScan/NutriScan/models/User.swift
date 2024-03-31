@@ -45,7 +45,7 @@ extension User {
     }
 }
 
-extension User{
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Ted Lasso", email: "test@gmail.com", height: "175",weight: "70", targetWeight: "68", gender: "Mail")
-}
+//extension User{
+//    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Ted Lasso", email: "test@gmail.com", height: "175",weight: "70", targetWeight: "68", gender: "Mail")
+//}
 
