@@ -45,7 +45,7 @@ struct SocialMediaSignUpView: View {
                     
                                 }
                     NavigationLink(
-                                      destination: LoginView(),
+                        destination: LoginView(),
                                       isActive: $isLoginViewPresented,
                                       label: {
                                           Button(action: {

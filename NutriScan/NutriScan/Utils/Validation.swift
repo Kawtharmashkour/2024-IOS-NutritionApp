@@ -62,7 +62,7 @@ struct Validation{
     }
     
     static func validateEditPassword(_ password: String) -> String {
-        return  !isValidPassword(password) ? "Invalid password format" : ""
+        return password.isEmpty ? "" : !isValidPassword(password) ? "Invalid password format" : ""
     }
     
     static func validateEditConfirmedPassword(_ password: String, _ confirmedPassword: String)  -> String {

@@ -30,6 +30,8 @@ struct EditProfileView: View {
     let genders = ["Male", "Female"]
     
     @State private var hasChanges = false // Flag to track changes
+    @State private var showAlert = false  // Flag to control showing the alert
+    @Environment(\.presentationMode) var presentationMode // Access presentationMode
 
     var body: some View {
         
@@ -38,7 +40,7 @@ struct EditProfileView: View {
             return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
         }
         
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 8) {
             
             EditInputview(text: $fullname, title: "Full Name")
             Text(fullnameError)
@@ -131,6 +133,8 @@ struct EditProfileView: View {
             try await viewModel.updateProfile(fullname: fullname, email: email, height: height, weight: weight, targetWeight: targetWeight, gender: gender)
             
             await viewModel.fetchUser()
+            showAlert = true
+          
         }
     } label: {
         HStack{
@@ -146,16 +150,21 @@ struct EditProfileView: View {
     .cornerRadius(10)
     .padding(.bottom, 10)
     .padding(.top, 10)
+    .alert(isPresented: $showAlert){
+        Alert(
+            
+            title: Text("Success"),
+            message : Text ("Profile updated successfully."),
+            primaryButton: .default(Text("OK") , action: {
+                // Dismiss the current view and navigate back to the profile view
+                presentationMode.wrappedValue.dismiss()
+            }),
+            
+            secondaryButton: .cancel()
+        
+        )
+    }
     
-
-//
-//            Section {
-//                Button("Save Changes") {
-//                    // Call a function to save changes
-//                    saveChanges()
-//                }
-//            }
-//        }
         
     .onChange(of: [email, fullname, password, confirmPassword, height, weight, targetWeight]) { _ in
         emailError = Validation.validateEmail(email)
@@ -196,30 +205,6 @@ struct EditProfileView: View {
 
         .navigationTitle("Edit Profile")
     } //Some view
-
-    func saveChanges() {
-        // Validate input and update user profile
-        guard let currentUser = viewModel.currentUser else {
-            return
-        }
-
-       
-
-        // Update user profile with new data
-//      $viewModel.updateUserProfile(
-//            userId: currentUser.id,
-//            fullname: fullname,
-//            email: email,
-//            height: Double(height) ?? 0,
-//            weight: Double(weight) ?? 0,
-//            targetWeight: Double(targetWeight) ?? 0
-//        )
-
-        // Dismiss the view, or perform any other necessary action
-        // For example:
-        // presentationMode.wrappedValue.dismiss()
-    }
-
 
 }// struct
 

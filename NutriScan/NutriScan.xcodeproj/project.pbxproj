@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		691796312BB8EF8B002EE129 /* EditInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691796302BB8EF8B002EE129 /* EditInputView.swift */; };
 		691796332BB9DDF8002EE129 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691796322BB9DDF8002EE129 /* Validation.swift */; };
+		691796352BBA482D002EE129 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691796342BBA482D002EE129 /* UserProfile.swift */; };
 		692167222BB0B435001026EF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692167212BB0B435001026EF /* Application.swift */; };
 		692167242BB130EF001026EF /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692167232BB130EF001026EF /* SignUpVM.swift */; };
 		694C44362BB084C100782A16 /* SignUpTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C44352BB084C100782A16 /* SignUpTitleView.swift */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		691796302BB8EF8B002EE129 /* EditInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInputView.swift; sourceTree = "<group>"; };
 		691796322BB9DDF8002EE129 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		691796342BBA482D002EE129 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		692167212BB0B435001026EF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		692167232BB130EF001026EF /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		694C44352BB084C100782A16 /* SignUpTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTitleView.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				69BD61F52BA7D8E10025F8EE /* User.swift */,
 				EF8263E82BA9F4E000AF2517 /* RecipeModel.swift */,
 				EF720F472BAD0B6200AC9635 /* RecipeListResponse.swift */,
+				691796342BBA482D002EE129 /* UserProfile.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				EF720F4B2BAD12A400AC9635 /* Constants.swift in Sources */,
 				69670A3E2BB3C94D00E88AB8 /* EditProfileView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
+				691796352BBA482D002EE129 /* UserProfile.swift in Sources */,
 				EFC8AADE2BB2102400F4C914 /* SearchBar.swift in Sources */,
 				EF5FD30F2BA552D00033987F /* WebService.swift in Sources */,
 				695291AA2BAFE22D006B7E94 /* SignupItemView.swift in Sources */,
