@@ -62,7 +62,7 @@ struct RecipeCardView: View {
                 Button(action: {
                     print("Buton pressed")
                     //handel meal type?????
-                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealType: "breakfast", mealData: self.recipe)
+                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe)
                 },label:  {
                     Image(systemName: "plus.circle")
                         .resizable()

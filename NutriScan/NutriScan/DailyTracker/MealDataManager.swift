@@ -33,14 +33,14 @@ struct MealDataManager {
                 print("Completion handler called with meals: \(meals)")
             }
     }
-    static func insertMealData(userId: String, mealType: String, mealData: RecipeViewModel) {
-        print("Inserting meal data for user: \(userId), date: \(Date()), mealType: \(mealType), mealData: \(mealData)")
-          let db = Firestore.firestore()
-          let mealDocument = db.collection("users").document(userId).collection("meals").document()
+    static func insertMealData(userId: String , mealData: RecipeViewModel) {
+        print("Inserting meal data for user: \(userId), date: \(Date()), mealData: \(mealData)")
+            let db = Firestore.firestore()
+            let mealDocument = db.collection("users").document(userId).collection("meals").document()
 
           mealDocument.setData([
               "date": "\(Date())",
-              "type": mealType,
+              "type": mealData.mealType,
               "carbs": mealData.totalNutrients.CHOCDF.quantity,
               "fats": mealData.totalNutrients.FAT.quantity,
               "proteins": mealData.totalNutrients.PROCNT.quantity,

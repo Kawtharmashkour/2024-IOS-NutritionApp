@@ -43,7 +43,6 @@
 		D76F9AD02BAE51D900AD97BE /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */; };
 		D76F9AD22BB06BCC00AD97BE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F9AD12BB06BCC00AD97BE /* SettingView.swift */; };
 		D7D6AA0C2BA89ACE0011E276 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7D6AA0B2BA89ACE0011E276 /* FirebaseAnalyticsSwift */; };
-		D7D6AA0E2BA8A75F0011E276 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */; };
 		D7F4742C2BAC93CB0058B0EC /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */; };
 		D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */; };
 		D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742F2BAC94420058B0EC /* CalendarView.swift */; };
@@ -102,7 +101,6 @@
 		D70F4B6F2BADF0C900C2F72B /* MealDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDataManager.swift; sourceTree = "<group>"; };
 		D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
 		D76F9AD12BB06BCC00AD97BE /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
 		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
 		D7F4742F2BAC94420058B0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 		69BD61EE2BA7D6B80025F8EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D7D6AA0D2BA8A75F0011E276 /* ItemViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,7 +513,6 @@
 				D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */,
 				694C44362BB084C100782A16 /* SignUpTitleView.swift in Sources */,
 				69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */,
-				D7D6AA0E2BA8A75F0011E276 /* ItemViewModel.swift in Sources */,
 				69BD61F62BA7D8E10025F8EE /* User.swift in Sources */,
 				EF9B7AD32BAB926300190A41 /* DishesView.swift in Sources */,
 				D76F9AD22BB06BCC00AD97BE /* SettingView.swift in Sources */,
