@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "tabicon-menu.png",
+      "filename" : "icons8-menu-24.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,8 +17,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }

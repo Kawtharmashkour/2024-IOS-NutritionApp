@@ -17,8 +17,8 @@ struct HomeView: View {
             
             Text("NutriScan Dishes")
                 .fontWeight(.bold)
-
-                .padding(10)
+                .padding(30)
+                .foregroundColor(Color("ColorGreenAdaptive"))
 
             //.modifier(TitleModifier())
             

@@ -49,20 +49,26 @@ struct RecipeCardView: View {
                 RecipeDetailView(recipe: self.recipe)
             }
             //Nutrition facts
+            HStack (alignment: .center) {
+                NutritionFact(text: "Calories", number: recipe.totalNutrients.ENERC_KCAL.quantity)
+                NutritionFact(text: "Fats", number: recipe.totalNutrients.FAT.quantity)
+                NutritionFact(text: "Carbs", number: recipe.totalNutrients.CHOCDF.quantity)
+                NutritionFact(text: "Protein", number: recipe.totalNutrients.PROCNT.quantity)
+                //Text("Calories\( recipe.totalNutrients.ENERC_KCAL.quantity, specifier: "%.2f"), fat\(recipe.totalNutrients.FAT.quantity, specifier: "%.2f"), carbs\( recipe.totalNutrients.CHOCDF.quantity, specifier: "%.2f"), protien\( recipe.totalNutrients.PROCNT.quantity, specifier: "%.2f")")
+                
+            }
+            .font(.footnote)
+            .foregroundColor(.gray)
+            .padding()
+            
+            // Add meal button
             HStack{
-                HStack (alignment: .center, spacing: 12) {
-                    Text("Calories\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.ENERC_KCAL.quantity)), fat\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.FAT.quantity)), carbs\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.CHOCDF.quantity)), protien\(GeneralFunc.Number2DigitsAfterpoint(number: recipe.totalNutrients.PROCNT.quantity))")
-                    
-                }
-                .font(.footnote)
-                .foregroundColor(.gray)
-                .padding(.leading,20)
                 
                 Spacer()
                 Button(action: {
                     print("Buton pressed")
                     //handel meal type?????
-                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealType: "breakfast", mealData: self.recipe)
+                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe)
                 },label:  {
                     Image(systemName: "plus.circle")
                         .resizable()

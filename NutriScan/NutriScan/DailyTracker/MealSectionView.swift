@@ -18,7 +18,7 @@ struct MealSectionView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(mealType)
-                    
+                
                     .fontWeight(.bold)
                 
                 Spacer()
@@ -62,28 +62,28 @@ struct MealSectionView: View {
             }
             .padding()
             // Display each meal item
-            ForEach(meals, id: \.id) { meal in
-                HStack {
-                    Text(meal.name)
-                    Spacer()
-                    Button(action: {
-                        if let mealId = meal.id {
-                            deleteMeal(mealId: mealId)
-                        }
-                    }) {
-                        Image(systemName: "xmark.circle")
+            List{
+                ForEach(meals, id: \.id) { meal in
+                    HStack {
+                        Text(meal.name)
+                        Spacer()
+                      
                     }
-                }
+                }.onDelete(perform: deleteMeal)
             }
         }
     }
-        private func deleteMeal(mealId: String) {
-            MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
-                if success {
-                    meals.removeAll { $0.id == mealId }
+        private func deleteMeal(at offsets: IndexSet) {
+            for index in offsets {
+                    if let mealId = meals[index].id {
+                        MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
+                            if success {
+                                meals.remove(at: index)
+                            }
+                        }
+                    }
                 }
             }
-        }
         
     }
 

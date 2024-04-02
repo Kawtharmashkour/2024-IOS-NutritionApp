@@ -203,6 +203,29 @@ Day: 10
 3- Need assistance/ NA
 
 
+Day: 11
+2024/04/02 Kawthar
+1- Done/ previous scrum 
+	+ Home page navigations links
+2- To do/ Study about meal planner API
+3- Need assistance/ NA
+
+2024/04/02 Behnaze
+1- Done/ - Study about statistics and analyzing nutrition data for showing user progress for a perriod of time
+ 	 - Study about API and using in swiftUI, fixing meal type in recepies page and insert meals based on meal type
+2- To do/ - UI for meals in "meal tracking page", and deleting meal
+	  - Read about unit testing
+3- Need assistance/ NA
+
+2024/04/02 Shadan
+1- Done/ - Study about edit/update user profile process
+	 - edit/update profile for all fields except "Password"
+2- To do/ 
+	- update profile for field "Password"
+	- user can do forget password
+3- Need assistance/ NA
+
+
 
 
 
