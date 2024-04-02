@@ -13,13 +13,8 @@ struct EditProfileView: View {
     @State private var user: User?
     
     @State private var email = ""
-    @State private var emailError = ""
     @State private var fullname = ""
     @State private var fullnameError = ""
-    @State private var password = ""
-    @State private var passwordError = ""
-    @State private var confirmPassword = ""
-    @State private var confirmPasswordError = ""
     @State private var weight = ""
     @State private var weightError = ""
     @State private var targetWeight = ""
@@ -37,46 +32,21 @@ struct EditProfileView: View {
         
         
         var formIsValid: Bool {
-            return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
+            return  fullnameError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
         }
         
         VStack(alignment: .leading, spacing: 8) {
+            
+            EditInputview(text: $email, title: "Email Address")
+                .disabled(true)
+                .opacity(0.5)
             
             EditInputview(text: $fullname, title: "Full Name")
             Text(fullnameError)
                 .foregroundColor(.red)
                 .padding(.leading)
             
-            EditInputview(text: $email, title: "Email Address")
-             Text(emailError)
-                .foregroundColor(.red)
-                .padding(.leading)
-            
-            EditInputview(text: $password, title: "Password", isSecureField: true)
-            Text(passwordError)
-                .foregroundColor(.red)
-                .padding(.leading)
-            
-            ZStack(alignment: .trailing){
-                EditInputview(text: $confirmPassword, title: "Confirm Password", isSecureField: true)
-                
-                if !password.isEmpty && !confirmPassword.isEmpty {
-                    if password == confirmPassword {
-                        Image(systemName: "checkmark.circle.fill")
-                            .imageScale(.large)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color(.systemGreen))
-                    } else {
-                        Image(systemName: "xmark.circle.fill")
-                            .imageScale(.large)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color(.systemRed))
-                    }
-                }
-            } //ZStack
-           Text(confirmPasswordError)
-                .foregroundColor(.red)
-                .padding(.leading)
+
             
             EditInputview(text: $height , title: "Height")
                 .keyboardType(.decimalPad)
@@ -166,11 +136,8 @@ struct EditProfileView: View {
     }
     
         
-    .onChange(of: [email, fullname, password, confirmPassword, height, weight, targetWeight]) { _ in
-        emailError = Validation.validateEmail(email)
+    .onChange(of: [email, fullname, height, weight, targetWeight]) { _ in
         fullnameError = Validation.validateFullName(fullname)
-        passwordError = Validation.validateEditPassword(password)
-        confirmPasswordError = Validation.validateEditConfirmedPassword(password,confirmPassword)
         heightError = Validation.validateHeight(height)
         weightError = Validation.validateWeight(weight)
         targetWeightError = Validation.validateWeight(targetWeight)

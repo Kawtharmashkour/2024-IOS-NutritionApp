@@ -30,6 +30,10 @@ class AuthViewModel: ObservableObject {
     
     func signIn(withEmail email: String, password: String) async throws {
         do {
+            // Check for cached credentials and sign out if necessary
+            if let currentUser = Auth.auth().currentUser {
+                try Auth.auth().signOut()
+                   }
             let result = try await Auth.auth().signIn(withEmail : email, password: password)
             self.userSession = result.user
             self.userId = result.user.uid

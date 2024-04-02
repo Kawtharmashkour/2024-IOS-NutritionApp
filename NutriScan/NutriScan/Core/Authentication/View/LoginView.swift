@@ -81,6 +81,20 @@ struct LoginView: View {
                                        EmptyView() // Empty view since navigation is performed programmatically
                                    }
                                )
+                
+                HStack {
+                    Spacer() // Pushes the NavigationLink to the right
+                    NavigationLink(
+                        destination: ResetPasswordView(),
+                        label: {
+                            Text("Reset Password")
+                                .font(.headline)
+                                .foregroundColor(.green) // Set text color to green
+                        }
+                    )
+                }
+                .padding() // Add padding to the HStack if needed
+
                 Spacer()
                 //sign up button
                
