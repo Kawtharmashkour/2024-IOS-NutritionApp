@@ -226,6 +226,25 @@ Day: 11
 3- Need assistance/ NA
 
 
+Day: 12
+2024/04/03 Kawthar
+1- Done/ - view more than one page from API
+	 - Search title, ingredient from API
+2- To do/ User should able to search on dish type
+3- Need assistance/ NA
+
+2024/04/03 Behnaze
+1- Done/ - Read about unit testing
+	 - UI for meals in "meal tracking page", and deleting meal
+2- To do/ - Adjust back-end for "meal tracking page" using API
+3- Need assistance/ NA
+
+2024/04/03 Shadan
+1- Done/ - user can do forget password
+2- To do/ 
+	- solving errors to complete the forget password process
+3- Need assistance/ NA
+
 
 
 
