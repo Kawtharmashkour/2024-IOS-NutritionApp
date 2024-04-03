@@ -14,6 +14,7 @@ struct SocialMediaSignUpView: View {
     @StateObject var signUpViewModel = SignUpViewModel()
     @State private var isLoginViewPresented = false
     @State private var isLoggedIn = false
+   
     
     
     var body: some View {
@@ -43,7 +44,16 @@ struct SocialMediaSignUpView: View {
                     SignUpTitleView(title: "Or sign up with")
                         .padding(.vertical)
                     
+                    NavigationLink(
+                                       destination: RegistrationView(), 
+                                       isActive: $isLoggedIn, // Bind to the @State variable
+                                       label: {
+                                           EmptyView() // Empty view as label
+                                       }
+                                   )
                                 }
+                
+              
                     NavigationLink(
                         destination: LoginView(),
                                       isActive: $isLoginViewPresented,
@@ -73,6 +83,11 @@ struct SocialMediaSignUpView: View {
                 
             }// VStack
         .navigationBarHidden(true) // Hides the navigation bar
+        .onReceive(signUpViewModel.$isLogin) { isLogin in
+                  if isLogin {
+                      isLoggedIn = true // Set the @State variable to true when the user logs in
+                  }
+              }
     }
         }
   

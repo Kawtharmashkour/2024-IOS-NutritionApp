@@ -135,7 +135,18 @@ struct EditProfileView: View {
         )
     }
     
-        
+        HStack {
+            Spacer() // Pushes the NavigationLink to the right
+            NavigationLink(
+                destination: ResetPasswordView(),
+                label: {
+                    Text("Reset Password")
+                        .font(.headline)
+                        .foregroundColor(.green) // Set text color to green
+                }
+            )
+        }
+        .padding() // Add padding to the HStack if needed
     .onChange(of: [email, fullname, height, weight, targetWeight]) { _ in
         fullnameError = Validation.validateFullName(fullname)
         heightError = Validation.validateHeight(height)

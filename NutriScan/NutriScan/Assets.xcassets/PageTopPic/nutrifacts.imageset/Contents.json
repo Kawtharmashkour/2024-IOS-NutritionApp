@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "M0ENFXBK_400x400.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "M0ENFXBK_400x400@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "M0ENFXBK_400x400@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -18,29 +18,46 @@ struct ResetPasswordView: View {
     @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
-            Text("Reset Password")
-            Inputview(text: $email, title: "Email Address", placeholder: "your email address")
+        VStack {
+           
+            // image
+            Image("nutrihurt")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300, height: 300)
+                .padding(.top, -150)
+               // .padding(.vertical,-10)
+            
+            HStack{
+                Spacer()
+                Text("Reset Password")
+                    .font(.headline)
+                    .padding(.bottom,20)
+                Spacer()
+            }
+                
+            Inputview(text: $email, title: "Enter your email address to recive confirmation email", placeholder: "your email address")
                 .padding(20)
                    
                    Button(action: {
                        resetPassword()
                    }) {
-                       Text("Reset Password")
+                       Text("Rest Password")
                            .foregroundColor(.white)
                            .frame(width: UIScreen.main.bounds.width - 32 , height: 48)
                            .background(Color(.systemGreen))
 //                           .disabled(!formIsValid)
 //                           .opacity(formIsValid ? 1 : 0.5)
                            .cornerRadius(10)
-                           .padding(.top, 24)
+                           .padding(.top, 20)
                    }
-                   .padding()
+                   
                }// vstack
+               
                .alert(isPresented: $showAlert) {
                    Alert(title: Text("Reset Password"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                }
-               .navigationTitle("Reset Password")
+               .navigationTitle("")
            }
            
            private func resetPassword() {

@@ -21,10 +21,6 @@ class SignUpViewModel: ObservableObject {
         // Get app client id
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
-        // Get configuration
-        
-        
-        
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
@@ -59,7 +55,7 @@ class SignUpViewModel: ObservableObject {
                     }
                     guard let user = result?.user else { return }
                     
-                    print(user.displayName as Any)
+                  //  print(user.displayName as Any)
                     print(user.displayName)
                     
                     self.isLogin.toggle()
