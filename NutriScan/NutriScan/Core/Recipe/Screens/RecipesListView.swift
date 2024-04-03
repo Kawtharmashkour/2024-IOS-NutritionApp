@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipesListView: View {
-    let url: URL
+    var url: URL
     @StateObject private var recipeListVM = RecipeListViewModel() //class name
     @State private var isLoading = false
     @State private var searchText = ""
@@ -20,15 +20,28 @@ struct RecipesListView: View {
                 ProgressView("Loading...").tint(Color("ColorAppearanceAdaptive"))
             } else {
                 //SearchBar()
-                NavigationView {
-                    List(filteredRecipes) { recipe in
-                        RecipeCardView(recipe: recipe)
-                            .listRowSeparator(.hidden, edges: .all)
+                NavigationStack {
+                    List {
+                        ForEach(filteredRecipes) { recipe in
+                                RecipeCardView(recipe: recipe)
+                                    .listRowSeparator(.hidden, edges: .all)
+                         
+                        }
+                        // appears when the end list reached
+                       ProgressView()
+                            .frame(maxWidth: .infinity)
+                            .onAppear {
+                                loadNextPage()
+                            }
                     }
                     .listStyle(.plain)
                     .frame(maxWidth: 640)
                     .searchable(text: $searchText)
-                    
+                    .toolbar {
+                        ToolbarItem (placement: .bottomBar) {
+                            Text("\(recipeListVM.to) of \(recipeListVM.count) Recipes")
+                        }
+                    }
                 }
             }
         }
@@ -44,8 +57,9 @@ struct RecipesListView: View {
         isLoading = true
         Task {
             do {
-                //recipes = try await getUser()
                 await recipeListVM.populateRecipeList(url: url)
+                
+                // Append the new recipes to the existing list
                 filteredRecipes = recipeListVM.recipeList
                 
             } catch {
@@ -67,6 +81,18 @@ struct RecipesListView: View {
                     }
             }
         //print("Reachable")
+        }
+    
+    func loadNextPage() {
+            guard let nextPageUrl = recipeListVM.nextPageInfo?.href else { return }
+            Task {
+                do {
+                    await recipeListVM.populateRecipeList(url: URL(string: nextPageUrl)!)
+                    filteredRecipes += recipeListVM.recipeList
+                } catch {
+                    print("Error fetching next page: \(error)")
+                }
+            }
         }
 
 }
