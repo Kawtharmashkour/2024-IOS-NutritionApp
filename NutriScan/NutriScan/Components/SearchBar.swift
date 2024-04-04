@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @State private var searchText = ""
+    @Binding var searchText: String
     
     var body: some View {
         
-        TextField("     Search diet, meal type, ingredient", text: $searchText)
+        TextField("Search diet, meal type, ingredient", text: $searchText)
             .padding()
             .frame( height: 50) // Adjust size as needed
             .background(Color("ColorAppearanceAdaptive"))
@@ -26,10 +26,10 @@ struct SearchBar: View {
                             .padding(.leading, 30) // Adjust padding as needed
                         Spacer()
                     }
-                )
+            )
     }
 }
 
-#Preview {
+/*#Preview {
     SearchBar()
-}
+}*/

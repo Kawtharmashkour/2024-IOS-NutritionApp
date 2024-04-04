@@ -43,6 +43,8 @@
 		D70F4B702BADF0C900C2F72B /* MealDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F4B6F2BADF0C900C2F72B /* MealDataManager.swift */; };
 		D76F9AD02BAE51D900AD97BE /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */; };
 		D76F9AD22BB06BCC00AD97BE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F9AD12BB06BCC00AD97BE /* SettingView.swift */; };
+		D77D76272BBE4A3200F62B00 /* TextScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D76262BBE4A3200F62B00 /* TextScannerView.swift */; };
+		D77D76292BBE508800F62B00 /* TextRecognitionUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D76282BBE508800F62B00 /* TextRecognitionUtilities.swift */; };
 		D7D6AA0C2BA89ACE0011E276 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7D6AA0B2BA89ACE0011E276 /* FirebaseAnalyticsSwift */; };
 		D7F4742C2BAC93CB0058B0EC /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */; };
 		D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */; };
@@ -103,6 +105,8 @@
 		D70F4B6F2BADF0C900C2F72B /* MealDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDataManager.swift; sourceTree = "<group>"; };
 		D76F9ACF2BAE51D900AD97BE /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
 		D76F9AD12BB06BCC00AD97BE /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		D77D76262BBE4A3200F62B00 /* TextScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
+		D77D76282BBE508800F62B00 /* TextRecognitionUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionUtilities.swift; sourceTree = "<group>"; };
 		D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
 		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
 		D7F4742F2BAC94420058B0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */,
+				D77D76262BBE4A3200F62B00 /* TextScannerView.swift */,
+				D77D76282BBE508800F62B00 /* TextRecognitionUtilities.swift */,
 				D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */,
 				D7F4742F2BAC94420058B0EC /* CalendarView.swift */,
 				D70F4B6D2BACAA2A00C2F72B /* MealSectionView.swift */,
@@ -511,6 +517,7 @@
 				EFC8AADE2BB2102400F4C914 /* SearchBar.swift in Sources */,
 				EF5FD30F2BA552D00033987F /* WebService.swift in Sources */,
 				695291AA2BAFE22D006B7E94 /* SignupItemView.swift in Sources */,
+				D77D76272BBE4A3200F62B00 /* TextScannerView.swift in Sources */,
 				69BD61FB2BA7DA300025F8EE /* LoginView.swift in Sources */,
 				D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */,
 				694C44362BB084C100782A16 /* SignUpTitleView.swift in Sources */,
@@ -528,6 +535,7 @@
 				694C44382BB0882300782A16 /* SignupLongItemView.swift in Sources */,
 				EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */,
 				EF720F482BAD0B6200AC9635 /* RecipeListResponse.swift in Sources */,
+				D77D76292BBE508800F62B00 /* TextRecognitionUtilities.swift in Sources */,
 				EF5572DA2BB5C551005436CE /* NutritionFact.swift in Sources */,
 				69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */,
 				EF0ACDAE2BAC49DC00530C2B /* ReportView.swift in Sources */,

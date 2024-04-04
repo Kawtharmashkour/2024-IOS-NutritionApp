@@ -19,9 +19,13 @@ struct RecipesListView: View {
             if isLoading {
                 ProgressView("Loading...").tint(Color("ColorAppearanceAdaptive"))
             } else {
-                //SearchBar()
+                
                 NavigationStack {
+                    
+                  SearchBar(searchText: $searchText)
+                    
                     List {
+                        Text("Result: \(recipeListVM.to) of \(recipeListVM.count) Recipes")
                         ForEach(filteredRecipes) { recipe in
                                 RecipeCardView(recipe: recipe)
                                     .listRowSeparator(.hidden, edges: .all)
@@ -36,24 +40,19 @@ struct RecipesListView: View {
                     }
                     .listStyle(.plain)
                     .frame(maxWidth: 640)
-                    .searchable(text: $searchText)
-                    .toolbar {
-                        ToolbarItem (placement: .bottomBar) {
-                            Text("\(recipeListVM.to) of \(recipeListVM.count) Recipes")
-                        }
-                    }
+                    
                 }
             }
         }
         .onAppear {
-            fetchData()
+            fetchData(url: url)
         }
         .onChange(of: searchText) {
                     filterRecipes()
                 }
     }
     
-    func fetchData() {
+    func fetchData(url: URL) {
         isLoading = true
         Task {
             do {
@@ -73,12 +72,22 @@ struct RecipesListView: View {
             if searchText.isEmpty {
                 filteredRecipes = recipeListVM.recipeList
             } else {
-                filteredRecipes = recipeListVM.recipeList.filter { recipe in
+                Task{
+                    do {
+                        await recipeListVM.populateRecipeList(url: Constants.Urls.GeneralSearchRecipe(text: searchText))
+                        filteredRecipes = recipeListVM.recipeList
+                    } catch {
+                        print("Error fetching next page: \(error)")
+                    }
+                }
+                //fetchData(url: Constants.Urls.GeneralSearchRecipe(text: searchText))
+                
+                /*filteredRecipes = recipeListVM.recipeList.filter { recipe in
                    recipe.title.localizedCaseInsensitiveContains(searchText) ||
                    recipe.ingredients.contains { ingredient in
                                     ingredient.food.localizedCaseInsensitiveContains(searchText)
                                 }
-                    }
+                    }*/
             }
         //print("Reachable")
         }

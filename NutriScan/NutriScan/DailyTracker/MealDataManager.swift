@@ -1,45 +1,75 @@
 import FirebaseFirestore
 
 struct MealDataManager {
-    static func fetchMealData(userId: String, date: String, mealType: String, completion: @escaping ([MealData]) -> Void) {
-        print("Fetching meal data for user: \(userId), date: \(date), mealType: \(mealType)")
+    static func fetchMealData(userId: String, date: String, mealTypes: [String], completion: @escaping ([MealData]) -> Void) {
         let db = Firestore.firestore()
 
         db.collection("users").document(userId).collection("meals")
-            .whereField("type", isEqualTo: mealType.lowercased())
+            .whereField("date", isEqualTo: date)
             .getDocuments { (querySnapshot, error) in
                 var meals: [MealData] = []
 
                 if let documents = querySnapshot?.documents {
-                    print("Documents found: \(documents.count)")
                     for document in documents {
                         let data = document.data()
-                        print("Document data: \(data)")
-                        let meal = MealData(
-                            id: document.documentID,
-                            carbs: data["carbs"] as? Double ?? 0,
-                            fats: data["fats"] as? Double ?? 0,
-                            proteins: data["proteins"] as? Double ?? 0,
-                            calories: data["calories"] as? Double ?? 0,
-                            name: data["name"] as? String ?? ""
-                        )
-                        meals.append(meal)
+                        let mealTypeArray = data["type"] as? [String] ?? []
+
+                        if mealTypes.contains(where: mealTypeArray.contains) {
+                            let meal = MealData(
+                                id: document.documentID,
+                                carbs: data["carbs"] as? Double ?? 0,
+                                fats: data["fats"] as? Double ?? 0,
+                                proteins: data["proteins"] as? Double ?? 0,
+                                calories: data["calories"] as? Double ?? 0,
+                                name: data["name"] as? String ?? "",
+                                type: mealTypeArray.joined(separator: ", ")
+                            )
+                            meals.append(meal)
+                            print("Meal type: \(meal.type)")  // Add this line to log the meal type
+                        }
                     }
-                }else {
-                    print("No documents found or error: \(error?.localizedDescription ?? "Unknown error")")
                 }
 
                 completion(meals)
-                print("Completion handler called with meals: \(meals)")
             }
     }
+    
+    static func insertMealDataScan(userId: String, mealData: MealData) {
+        let db = Firestore.firestore()
+        let mealDocument = db.collection("users").document(userId).collection("meals").document(mealData.id ?? UUID().uuidString)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let formattedDate = dateFormatter.string(from: Date())
+        
+        mealDocument.setData([
+            "date": formattedDate,
+            "type": mealData.type,
+            "carbs": mealData.carbs,
+            "fats": mealData.fats,
+            "proteins": mealData.proteins,
+            "calories": mealData.calories,
+            "name": mealData.name
+        ]) { error in
+            if let error = error {
+                print("Error adding meal: \(error)")
+            } else {
+                print("Meal added successfully")
+            }
+        }
+    }
+
     static func insertMealData(userId: String , mealData: RecipeViewModel) {
         print("Inserting meal data for user: \(userId), date: \(Date()), mealData: \(mealData)")
             let db = Firestore.firestore()
             let mealDocument = db.collection("users").document(userId).collection("meals").document()
-
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMdd"
+            let formattedDate = dateFormatter.string(from: Date())
+        
           mealDocument.setData([
-              "date": "\(Date())",
+              "date": formattedDate,
               "type": mealData.mealType,
               "carbs": mealData.totalNutrients.CHOCDF.quantity,
               "fats": mealData.totalNutrients.FAT.quantity,
@@ -78,4 +108,5 @@ struct MealData {
     var proteins: Double
     var calories: Double
     var name: String
+    var type: String
 }

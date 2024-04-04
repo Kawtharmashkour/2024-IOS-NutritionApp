@@ -50,7 +50,8 @@ struct AddMealView: View {
             fats: fats,
             proteins: proteins,
             calories: calories,
-            name: name
+            name: name,
+            type: "beakfast"
         )
         print("Saving meal data with mealType: \(mealType)")
       //  MealDataManager.insertMealData(userId: userId, date: date, mealType: mealType.lowercased(), mealData: mealData)
