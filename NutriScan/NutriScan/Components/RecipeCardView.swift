@@ -13,7 +13,7 @@ struct RecipeCardView: View {
     var recipe: RecipeViewModel
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
-    @State private var selectedMealType: String?
+    @State private var selectedMealType: String = ""
     @State private var showActionSheet = false
     
     var body: some View {
@@ -66,9 +66,13 @@ struct RecipeCardView: View {
                 Spacer()
                 Button(action: {
                     print("Buton pressed")
+
                     //handel meal type?????
                     showActionSheet = true
-                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealType: selectedMealType, mealData: self.recipe)
+                    print("Inserting card mealType: \(selectedMealType)")
+                   MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: selectedMealType)
+                   
+
                 },label:  {
                     Image(systemName: "plus.circle")
                         .resizable()

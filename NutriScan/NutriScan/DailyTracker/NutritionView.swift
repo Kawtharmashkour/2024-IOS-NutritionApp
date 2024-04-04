@@ -6,7 +6,7 @@ struct NutritionView: View {
     @State private var lunchData: [MealData] = []
     @State private var dinnerData: [MealData] = []
     @State private var snackData: [MealData] = []
-    @State private var currentMealType: String? = nil
+    @State private var currentMealType: String = ""
     @State private var showAddMealView = false
     @State private var showSettings = false
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -35,11 +35,10 @@ struct NutritionView: View {
                             mealType: "breakfast",
                             meals: $breakfastData,
                             showAddMealView: $showAddMealView,
-                            //currentMealType: $currentMealType,
+                            currentMealType: $currentMealType,
                             userId: authViewModel.userId ?? ""
                         )
                         .sheet(isPresented: $showAddMealView) {
-                            //AddMealView(userId: authViewModel.userId ?? "", date: dateFormatter.string(from: selectedDate), mealType: currentMealType ?? "")
                             RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "breakfast"))
                         }
 
@@ -47,7 +46,7 @@ struct NutritionView: View {
                             mealType: "lunch/dinner",
                             meals: $lunchData,
                             showAddMealView: $showAddMealView,
-                            //currentMealType: $currentMealType,
+                            currentMealType: $currentMealType,
                             userId: authViewModel.userId ?? ""
                         )
                         .sheet(isPresented: $showAddMealView) {
@@ -58,7 +57,7 @@ struct NutritionView: View {
                             mealType: "Snack",
                             meals: $dinnerData,
                             showAddMealView: $showAddMealView,
-                            //currentMealType: $currentMealType,
+                            currentMealType: $currentMealType,
                             userId: authViewModel.userId ?? ""
                         )
                         .sheet(isPresented: $showAddMealView) {
@@ -68,7 +67,7 @@ struct NutritionView: View {
                             mealType: "TeaTime",
                             meals: $snackData,
                             showAddMealView: $showAddMealView,
-                            //currentMealType: $currentMealType,
+                            currentMealType: $currentMealType,
                             userId: authViewModel.userId ?? ""
                         )
                         .sheet(isPresented: $showAddMealView) {
@@ -91,17 +90,18 @@ struct NutritionView: View {
                         let userId = authViewModel.userId ?? "DDVmxDPbFZZhEs4QebM8HTQQLVi1"
                            let dateString = dateFormatter.string(from: selectedDate)
 
-                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealTypes: ["breakfast"]) { meals in
+                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "breakfast") { meals in
                             breakfastData = meals
                             print("Breakfast data: \(breakfastData)")
                         }
-                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealTypes: ["lunch/dinner"]) { meals in
+                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "lunch/dinner") { meals in
                             lunchData = meals
-                            print("Breakfast data: \(lunchData)")
-                    }
-                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealTypes: ["snack"]) { meals in
+                            print("Lunch/Dinner data: \(lunchData)")
+                        }
+                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "snack") { meals in
                             snackData = meals
                         }
+
 //                        MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "Snack") { meals in
 //                            snackData = meals
 //                        }

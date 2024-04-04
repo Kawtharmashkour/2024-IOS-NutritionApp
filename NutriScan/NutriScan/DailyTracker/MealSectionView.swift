@@ -6,6 +6,7 @@ struct MealSectionView: View {
     @Binding var showAddMealView: Bool
     @State private var recognizedText = ""
     @State private var showScanner = false
+    @Binding var currentMealType: String
     let userId: String
 
     var body: some View {
@@ -18,6 +19,7 @@ struct MealSectionView: View {
                 Spacer()
 
                 Button(action: {
+                    currentMealType = mealType
                     showScanner = true
                 }) {
                     Image(systemName: "doc.text.viewfinder")
@@ -27,6 +29,8 @@ struct MealSectionView: View {
                 .padding(.trailing, 10)
 
                 Button(action: {
+                    print("Setting currentMealType to: \(mealType)")
+                    currentMealType = mealType
                     showAddMealView = true
                 }) {
                     Image(systemName: "plus.circle")

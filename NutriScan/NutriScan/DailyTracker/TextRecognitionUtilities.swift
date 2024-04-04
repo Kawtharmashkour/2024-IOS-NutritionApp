@@ -13,11 +13,11 @@ func extractNutritionalInfo(from textLines: [String]) -> (calories: Double, prot
     var carbs = 0.0
     var fats = 0.0
 
-    // Example regex patterns, adjust based on expected text format
-    let caloriesPattern = "Calories: (\\d+)"
-    let proteinPattern = "Protein: (\\d+)g"
-    let carbsPattern = "Carbs: (\\d+)g"
-    let fatsPattern = "Fats: (\\d+)g"
+    // Adjusted regex patterns
+    let caloriesPattern = "Calories (\\d+)"
+    let proteinPattern = "Protein / Protéines (\\d+) g"
+    let carbsPattern = "Carbohydrate / Glucides (\\d+) g"
+    let fatsPattern = "Fat / Lipides (\\d+) g"
 
     for line in textLines {
         if let caloriesMatch = line.matchingRegex(caloriesPattern) {
@@ -33,6 +33,10 @@ func extractNutritionalInfo(from textLines: [String]) -> (calories: Double, prot
             fats = Double(fatsMatch) ?? 0
         }
     }
+    print("Extracted Calories: \(calories)")
+    print("Extracted Protein: \(protein)")
+    print("Extracted Carbs: \(carbs)")
+    print("Extracted Fats: \(fats)")
 
     return (calories, protein, carbs, fats)
 }
