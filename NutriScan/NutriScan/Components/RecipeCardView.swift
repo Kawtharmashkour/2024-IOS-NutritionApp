@@ -14,7 +14,7 @@ struct RecipeCardView: View {
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
     @State private var selectedMealType: String?
-    @State private var showMealTypeSelection: Bool = false
+    @State private var showActionSheet = false
     
     var body: some View {
         // Image card
@@ -54,7 +54,6 @@ struct RecipeCardView: View {
                 NutritionFact(text: "Fats", number: recipe.totalNutrients.FAT.quantity)
                 NutritionFact(text: "Carbs", number: recipe.totalNutrients.CHOCDF.quantity)
                 NutritionFact(text: "Protein", number: recipe.totalNutrients.PROCNT.quantity)
-                //Text("Calories\( recipe.totalNutrients.ENERC_KCAL.quantity, specifier: "%.2f"), fat\(recipe.totalNutrients.FAT.quantity, specifier: "%.2f"), carbs\( recipe.totalNutrients.CHOCDF.quantity, specifier: "%.2f"), protien\( recipe.totalNutrients.PROCNT.quantity, specifier: "%.2f")")
                 
             }
             .font(.footnote)
@@ -68,13 +67,43 @@ struct RecipeCardView: View {
                 Button(action: {
                     print("Buton pressed")
                     //handel meal type?????
-                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe)
+                    showActionSheet = true
+                    MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealType: selectedMealType, mealData: self.recipe)
                 },label:  {
                     Image(systemName: "plus.circle")
                         .resizable()
                         .frame(width: 24, height: 24)
                         .foregroundColor(Color("ColorGreenAdaptive"))
                 })
+                .actionSheet(isPresented: $showActionSheet) {
+                        ActionSheet(title: Text("Choose Meal destination"),
+                                    message: Text(""),
+                                    buttons: [
+                                        .cancel(),
+                                        .default(
+                                            Text("Breakfast"),
+                                            action: {selectedMealType = "Breakfast"}
+                                        ),
+                                        .default(
+                                            Text("Lunch"),
+                                            action: {selectedMealType = "Lunch"}
+                                        ),
+                                        .default(
+                                            Text("Diner"),
+                                            action: {selectedMealType = "Diner"}
+                                        )
+                                        ,
+                                        .default(
+                                            Text("Snack"),
+                                            action: {selectedMealType = "Snack"}
+                                        ),
+                                        .default(
+                                            Text("Tea Time"),
+                                            action: {selectedMealType = "TeaTime"}
+                                        )
+                                    ]
+                        )
+                    }
             }
             .padding(.horizontal,20)
             .padding(.bottom,24)
@@ -85,16 +114,6 @@ struct RecipeCardView: View {
         .padding()
     }
     
-    //Functions
-    /*private var mealTypeButtons: [Alert.Button] {
-     recipe.mealType.compactMap { mealType in
-     Alert.Button.default(Text(mealType)) {
-     selectedMealType = mealType
-     // Call the function to update the recipes based on the selected meal type
-     // fetchRecipesByMealType(mealType: mealType)
-     print("\(String(describing: selectedMealType))")
-     }
-     }*/
     
 }
 
