@@ -12,6 +12,9 @@ import Foundation
 class RecipeListViewModel: ObservableObject {
     
     @Published var recipeList: [RecipeViewModel] = []
+    @Published var to: Int = 0
+    @Published var count: Int = 0
+    @Published var nextPageInfo: PageInfo?
     
     func populateRecipeList(url: URL) async -> Void {
         
@@ -26,6 +29,13 @@ class RecipeListViewModel: ObservableObject {
             // Map the recipes from RecipeListResponse to RecipeViewModel
             // as soon as using @Published we should use @MainActor : so the result of self.recipeList will be (on the main queue on the main thread). Note: @MainActor is instead of dispatch
             self.recipeList = recipeListResponse.hits.map(RecipeViewModel.init)
+           // self.recipeList.append(contentsOf: recipeListResponse.hits.map(RecipeViewModel.init))
+            //for recipe in recipeListResponse.hits {
+            //    self.recipeList.append(RecipeViewModel.init(recipe))
+            //}
+            self.to = recipeListResponse.to
+            self.count = recipeListResponse.count
+            self.nextPageInfo = recipeListResponse._links.next
             
         } catch {
             print(error)
@@ -33,7 +43,7 @@ class RecipeListViewModel: ObservableObject {
     }
 }
 
-struct RecipeViewModel: Identifiable {
+struct RecipeViewModel: Identifiable{
     let id = UUID()
     private let recipeVM: Recipe
     

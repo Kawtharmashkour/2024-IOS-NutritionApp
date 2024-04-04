@@ -8,7 +8,19 @@
 import Foundation
 
 struct RecipeListResponse: Codable {
+    let to: Int
+    let count: Int
+    let _links: NextPage
     let hits: [Recipe]
+}
+
+struct NextPage : Codable {
+    let next: PageInfo
+}
+
+struct PageInfo: Codable {
+    let href: String
+    let title: String
 }
 
 struct Recipe: Codable {
