@@ -43,7 +43,7 @@ struct SignupItemGroupView: View {
 //                }
             }
         }
-        .navigationTitle("Sign Up")
+//        
         .onReceive(signUpViewModel.$isLogin) { isLoggedIn in
             if isLoggedIn {
                 isLoggedin = true
