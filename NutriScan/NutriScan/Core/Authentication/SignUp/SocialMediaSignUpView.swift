@@ -62,7 +62,7 @@ struct SocialMediaSignUpView: View {
                     
                     
                     //Switch to login porchain
-                    Spacer()
+//                    Spacer()
                 }//VStack
                 
                 .frame(width: 325)

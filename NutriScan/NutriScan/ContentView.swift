@@ -20,7 +20,7 @@ struct ContentView: View {
                  AppView()
                      .navigationBarHidden(true) // Hide navigation bar for AppView
              } else {
-                 SocialMediaSignUpView()
+                 LoginView()
                      .navigationBarHidden(true) // Hide navigation bar for SocialMediaSignUpView
              }
     }
