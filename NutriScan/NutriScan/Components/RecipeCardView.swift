@@ -67,12 +67,9 @@ struct RecipeCardView: View {
                 Button(action: {
                     print("Buton pressed")
 
+
                     //handel meal type?????
                     showActionSheet = true
-                    print("Inserting card mealType: \(selectedMealType)")
-                   MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: selectedMealType)
-                   
-
                 },label:  {
                     Image(systemName: "plus.circle")
                         .resizable()

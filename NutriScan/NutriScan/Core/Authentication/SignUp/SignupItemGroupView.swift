@@ -19,13 +19,13 @@ struct SignupItemGroupView: View {
     var body: some View {
         NavigationView {
             HStack(alignment: .center, spacing: 20) {
-                //FACEBOOK
-                Button {
-                    // Add your Facebook sign-in logic here
-                } label: {
-                    SignupItemView(backgroundColor: "facebookColor", image: "facebook")
-                }
-                
+//                //FACEBOOK
+//                Button {
+//                    // Add your Facebook sign-in logic here
+//                } label: {
+//                    SignupItemView(backgroundColor: "facebookColor", image: "facebook")
+//                }
+//                
                 //GOOGLE
                 NavigationLink(destination: RegistrationView(gmail: userGmail), isActive: $isLoggedin) {
                     Button(action: {
@@ -36,14 +36,14 @@ struct SignupItemGroupView: View {
                 }
                 
                 //TWITTER(X)
-                Button {
-                    // Add your Twitter sign-in logic here
-                } label: {
-                    SignupItemView(backgroundColor: "XColor", image: "x")
-                }
+//                Button {
+//                    // Add your Twitter sign-in logic here
+//                } label: {
+//                    SignupItemView(backgroundColor: "XColor", image: "x")
+//                }
             }
         }
-        .navigationTitle("Sign Up")
+//        
         .onReceive(signUpViewModel.$isLogin) { isLoggedIn in
             if isLoggedIn {
                 isLoggedin = true

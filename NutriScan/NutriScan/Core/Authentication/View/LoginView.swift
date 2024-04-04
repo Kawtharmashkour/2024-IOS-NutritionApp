@@ -93,18 +93,22 @@ struct LoginView: View {
                         }
                     )
                 }
-                .padding() // Add padding to the HStack if needed
-
-                Spacer()
-                //sign up button
+                .padding(.bottom, -10)
+                .padding(.top, 10)
+                .scenePadding(Edge.Set(rawValue: 10))
                
+
+                //SignUp with social
+                SignupItemGroupView()
                 
+
                 NavigationLink{
                     RegistrationView()
                         .navigationBarBackButtonHidden(true)
                 } label :{
                     HStack{
                         Text("Don't have an account?")
+                            .foregroundColor(.black)
                         Text("Sign Up")
                             .fontWeight(.bold)
                     }
@@ -144,6 +148,6 @@ extension LoginView: AuthenticationFormProtocol {
     
 }
 
-//#Preview {
-//    LoginView( userProfile: <#UserProfile#>)
-//}
+#Preview {
+    LoginView()
+}
