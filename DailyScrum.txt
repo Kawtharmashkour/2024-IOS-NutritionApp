@@ -246,6 +246,24 @@ Day: 12
 3- Need assistance/ NA
 
 
+Day: 13
+2024/04/04 Kawthar
+1- Done/ previous scrum
+2- To do/ User can filter recipe search based on many restrictions
+3- Need assistance/ NA
+
+2024/04/04 Behnaze
+1- Done/ - correction for daily tracker page based on listViewModel for inserting Meal
+	 - study about text scanning for extracting calories, proteins, fats, carbs
+2- To do/ implementing text scanning in daily tracker page
+3- Need assistance/ NA
+
+2024/04/04 Shadan
+1- Done/ previous scrum
+2- To do/ Working on sign up with google part
+3- Need assistance/ NA
+
+
 
 
 

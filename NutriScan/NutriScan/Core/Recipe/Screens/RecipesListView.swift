@@ -25,6 +25,7 @@ struct RecipesListView: View {
                   SearchBar(searchText: $searchText)
                     
                     List {
+                        Text("Result: \(recipeListVM.to) of \(recipeListVM.count) Recipes")
                         ForEach(filteredRecipes) { recipe in
                                 RecipeCardView(recipe: recipe)
                                     .listRowSeparator(.hidden, edges: .all)
