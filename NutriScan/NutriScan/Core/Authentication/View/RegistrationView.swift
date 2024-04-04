@@ -4,6 +4,7 @@ import SwiftUI
 struct RegistrationView: View {
     
     @State private var email = ""
+    var gmail :String?
     @State private var emailError = ""
     @State private var fullname = ""
     @State private var fullnameError = ""
@@ -33,42 +34,54 @@ struct RegistrationView: View {
                     .padding(.vertical, 5)
                 
                 VStack(alignment: .leading, spacing: 10){
-                    Inputview(text: $email, title: "Email Address", placeholder: "name@example.com")
-                    Text(emailError)
-                        .foregroundColor(.red)
-                        .padding(.leading)
+                    
+                    if let gmail = gmail {
+                        Inputview(text: Binding<String>(
+                                     get: { gmail },
+                                     set: { _ in }
+                                 ), title: "Email Address", placeholder: "")
+                            .disabled(true)
+                            .padding(.leading)
+                    }
+                    else{
+                        Inputview(text: $email, title: "Email Address", placeholder: "name@example.com")
+                        Text(emailError)
+                            .foregroundColor(.red)
+                            .padding(.leading)
+                    }
                     
                     Inputview(text: $fullname, title: "Full Name", placeholder: "Enter your name")
                     Text(fullnameError)
                         .foregroundColor(.red)
                         .padding(.leading)
                     
-                    Inputview(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
-                    Text(passwordError)
-                        .foregroundColor(.red)
-                        .padding(.leading)
-                    
-                    ZStack(alignment: .trailing){
-                        Inputview(text: $confirmPassword, title: "Confirm Password", placeholder: "Confirm your password", isSecureField: true)
+                    if passwordFieldsVisible {
+                        Inputview(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
+                        Text(passwordError)
+                            .foregroundColor(.red)
+                            .padding(.leading)
                         
-                        if !password.isEmpty && !confirmPassword.isEmpty {
-                            if password == confirmPassword {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .imageScale(.large)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(.systemGreen))
-                            } else {
-                                Image(systemName: "xmark.circle.fill")
-                                    .imageScale(.large)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(.systemRed))
+                        ZStack(alignment: .trailing){
+                            Inputview(text: $confirmPassword, title: "Confirm Password", placeholder: "Confirm your password", isSecureField: true)
+                            
+                            if !password.isEmpty && !confirmPassword.isEmpty {
+                                if password == confirmPassword {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .imageScale(.large)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(.systemGreen))
+                                } else {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .imageScale(.large)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(.systemRed))
+                                }
                             }
                         }
+                        Text(confirmPasswordError)
+                            .foregroundColor(.red)
+                            .padding(.leading)
                     }
-                    Text(confirmPasswordError)
-                        .foregroundColor(.red)
-                        .padding(.leading)
-                    
                     Inputview(text: $height, title: "Height", placeholder: "Enter your height(cm)")
                         .keyboardType(.decimalPad)
                     Text(heightError)
@@ -164,9 +177,31 @@ struct RegistrationView: View {
 
     }
     
+//    var formIsValid: Bool {
+//        return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
+//    }
     var formIsValid: Bool {
-        return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
+        var isValid = true
+        
+        isValid = isValid && Validation.validateFullName(fullname).isEmpty
+        isValid = isValid && Validation.validateHeight(height).isEmpty
+        isValid = isValid && Validation.validateWeight(weight).isEmpty
+        isValid = isValid && Validation.validateWeight(targetWeight).isEmpty
+        
+        // Only validate email and password fields if not signing in with Gmail
+        if gmail == nil {
+            isValid = isValid && Validation.validateEmail(email).isEmpty
+            isValid = isValid && Validation.validatePassword(password).isEmpty
+            isValid = isValid && Validation.validateConfirmedPassword(password, confirmPassword).isEmpty
+           
+        }
+        
+        return isValid
     }
+
+    var passwordFieldsVisible: Bool {
+           return gmail == nil
+       }
  }
 #Preview {
     RegistrationView()

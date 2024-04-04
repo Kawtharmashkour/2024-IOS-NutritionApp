@@ -44,13 +44,6 @@ struct SocialMediaSignUpView: View {
                     SignUpTitleView(title: "Or sign up with")
                         .padding(.vertical)
                     
-                    NavigationLink(
-                                       destination: RegistrationView(), 
-                                       isActive: $isLoggedIn, // Bind to the @State variable
-                                       label: {
-                                           EmptyView() // Empty view as label
-                                       }
-                                   )
                                 }
                 
               

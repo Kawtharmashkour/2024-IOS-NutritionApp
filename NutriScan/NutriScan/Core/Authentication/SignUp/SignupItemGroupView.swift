@@ -6,35 +6,54 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SignupItemGroupView: View {
     @EnvironmentObject var SignupVM: SignUpViewModel
-    @StateObject var signUpViewModel = SignUpViewModel() 
+    @StateObject var signUpViewModel = SignUpViewModel()
+    @State var isLoggedin: Bool = false
+    @State var errorMessage: String = ""
+    @State var userGmail: String = "" // State variable to store the user's email address
+
     
     var body: some View {
-        HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
-            //FACEBOOK
-            Button {
+        NavigationView {
+            HStack(alignment: .center, spacing: 20) {
+                //FACEBOOK
+                Button {
+                    // Add your Facebook sign-in logic here
+                } label: {
+                    SignupItemView(backgroundColor: "facebookColor", image: "facebook")
+                }
                 
-            } label: {
-                SignupItemView(backgroundColor: "facebookColor", image: "facebook")
-            }
-            
-            //GOOGLE
-            Button {
-                signUpViewModel.signUpWithGoogle() 
-            } label: {
-                SignupItemView(backgroundColor: "googleColor", image: "Google")
-            }
-            
-            //TWITTER(X)
-            Button {
+                //GOOGLE
+                NavigationLink(destination: RegistrationView(gmail: userGmail), isActive: $isLoggedin) {
+                    Button(action: {
+                        signUpViewModel.signUpWithGoogle()
+                    }) {
+                        SignupItemView(backgroundColor: "googleColor", image: "Google")
+                    }
+                }
                 
-            } label: {
-                SignupItemView(backgroundColor: "XColor", image: "x")
+                //TWITTER(X)
+                Button {
+                    // Add your Twitter sign-in logic here
+                } label: {
+                    SignupItemView(backgroundColor: "XColor", image: "x")
+                }
             }
-            
-        }//HSTACK
+        }
+        .navigationTitle("Sign Up")
+        .onReceive(signUpViewModel.$isLogin) { isLoggedIn in
+            if isLoggedIn {
+                isLoggedin = true
+                if let user = Auth.auth().currentUser {
+                    userGmail = user.email ?? ""
+                }
+            } else {
+                errorMessage = "Error Connecting to Gmail"
+            }
+        }
     }
 }
 
