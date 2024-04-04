@@ -50,6 +50,7 @@
 		D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */; };
 		D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742F2BAC94420058B0EC /* CalendarView.swift */; };
 		EF0ACDAE2BAC49DC00530C2B /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */; };
+		EF2A42052BBF407000038CF6 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A42042BBF407000038CF6 /* CustomViewModifiers.swift */; };
 		EF5572D82BB5B941005436CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5572D72BB5B941005436CE /* Launch Screen.storyboard */; };
 		EF5572DA2BB5C551005436CE /* NutritionFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5572D92BB5C551005436CE /* NutritionFact.swift */; };
 		EF5FD2FB2BA54F9A0033987F /* NutriScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD2FA2BA54F9A0033987F /* NutriScanApp.swift */; };
@@ -111,6 +112,7 @@
 		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
 		D7F4742F2BAC94420058B0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		EF0ACDAD2BAC49DC00530C2B /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		EF2A42042BBF407000038CF6 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 		EF5572D72BB5B941005436CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EF5572D92BB5C551005436CE /* NutritionFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionFact.swift; sourceTree = "<group>"; };
 		EF5FD2F72BA54F9A0033987F /* NutriScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,6 +370,7 @@
 			children = (
 				EF720F4A2BAD12A400AC9635 /* Constants.swift */,
 				691796322BB9DDF8002EE129 /* Validation.swift */,
+				EF2A42042BBF407000038CF6 /* CustomViewModifiers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				D76F9AD02BAE51D900AD97BE /* AddMealView.swift in Sources */,
 				691796312BB8EF8B002EE129 /* EditInputView.swift in Sources */,
 				D7F474302BAC94420058B0EC /* CalendarView.swift in Sources */,
+				EF2A42052BBF407000038CF6 /* CustomViewModifiers.swift in Sources */,
 				EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */,
 				EF720F4B2BAD12A400AC9635 /* Constants.swift in Sources */,
 				69670A3E2BB3C94D00E88AB8 /* EditProfileView.swift in Sources */,

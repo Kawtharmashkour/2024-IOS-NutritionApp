@@ -13,7 +13,6 @@ struct RecipeCardView: View {
     var recipe: RecipeViewModel
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
-    @State private var selectedMealType: String = ""
     @State private var showActionSheet = false
     
     var body: some View {
@@ -67,8 +66,6 @@ struct RecipeCardView: View {
                 Button(action: {
                     print("Buton pressed")
 
-
-                    //handel meal type?????
                     showActionSheet = true
                 },label:  {
                     Image(systemName: "plus.circle")
@@ -83,24 +80,28 @@ struct RecipeCardView: View {
                                         .cancel(),
                                         .default(
                                             Text("Breakfast"),
-                                            action: {selectedMealType = "Breakfast"}
+                                            action: {
+                                                MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "breakfast")
+                                            }
                                         ),
                                         .default(
                                             Text("Lunch"),
-                                            action: {selectedMealType = "Lunch"}
+                                            action: {
+                                                MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "lunch")
+                                            }
                                         ),
                                         .default(
                                             Text("Diner"),
-                                            action: {selectedMealType = "Diner"}
+                                            action: {
+                                                MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "diner")
+                                            }
                                         )
                                         ,
                                         .default(
                                             Text("Snack"),
-                                            action: {selectedMealType = "Snack"}
-                                        ),
-                                        .default(
-                                            Text("Tea Time"),
-                                            action: {selectedMealType = "TeaTime"}
+                                            action: {
+                                                MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "snack")
+                                            }
                                         )
                                     ]
                         )
@@ -112,7 +113,7 @@ struct RecipeCardView: View {
         .background(Color("ColorAppearanceAdaptive"))
         .cornerRadius(12)
         .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x:0, y:0)
-        .padding()
+        //.padding()
     }
     
     

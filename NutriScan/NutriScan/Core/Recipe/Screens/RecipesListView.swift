@@ -25,7 +25,13 @@ struct RecipesListView: View {
                   SearchBar(searchText: $searchText)
                     
                     List {
-                        Text("Result: \(recipeListVM.to) of \(recipeListVM.count) Recipes")
+                        HStack {
+                            Text("Result: \(recipeListVM.to) of \(recipeListVM.count) Recipes")
+                            Spacer()
+                            Image("icon-filter")
+                                .resizable()
+                                .modifier(IconModifier())
+                        }
                         ForEach(filteredRecipes) { recipe in
                                 RecipeCardView(recipe: recipe)
                                     .listRowSeparator(.hidden, edges: .all)
@@ -42,6 +48,7 @@ struct RecipesListView: View {
                     .frame(maxWidth: 640)
                     
                 }
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
         .onAppear {
