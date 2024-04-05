@@ -98,7 +98,7 @@ struct LoginView: View {
                 .scenePadding(Edge.Set(rawValue: 10))
                
 
-                //SignUp with social
+                //SignUp with Google
                 SignupItemGroupView()
                 
 

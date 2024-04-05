@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppView: View {
+    var gmail :String?
 
     var body: some View {
        /* VStack (alignment: .leading)  {

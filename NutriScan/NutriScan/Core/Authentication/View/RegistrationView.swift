@@ -42,6 +42,9 @@ struct RegistrationView: View {
                                  ), title: "Email Address", placeholder: "")
                             .disabled(true)
                             .padding(.leading)
+                        // Set the email to Gmail if provided
+                       
+                                       
                     }
                     else{
                         Inputview(text: $email, title: "Email Address", placeholder: "name@example.com")
@@ -166,6 +169,10 @@ struct RegistrationView: View {
         }
         
         .onChange(of: [email, fullname, password, confirmPassword, height, weight, targetWeight]) { _ in
+            
+            if let gmail = gmail {
+                            email = gmail
+                        }
             emailError = Validation.validateEmail(email)
             fullnameError = Validation.validateFullName(fullname)
             passwordError = Validation.validatePassword(password)
@@ -177,9 +184,6 @@ struct RegistrationView: View {
 
     }
     
-//    var formIsValid: Bool {
-//        return emailError.isEmpty && fullnameError.isEmpty && passwordError.isEmpty && confirmPasswordError.isEmpty && heightError.isEmpty && weightError.isEmpty && targetWeightError.isEmpty
-//    }
     var formIsValid: Bool {
         var isValid = true
         
@@ -200,8 +204,19 @@ struct RegistrationView: View {
     }
 
     var passwordFieldsVisible: Bool {
+          
            return gmail == nil
        }
+    
+    init(gmail: String? = nil) {
+          self.gmail = gmail
+        _email = State(initialValue: gmail ?? "")
+          // Set password to "123456" if signing in with Gmail
+          if gmail != nil {
+              self._password = State(initialValue: "123456")
+              self._confirmPassword = State(initialValue: "123456")
+          }
+      }
  }
 #Preview {
     RegistrationView()
