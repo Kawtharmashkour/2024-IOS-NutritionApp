@@ -57,33 +57,34 @@ struct MealDataManager {
             }
         }
     }
+    
+    static func insertNutritionalData(userId: String, mealType: String, mealName: String, nutritionalInfo: (calories: Double, protein: Double, carbs: Double, fats: Double), completion: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        let mealDocument = db.collection("users").document(userId).collection("meals").document()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let formattedDate = dateFormatter.string(from: Date())
 
+        mealDocument.setData([
+            "date": formattedDate,
+            "type": mealType,
+            "name": mealName,
+            "calories": nutritionalInfo.calories,
+            "proteins": nutritionalInfo.protein,
+            "carbs": nutritionalInfo.carbs,
+            "fats": nutritionalInfo.fats
+        ]) { error in
+            if let error = error {
+                print("Error adding nutritional data: \(error)")
+                completion(false)
+            } else {
+                print("Nutritional data added successfully")
+                completion(true)
+            }
+        }
+    }
 
-//    static func insertMealData(userId: String , mealData: RecipeViewModel) {
-//        print("Inserting meal data for user: \(userId), date: \(Date()), mealData: \(mealData)")
-//            let db = Firestore.firestore()
-//            let mealDocument = db.collection("users").document(userId).collection("meals").document()
-//
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyyMMdd"
-//            let formattedDate = dateFormatter.string(from: Date())
-//
-//          mealDocument.setData([
-//              "date": formattedDate,
-//              "type": mealData.mealType,
-//              "carbs": mealData.totalNutrients.CHOCDF.quantity,
-//              "fats": mealData.totalNutrients.FAT.quantity,
-//              "proteins": mealData.totalNutrients.PROCNT.quantity,
-//              "calories": mealData.totalNutrients.ENERC_KCAL.quantity,
-//              "name": mealData.title
-//          ]) { error in
-//              if let error = error {
-//                  print("Error adding meal: \(error)")
-//              } else {
-//                  print("Meal added successfully")
-//              }
-//          }
-//      }
     
     static func deleteMealData(userId: String, mealId: String, completion: @escaping (Bool) -> Void) {
         let db = Firestore.firestore()

@@ -43,14 +43,24 @@ struct NutritionView: View {
                         }
 
                         MealSectionView(
-                            mealType: "lunch/dinner",
+                            mealType: "lunch",
                             meals: $lunchData,
                             showAddMealView: $showAddMealView,
                             currentMealType: $currentMealType,
                             userId: authViewModel.userId ?? ""
                         )
                         .sheet(isPresented: $showAddMealView) {
-                            RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "lunch/dinner"))
+                            RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "lunch"))
+                        }
+                        MealSectionView(
+                            mealType: "dinner",
+                            meals: $lunchData,
+                            showAddMealView: $showAddMealView,
+                            currentMealType: $currentMealType,
+                            userId: authViewModel.userId ?? ""
+                        )
+                        .sheet(isPresented: $showAddMealView) {
+                            RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "dinner"))
                         }
 
                         MealSectionView(

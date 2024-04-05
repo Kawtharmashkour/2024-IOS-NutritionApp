@@ -73,37 +73,42 @@ struct MealSectionView: View {
                     VStack(alignment: .leading) {
                         Text(meal.name)
                             .font(.headline)
-
-                        // Split the meal type string into an array and display each type
-                        ForEach(meal.type.components(separatedBy: ", "), id: \.self) { type in
-                            Text("Type: \(type)")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
                     }
                 }
                 .onDelete(perform: deleteMeal)
             }
+            .frame(height: 300)
+        }.onAppear {
+            print("Meals for \(mealType): \(meals)")
         }
         .sheet(isPresented: $showScanner) {
-            TextScannerView(recognizedText: $recognizedText)
-                .onDisappear {
-                    let extractedInfo = extractNutritionalInfo(from: recognizedText.components(separatedBy: "\n"))
-                    print("Extracted Info: \(extractedInfo)")
-                    // Add additional logic to handle the extracted nutritional information
+                    TextScannerView(recognizedText: $recognizedText)
+                        .onDisappear {
+                            let extractedInfo = extractNutritionalInfo(from: recognizedText.components(separatedBy: "\n"))
+                            print("Extracted Info: \(extractedInfo)")
+
+                            // Insert the extracted nutritional information into the database
+                            MealDataManager.insertNutritionalData(userId: userId, mealType: currentMealType, mealName: "Chips", nutritionalInfo: extractedInfo) { success in
+                                if success {
+                                    print("Nutritional data saved successfully")
+                                    // Optionally, you can update your UI or fetch the updated data here
+                                } else {
+                                    print("Failed to save nutritional data")
+                                }
+                            }
+                        }
                 }
-        }
     }
 
     private func deleteMeal(at offsets: IndexSet) {
-            for index in offsets {
-                if let mealId = meals[index].id {
-                    MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
-                        if success {
-                            meals.remove(at: index)
-                        }
+        for index in offsets {
+            if let mealId = meals[index].id {
+                MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
+                    if success {
+                        meals.remove(at: index)
                     }
                 }
             }
         }
     }
+}
