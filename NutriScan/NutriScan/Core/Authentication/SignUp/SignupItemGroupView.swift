@@ -27,8 +27,8 @@ struct SignupItemGroupView: View {
 //                }
 //                
                 //GOOGLE
-               NavigationLink(destination: RegistrationView(gmail: userGmail), isActive: $isLoggedin) {
-//              NavigationLink(destination: AppView(gmail: userGmail), isActive: $isLoggedin) {
+ //              NavigationLink(destination: RegistrationView(gmail: //userGmail), isActive: $isLoggedin) {
+              NavigationLink(destination: AppView(gmail: userGmail), isActive: $isLoggedin) {
                     Button(action: {
                         signUpViewModel.signUpWithGoogle()
                     }) {
