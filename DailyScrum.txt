@@ -264,6 +264,26 @@ Day: 13
 3- Need assistance/ NA
 
 
+Day: 14
+2024/04/05 Kawthar
+1- Done/ UI implementation of the User can filter recipe search based on many restrictions
+2- To do/ -API implementation of User can filter recipe search based on many restrictions
+	 - Response model for meal planer API
+3- Need assistance/ NA
+
+2024/04/05 Behnaze
+1- Done/ - previous scrum
+	 - delete meals in daily tracking page
+2- To do/ - improve UI implementation  for Meal Section View
+	  - Weekly tracking report
+3- Need assistance/ NA
+
+2024/04/05 Shadan
+1- Done/ previous scrum
+2- To do/ solve problem of the user should not have password in sign up with google part
+3- Need assistance/ NA
+
+
 
 
 
