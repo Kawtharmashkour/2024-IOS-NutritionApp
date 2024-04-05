@@ -13,7 +13,7 @@ struct MealSectionView: View {
         VStack(alignment: .leading) {
             // Meal type and buttons
             HStack {
-                Text(mealType)
+                Text(mealType.uppercased())
                     .fontWeight(.bold)
 
                 Spacer()
@@ -77,7 +77,7 @@ struct MealSectionView: View {
                 }
                 .onDelete(perform: deleteMeal)
             }
-            .frame(height: 300)
+            .frame(height: 100) 
         }.onAppear {
             print("Meals for \(mealType): \(meals)")
         }
