@@ -76,6 +76,7 @@
 		EFA6A1822BAB519F008CA405 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A1812BAB519F008CA405 /* AppView.swift */; };
 		EFA6A1842BAB51C7008CA405 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A1832BAB51C7008CA405 /* HomeView.swift */; };
 		EFC8AADE2BB2102400F4C914 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC8AADD2BB2102400F4C914 /* SearchBar.swift */; };
+		EFE240D12BBF57F000879A53 /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE240D02BBF57F000879A53 /* FilterMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		EFA6A1812BAB519F008CA405 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		EFA6A1832BAB51C7008CA405 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EFC8AADD2BB2102400F4C914 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		EFE240D02BBF57F000879A53 /* FilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				EF9B7AD62BABC89E00190A41 /* HeaderView.swift */,
 				EFC8AADD2BB2102400F4C914 /* SearchBar.swift */,
 				EF5572D92BB5C551005436CE /* NutritionFact.swift */,
+				EFE240D02BBF57F000879A53 /* FilterMenuView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -445,6 +448,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
@@ -540,6 +546,7 @@
 				EF5FD3112BA552E70033987F /* SwiftUIView.swift in Sources */,
 				EF720F482BAD0B6200AC9635 /* RecipeListResponse.swift in Sources */,
 				D77D76292BBE508800F62B00 /* TextRecognitionUtilities.swift in Sources */,
+				EFE240D12BBF57F000879A53 /* FilterMenuView.swift in Sources */,
 				EF5572DA2BB5C551005436CE /* NutritionFact.swift in Sources */,
 				69BD61F42BA7D87E0025F8EE /* SettingsRowView.swift in Sources */,
 				EF0ACDAE2BAC49DC00530C2B /* ReportView.swift in Sources */,

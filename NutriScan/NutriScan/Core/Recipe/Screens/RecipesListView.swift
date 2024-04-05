@@ -13,32 +13,43 @@ struct RecipesListView: View {
     @State private var isLoading = false
     @State private var searchText = ""
     @State private var filteredRecipes: [RecipeViewModel] = []
+    @State private var isMenuVisible1 = false
     
     var body: some View {
         VStack {
             if isLoading {
                 ProgressView("Loading...").tint(Color("ColorAppearanceAdaptive"))
             } else {
-                
+                ZStack{
+                    if isMenuVisible1 {
+                        FilterMenuView(isMenuVisible1: $isMenuVisible1)
+                            .zIndex(2)
+                    }
                 NavigationStack {
                     
-                  SearchBar(searchText: $searchText)
+                    SearchBar(searchText: $searchText)
                     
                     List {
                         HStack {
                             Text("Result: \(recipeListVM.to) of \(recipeListVM.count) Recipes")
                             Spacer()
-                            Image("icon-filter")
-                                .resizable()
-                                .modifier(IconModifier())
+                            //Filtering
+                            Button(action: {
+                                isMenuVisible1.toggle()
+                            }) {
+                                Image("icon-filter")
+                                    .resizable()
+                                    .modifier(IconModifier())
+                            }
+                            
                         }
                         ForEach(filteredRecipes) { recipe in
-                                RecipeCardView(recipe: recipe)
-                                    .listRowSeparator(.hidden, edges: .all)
-                         
+                            RecipeCardView(recipe: recipe)
+                                .listRowSeparator(.hidden, edges: .all)
+                            
                         }
                         // appears when the end list reached
-                       ProgressView()
+                        ProgressView()
                             .frame(maxWidth: .infinity)
                             .onAppear {
                                 loadNextPage()
@@ -49,6 +60,7 @@ struct RecipesListView: View {
                     
                 }
                 .navigationBarTitleDisplayMode(.inline)
+            }
             }
         }
         .onAppear {
