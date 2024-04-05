@@ -68,16 +68,31 @@ struct MealSectionView: View {
             .padding(.bottom, 5) // Add some spacing between the nutritional info and the meal list
 
             // Display each meal item
-            List {
-                ForEach(meals, id: \.id) { meal in
-                    VStack(alignment: .leading) {
-                        Text(meal.name)
-                            .font(.headline)
-                    }
-                }
-                .onDelete(perform: deleteMeal)
-            }
-            .frame(height: 100) 
+            ScrollView {
+                            VStack {
+                                ForEach(meals, id: \.id) { meal in
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text(meal.name)
+                                                .font(.headline)
+                                            // Add more meal details here if needed
+                                        }
+                                        Spacer()
+                                        Button(action: {
+                                            if let index = meals.firstIndex(where: { $0.id == meal.id }) {
+                                                deleteMeal(at: IndexSet(integer: index))
+                                            }
+                                        }) {
+                                            Image(systemName: "trash")
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+                                    .padding()
+                                    Divider()
+                                }
+                            }
+                        }
+                    
         }.onAppear {
             print("Meals for \(mealType): \(meals)")
         }
