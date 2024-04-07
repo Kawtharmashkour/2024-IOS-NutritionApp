@@ -10,6 +10,7 @@ struct NutritionView: View {
     @State private var currentMealType: String = ""
     @State private var showAddMealView = false
     @State private var showSettings = false
+    @State private var mealdataManager = MealDataManager()
     @EnvironmentObject var authViewModel: AuthViewModel
     var allMeals: [MealData] {
            breakfastData + lunchData + dinnerData + snackData
@@ -19,7 +20,7 @@ struct NutritionView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(spacing:10) {
                     // Calendar navigation bar
                     CalendarView(days: generateDays(), selectedDate: $selectedDate)
 
@@ -31,7 +32,7 @@ struct NutritionView: View {
                   
                     Spacer().frame(height: 200)
                     // Meal sections
-                    VStack {
+                    VStack(spacing:20) {
                         MealSectionView(
                             mealType: "breakfast",
                             meals: $breakfastData,
@@ -85,7 +86,7 @@ struct NutritionView: View {
 //                            RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "teatime"))
 //                        }
                     }
-                }
+                }.padding()
                 .navigationTitle("Today")
                 .toolbar {
                     NavigationLink(destination: SettingView(), isActive: $showSettings) {
@@ -93,7 +94,7 @@ struct NutritionView: View {
                                                showSettings = true
                                            }) {
                                                Image(systemName: "gearshape")
-                                                   .foregroundColor(.blue)
+                                                   .foregroundColor(Color("ColorGreenAdaptive"))
                                            }
                                        }
                     .onAppear {

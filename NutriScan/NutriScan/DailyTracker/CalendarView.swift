@@ -1,15 +1,14 @@
-//
-//  CalendarView.swift
-//  Callories
-//
-//  Created by behnaz Khalili on 2024-03-18.
-//
 import SwiftUI
 
 struct CalendarView: View {
     let days: [Date]
     @Binding var selectedDate: Date
 
+    private let dayMonthFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d" // Format for month and day
+        return formatter
+    }()
 
     var body: some View {
         // Wrap the ScrollView in a ScrollViewReader
@@ -21,9 +20,9 @@ struct CalendarView: View {
                         Button(action: {
                             selectedDate = day
                         }) {
-                            Text(day, style: .date)
+                            Text(dayMonthFormatter.string(from: day)) // Use the custom formatter
                                 .padding()
-                                .background(Calendar.current.isDate(selectedDate, inSameDayAs: day) ? Color.blue : Color.gray)
+                                .background(Calendar.current.isDate(selectedDate, inSameDayAs: day) ? Color(Color("ColorGreenAdaptive")) : Color.green)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
@@ -43,7 +42,3 @@ struct CalendarView: View {
         }
     }
 }
-//#Preview {
-  //  CalendarView()
-//}
-

@@ -19,6 +19,10 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var editMode: EditMode = .inactive // Add an EditMode state
     @Environment(\.presentationMode) var presentationMode // Access presentationMode
+    @AppStorage("calorieGoal") private var calorieGoal: Double = 1500
+    @AppStorage("proteinGoal") private var proteinGoal: Double = 50
+    @AppStorage("fatGoal") private var fatGoal: Double = 70
+    @AppStorage("carbGoal") private var carbGoal: Double = 300
     
     var suggestion : String = ""
     var body: some View {
@@ -145,13 +149,74 @@ struct ProfileView: View {
                         }
                     }
 
+                    // Your Daily Goal Section
+                    VStack(alignment: .leading) {
+                        Text("Your Daily Goal")
+                            .font(.title2)
+                            .padding(.bottom)
+                        // Calorie goal slider
+                        VStack {
+                            HStack{
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(.red)
+                                    
+                                Text("Calories")
+                                Spacer()
+                                Text("\(Int(calorieGoal))")
+                            }
+                            Slider(value: $calorieGoal, in: 500...4000, step: 50)
+                                .accentColor(.red)
+                        }
+                        // Protein goal slider
+                        VStack {
+                            HStack{
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(.green)
+                                Text("Protein")
+                                Spacer()
+                                Text("\(Int(proteinGoal))")
+                            }
+                            Slider(value: $proteinGoal, in: 10...200, step: 5)
+                                .accentColor(.green)
+                        }
+                        // Fat goal slider
+                        VStack {
+                            HStack{
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(.blue)
+                                Text("Fat")
+                                Spacer()
+                                Text("\(Int(fatGoal))")
+                            }
+                            Slider(value: $fatGoal, in: 0...150, step: 5)
+                                .accentColor(.blue)
+                        }
+                        
+                        // Carb goal slider
+                        VStack {
+                            HStack{
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(.yellow)
+                                Text("Carbs")
+                                Spacer()
+                                Text("\(Int(carbGoal))")
+                            }
+                            Slider(value: $carbGoal, in: 0...500, step: 10)
+                                .accentColor(.yellow)
+                        }
+                        
+                    }
+                    
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding()
                     
                     
                 }//list
                 .navigationBarTitle("Profile", displayMode: .inline)
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: backButton, trailing: editButton)
-                // .navigationBarItems(leading: backButton, trailing: editButton)
                 .environment(\.editMode, $editMode)
                 .onAppear {
                     // Set isEditing to true when the view appears
@@ -177,7 +242,7 @@ struct ProfileView: View {
             }
         }
     }
-    //Customisesd back button
+  //  Customisesd back button
     var backButton: some View {
         Button(action: {
             // Dismiss the current view
@@ -186,6 +251,7 @@ struct ProfileView: View {
             HStack(spacing: 2) {
                 Image(systemName: "chevron.left")
                 Text("Back")
+                    
             }
         }
         .accessibility(label: Text("Back")) // Optional: add accessibility label for screen readers

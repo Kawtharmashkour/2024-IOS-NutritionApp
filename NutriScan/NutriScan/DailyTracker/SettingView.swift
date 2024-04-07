@@ -8,10 +8,6 @@
 import SwiftUI
 
 struct SettingView: View {
-        @AppStorage("calorieGoal") private var calorieGoal: Double = 1500
-        @AppStorage("proteinGoal") private var proteinGoal: Double = 50
-        @AppStorage("fatGoal") private var fatGoal: Double = 70
-        @AppStorage("carbGoal") private var carbGoal: Double = 300
     var body: some View {
         ScrollView {
             VStack {
@@ -69,68 +65,6 @@ struct SettingView: View {
                 .cornerRadius(10)
                 .padding()
                 
-                // Your Daily Goal Section
-                VStack(alignment: .leading) {
-                    Text("Your Daily Goal")
-                        .font(.title2)
-                        .padding(.bottom)
-                    // Calorie goal slider
-                    VStack {
-                        HStack{
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.red)
-                                
-                            Text("Calories")
-                            Spacer()
-                            Text("\(Int(calorieGoal))")
-                        }
-                        Slider(value: $calorieGoal, in: 500...4000, step: 50)
-                            .accentColor(.red)
-                    }
-                    // Protein goal slider
-                    VStack {
-                        HStack{
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.green)
-                            Text("Protein")
-                            Spacer()
-                            Text("\(Int(proteinGoal))")
-                        }
-                        Slider(value: $proteinGoal, in: 10...200, step: 5)
-                            .accentColor(.green)
-                    }
-                    // Fat goal slider
-                    VStack {
-                        HStack{
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.blue)
-                            Text("Fat")
-                            Spacer()
-                            Text("\(Int(fatGoal))")
-                        }
-                        Slider(value: $fatGoal, in: 0...150, step: 5)
-                            .accentColor(.blue)
-                    }
-                    
-                    // Carb goal slider
-                    VStack {
-                        HStack{
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.yellow)
-                            Text("Carbs")
-                            Spacer()
-                            Text("\(Int(carbGoal))")
-                        }
-                        Slider(value: $carbGoal, in: 0...500, step: 10)
-                            .accentColor(.yellow)
-                    }
-                    
-                }
-                
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .padding()
                 
                 Spacer()
                 // Spresd the word Section
@@ -154,6 +88,17 @@ struct SettingView: View {
                         
                     }
                     .padding(.vertical)
+                    Divider()
+                    
+                        HStack{
+                            SettingsRowView(imageName: "gear", title: "Version", tintcolor: Color(.systemGray))
+                            Spacer()
+                            
+                            Text("1.0.0")
+                                .font(.headline)
+                                .foregroundColor(.gray)
+                            
+                        }
         
                     
                 }

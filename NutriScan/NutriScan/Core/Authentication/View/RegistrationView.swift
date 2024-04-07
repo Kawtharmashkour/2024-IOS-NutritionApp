@@ -235,7 +235,7 @@ struct RegistrationView: View {
                                 dismiss()
                             }) {
                                 Image(systemName: "arrow.left")
-                                        .foregroundColor(.blue)
+                                    .foregroundColor(Color("ColorGreenAdaptive"))
                                         .fontWeight(.bold)
                                     
                             }

@@ -46,7 +46,7 @@ struct NutritionalGraphView: View {
                             SectorMark(angle: .value("Intake", nutrient.intake), innerRadius: .ratio(0.9 - CGFloat(index) * 0.1))
                                 .foregroundStyle(color(for: nutrient.type))
                             SectorMark(angle: .value("Remaining", maxScaleValue - nutrient.intake), innerRadius: .ratio(0.9 - CGFloat(index) * 0.1))
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(Color("ColorGreenAdaptive"))
                         }
                         .chartLegend(.hidden)
                         .frame(width: chartWidth - CGFloat(index) * 30, height: chartWidth - CGFloat(index) * 30)
@@ -67,6 +67,7 @@ struct NutritionalGraphView: View {
                     .frame(width: chartWidth, height: chartWidth)
                     .chartLegend(.hidden)
                     .chartXScale(domain: 0...maxScaleValue) // Set the x-axis range to match the fixed scale
+                    .padding()
                 }
             }
         }

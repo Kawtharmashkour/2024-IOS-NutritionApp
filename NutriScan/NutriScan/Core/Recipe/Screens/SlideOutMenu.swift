@@ -52,6 +52,7 @@ struct SlideMenuView: View {
                                         .foregroundColor(.white)
                                         .padding()
                                 }
+                .navigationBarBackButtonHidden(true)
                 NavigationLink(destination: ProfileView()) {
                                     Text("Sign Out")
                                         .foregroundColor(.white)

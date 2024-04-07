@@ -25,6 +25,7 @@ struct MealSectionView: View {
                     Image(systemName: "doc.text.viewfinder")
                         .resizable()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(Color("ColorGreenAdaptive"))
                 }
                 .padding(.trailing, 10)
 
@@ -36,6 +37,7 @@ struct MealSectionView: View {
                     Image(systemName: "plus.circle")
                         .resizable()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(Color("ColorGreenAdaptive"))
                 }
             }
             .padding(.bottom, 5) // Add some spacing between the buttons and the nutritional info
@@ -88,9 +90,13 @@ struct MealSectionView: View {
                                         }
                                     }
                                     .padding()
-                                    Divider()
+                                    .background(Color("ColorAppearanceAdaptive"))
+                                    .cornerRadius(12)
+                                    .shadow(color: Color("ColorBlackTransparentLight"), radius: 4, x:0, y:0)
+                                    
                                 }
                             }
+                            .padding()
                         }
                     
         }.onAppear {
