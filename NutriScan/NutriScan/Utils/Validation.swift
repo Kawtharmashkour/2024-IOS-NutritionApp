@@ -68,6 +68,14 @@ struct Validation{
     static func validateEditConfirmedPassword(_ password: String, _ confirmedPassword: String)  -> String {
         return  !password.isEmpty && !isValidConfirmedPassword(password, confirmedPassword) ?"Passwords do not match" : ""
     }
-
+    static func validateAge(_ age: String) -> String {
+        return age.isEmpty ? "Age can not be empty" : !isValidAge(age) ? "Inavalid age format" : ""
+    }
+    
+    static func isValidAge(_ age: String) -> Bool {
+        let nameRegex = "^[0-9]+$"
+        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+        return namePredicate.evaluate(with: age)
+    }
 
 }

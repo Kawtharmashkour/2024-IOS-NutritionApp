@@ -118,6 +118,7 @@ struct LoginView: View {
                     
                 }
             }
+            
         }
     }
     func errorMessage(for errorCode: Int) -> String {

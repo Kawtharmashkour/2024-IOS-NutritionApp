@@ -15,6 +15,8 @@ struct User: Identifiable,Codable {
     let weight: String
     let targetWeight : String
     let gender : String
+    let age : String
+    let activityLevel: String
     
     var initials : String{
         let formatter = PersonNameComponentsFormatter()
@@ -37,6 +39,11 @@ extension User {
     // Computed property to convert weight from String to Double
     var doubleWeight: Double? {
         return Double(weight)
+    }
+    
+    // Computed property to convert age from String to Double
+    var doubleAge: Double? {
+        return Double(age)
     }
     
     // Computed property to convert targetWeight from String to Double

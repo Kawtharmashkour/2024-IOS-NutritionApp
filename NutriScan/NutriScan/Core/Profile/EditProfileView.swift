@@ -23,6 +23,11 @@ struct EditProfileView: View {
     @State private var heightError = ""
     @State private var selectedGender: String? = ""
     let genders = ["Male", "Female"]
+    @State private var age = ""
+    @State private var ageError = ""
+    @State private var activityLevel = ""
+    let activityLevels = ["Sedentary", "Light","Moderate","High", "Extreme"]
+//    @State private var selectedActivityLevelIndex : Int? = 0 
     
     @State private var hasChanges = false // Flag to track changes
     @State private var showAlert = false  // Flag to control showing the alert
@@ -66,6 +71,28 @@ struct EditProfileView: View {
                 .foregroundColor(.red)
                 .padding(.leading)
             
+            EditInputview(text: $age, title: "Age")
+                .keyboardType(.decimalPad)
+                 Text(ageError)
+                .foregroundColor(.red)
+                .padding(.leading)
+            
+            VStack {
+                     Text("Selected Activity Level: \(activityLevel)")
+                         .padding()
+                     
+                     Picker(selection: $activityLevel, label: Text("Select your Activity Level")) {
+                         ForEach(activityLevels, id: \.self) { level in
+                                Text(level)
+                         }
+                     }
+               
+                     .pickerStyle(SegmentedPickerStyle())
+                     .padding()
+                
+                
+                 }
+            
             Text("Gender")
                 .font(.subheadline)
                 .foregroundColor(.black)
@@ -100,7 +127,7 @@ struct EditProfileView: View {
             guard let gender = selectedGender else {
                 return
             }
-            try await viewModel.updateProfile(fullname: fullname, email: email, height: height, weight: weight, targetWeight: targetWeight, gender: gender)
+            try await viewModel.updateProfile(fullname: fullname, email: email, height: height, weight: weight, targetWeight: targetWeight, gender: gender, age: age, activityLevel: activityLevel)
             
             await viewModel.fetchUser()
             showAlert = true
@@ -152,7 +179,7 @@ struct EditProfileView: View {
         heightError = Validation.validateHeight(height)
         weightError = Validation.validateWeight(weight)
         targetWeightError = Validation.validateWeight(targetWeight)
-        
+        ageError = Validation.validateAge(age)
         hasChanges = true
     }
         
@@ -171,6 +198,9 @@ struct EditProfileView: View {
                     weight = editFetchedUser.weight
                     targetWeight = editFetchedUser.targetWeight
                     selectedGender = editFetchedUser.gender
+                    age = editFetchedUser.age
+                    activityLevel = editFetchedUser.activityLevel
+                   // selectedActivityLevelIndex = activityLevels.firstIndex(of: activityLevel) ?? 0 // Set the selected index
                     
                     hasChanges = false
                 } else {

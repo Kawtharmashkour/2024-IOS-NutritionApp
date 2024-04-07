@@ -18,6 +18,7 @@ class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var userId: String? //Behnaz
+   
     
     //if the user is sign in store data locally in the device
     init(){
@@ -45,17 +46,18 @@ class AuthViewModel: ObservableObject {
     }
     
     func createUser(withEmail email: String, password: String, fullname: String,
-                    height: String, weight: String, targetWeight: String, gender : String) async throws {
+                    height: String, weight: String, targetWeight: String, gender : String, age: String , activityLevel: String) async throws {
         do{
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
          
 
-            let user = User(id: result.user.uid, fullname: fullname, email: email, height: height, weight: weight, targetWeight: targetWeight, gender: gender)
+            let user = User(id: result.user.uid, fullname: fullname, email: email, height: height, weight: weight, targetWeight: targetWeight, gender: gender, age: age, activityLevel: activityLevel)
             //Encode data
             let encodedUser = try Firestore.Encoder().encode(user)
             //upload data to firestore
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            
             await fetchUser()
         } catch {
             print("DEBUG: Failed to creat user with error \(error.localizedDescription)")
@@ -139,7 +141,7 @@ class AuthViewModel: ObservableObject {
         }
     }
 
-    func updateProfile(fullname: String, email: String, height: String, weight: String, targetWeight: String, gender: String) async {
+    func updateProfile(fullname: String, email: String, height: String, weight: String, targetWeight: String, gender: String, age: String, activityLevel: String) async {
         let db = Firestore.firestore()
         
         // Get current user ID
@@ -157,7 +159,9 @@ class AuthViewModel: ObservableObject {
             "height": height,
             "weight": weight,
             "targetWeight": targetWeight,
-            "gender": gender
+            "gender": gender,
+            "age": age,
+            "activityLevel": activityLevel
         ]
         
         do {

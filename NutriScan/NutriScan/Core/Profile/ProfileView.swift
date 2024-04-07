@@ -20,6 +20,7 @@ struct ProfileView: View {
     @State private var editMode: EditMode = .inactive // Add an EditMode state
     @Environment(\.presentationMode) var presentationMode // Access presentationMode
     
+    var suggestion : String = ""
     var body: some View {
         NavigationView {
             if let user = viewModel.currentUser {
@@ -45,8 +46,18 @@ struct ProfileView: View {
                                     .font(.footnote)
                                     .foregroundColor(.gray)
                                 
+                                
                             }
                         }
+                    }
+                    
+                    Section{
+                        Text("Your Age: \(user.age)")
+                        
+                        
+                        Text("Your Activity Level: \(user.activityLevel)")
+                        
+                        
                     }
                     Section("general"){
                         HStack{
@@ -94,9 +105,8 @@ struct ProfileView: View {
                             
                             VStack(alignment: .leading, spacing:4){
                                 let gender = user.gender
-                                let (bmi, feedback) = BMICalculator(weight: user.doubleWeight ?? 0, height: user.doubleHeight ?? 0, gender : gender)
-                                Text ("BMI: \(bmi)")
-                                
+                                let (calculatedBMI, feedback) = Sugestion.BMICalculator(weight: user.doubleWeight ?? 0, height: user.doubleHeight ?? 0, gender: user.gender)
+                                Text("BMI: \(String(format: "%.2f", calculatedBMI))")
                                 Text("Feedback : \(feedback)")
                             }
                         }
@@ -104,6 +114,39 @@ struct ProfileView: View {
                     .font(.system(size: 14))
                     .foregroundColor(.black)
                     .font(.subheadline)
+                    
+                    
+                    
+                    Section("Suggestion for you") {
+                        if let weight = user.doubleWeight,
+                           let height = user.doubleHeight,
+                          let suggestion = Sugestion.weightSugestion(idealBMI: 22.0, weight: weight, height: height),
+                           let age = user.doubleAge {
+                          Text(suggestion)
+                          
+                                let bmr = Sugestion.BMR(weight: weight, height: height, age: age, gender: user.gender)
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text("Your Basal Metabolic Rate (BMR): ")
+                                Text(String(format: "%.2f", bmr))                                         .foregroundColor(.red)
+                            }
+                           
+                            if let tdee = Sugestion.TDEE(bmr: bmr, activityLevel: user.activityLevel) {
+                                VStack(alignment: .leading, spacing: 5){
+                                    Text("Your maximum daily calorie intake based on your activity level is: ")
+                                    Text(String(format: "%.2f", tdee) + " calories")
+                                        .foregroundColor(.red)
+                            
+                                }
+                            } else {
+                                Text("Invalid activity level")
+                            }
+                        } else {
+                            Text("Missing user data") // Display a message if any of the user data is missing
+                        }
+                    }
+
+                    
+                    
                 }//list
                 .navigationBarTitle("Profile", displayMode: .inline)
                 .navigationBarBackButtonHidden(true)
@@ -148,47 +191,11 @@ struct ProfileView: View {
         .accessibility(label: Text("Back")) // Optional: add accessibility label for screen readers
     }
     
-    
-    func BMICalculator(weight: Double, height: Double, gender: String) -> (Double, String) {
-        let heightInMeters = height / 100
-        let BMI = weight / pow(heightInMeters, 2)
-        let roundedBMI = round(BMI * 10) / 10
-        
-        var message = ""
-        
-        if gender == "Male" {
-            if roundedBMI < 20 {
-                message = "Underweight (Male)"
-            } else if roundedBMI >= 20 && roundedBMI < 25 {
-                message = "Normal weight (Male)"
-            } else if roundedBMI >= 25 && roundedBMI < 30 {
-                message = "Overweight (Male)"
-            } else {
-                message = "Obese (Male)"
-            }
-        } else if gender == "Female" {
-            if roundedBMI < 19 {
-                message = "Underweight (Female)"
-            } else if roundedBMI >= 19 && roundedBMI < 24 {
-                message = "Normal weight (Female)"
-            } else if roundedBMI >= 24 && roundedBMI < 29 {
-                message = "Overweight (Female)"
-            } else {
-                message = "Obese (Female)"
-            }
-        } else {
-            // Handle unknown gender
-            message = "Unknown gender"
-        }
-        
-        return (roundedBMI, message)
-    }
-    
 }
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ProfileView()
         }
     }
-    
+  
 

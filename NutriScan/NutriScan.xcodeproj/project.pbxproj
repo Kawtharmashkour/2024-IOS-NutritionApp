@@ -19,6 +19,7 @@
 		695291AA2BAFE22D006B7E94 /* SignupItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695291A92BAFE22D006B7E94 /* SignupItemView.swift */; };
 		695291AC2BAFF12F006B7E94 /* SignupItemGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695291AB2BAFF12F006B7E94 /* SignupItemGroupView.swift */; };
 		69530A622BBC72F9008CA307 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69530A612BBC72F9008CA307 /* ResetPasswordView.swift */; };
+		695CB96F2BC1E7B8009E7235 /* Sugestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695CB96E2BC1E7B8009E7235 /* Sugestion.swift */; };
 		69670A3E2BB3C94D00E88AB8 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69670A3D2BB3C94D00E88AB8 /* EditProfileView.swift */; };
 		6967A16D2BA8C15B00DFF06A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967A16C2BA8C15B00DFF06A /* AuthViewModel.swift */; };
 		69BD61F22BA7D84A0025F8EE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD61F12BA7D84A0025F8EE /* InputView.swift */; };
@@ -92,6 +93,7 @@
 		695291A92BAFE22D006B7E94 /* SignupItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupItemView.swift; sourceTree = "<group>"; };
 		695291AB2BAFF12F006B7E94 /* SignupItemGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupItemGroupView.swift; sourceTree = "<group>"; };
 		69530A612BBC72F9008CA307 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		695CB96E2BC1E7B8009E7235 /* Sugestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugestion.swift; sourceTree = "<group>"; };
 		69670A3D2BB3C94D00E88AB8 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		6967A16C2BA8C15B00DFF06A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		69BD61F12BA7D84A0025F8EE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				EF720F4A2BAD12A400AC9635 /* Constants.swift */,
 				691796322BB9DDF8002EE129 /* Validation.swift */,
 				EF2A42042BBF407000038CF6 /* CustomViewModifiers.swift */,
+				695CB96E2BC1E7B8009E7235 /* Sugestion.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				EF2A42052BBF407000038CF6 /* CustomViewModifiers.swift in Sources */,
 				EF997E6A2BAAE22D00FBF0F3 /* BookMarkView.swift in Sources */,
 				EF720F4B2BAD12A400AC9635 /* Constants.swift in Sources */,
+				695CB96F2BC1E7B8009E7235 /* Sugestion.swift in Sources */,
 				69670A3E2BB3C94D00E88AB8 /* EditProfileView.swift in Sources */,
 				EF5FD2FF2BA54F9A0033987F /* Item.swift in Sources */,
 				691796352BBA482D002EE129 /* UserProfile.swift in Sources */,
