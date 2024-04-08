@@ -12,8 +12,8 @@
 import Foundation
 
 struct Constants {
-    static let allergies = ["Peanut", "Gluten", "Shellfish"]
-    static let diets = ["Vegan", "Keto", "Paleo"]
+    static let allergies = ["Peanut", "gluten-free", "Shellfish"]
+    static let diets = ["balanced", "high-fiber", "high-protein", "low-carb", "low-fat", "low-sodium"]
     
     struct Urls {
     
@@ -30,6 +30,9 @@ struct Constants {
         
         static func searchRecipeMealTypeURL(mealType: String) -> URL {
             return URL(string: "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac&mealType=" + mealType)!
+        }
+        static func searchRecipeDietURL(diet: String) -> URL {
+            return URL(string: "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac&diet=" + diet)!
         }
     }
 }

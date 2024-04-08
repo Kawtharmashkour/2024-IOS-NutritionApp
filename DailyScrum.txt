@@ -283,6 +283,23 @@ Day: 14
 2- To do/ solve problem of the user should not have password in sign up with google part
 3- Need assistance/ NA
 
+Day: 15
+2024/04/08 Kawthar
+1- Done/ API implementation of User can filter recipe search based on many restrictions
+2- To do/ -Testing filtering recipe functionality
+3- Need assistance/ NA
+
+2024/04/08 Behnaze
+1- Done/ improve UI implementation  for Meal Section View
+2- To do/ - Testing Meal section view functionality
+	  - Trying to work on unit testing
+3- Need assistance/ NA
+
+2024/04/08 Shadan
+1- Done/ solve problem of the user should not have password in sign up with google part
+2- To do/ - Testing light-mode & dark-mode
+3- Need assistance/ NA
+
 
 
 

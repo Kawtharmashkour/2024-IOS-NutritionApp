@@ -22,9 +22,12 @@ struct SlideOutMenu: View {
                 }
             
             SlideMenuView(isMenuOpen: $isMenuOpen)
-                .offset(x: isMenuOpen ? 0 : UIScreen.main.bounds.width)
+                .offset(x: isMenuOpen ? 0 : UIScreen.main.bounds.width * 0.75)
                 //.animation(.easeInOut)
         }
+        .frame(width: UIScreen.main.bounds.width * 0.75)
+        .offset(x: isMenuOpen ? 0 : UIScreen.main.bounds.width * 0.75)
+        .background(.green)
         .gesture(
             DragGesture()
                 .onEnded { value in
@@ -44,18 +47,18 @@ struct SlideMenuView: View {
     
     var body: some View {
         
-        VStack {
+        NavigationStack{
             Spacer()
             VStack {
                 NavigationLink(destination: ProfileView()) {
                                     Text("Account")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.black)
                                         .padding()
                                 }
                 .navigationBarBackButtonHidden(true)
                 NavigationLink(destination: ProfileView()) {
                                     Text("Sign Out")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.black)
                                         .padding()
                                 }
                 Button(action: {
@@ -65,12 +68,10 @@ struct SlideMenuView: View {
                     }
                 }) {
                     Text("Settings")
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .padding()
                 }
             }
-            .frame(width: 200)
-            //.background(Color.blue)
             .cornerRadius(10)
             .padding()
             Spacer()

@@ -9,20 +9,9 @@ import SwiftUI
 
 struct AppView: View {
     var gmail :String?
-
+    
     var body: some View {
-       /* VStack (alignment: .leading)  {
-            if let fullname = viewModel.currentUser?.fullname {
-                Text("Welcome, \(fullname)")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color("ColorGreenAdaptive"))
-                    .padding(.trailing, 5)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                
-            }
-        }*/
-
-
+       
         TabView {
             HomeView()
                 .tabItem({
@@ -30,7 +19,7 @@ struct AppView: View {
                     Text("Home")
             })
             
-            RecipesListView(url: Constants.Urls.searchRecipeURL) 
+            RecipesListView(url: Constants.Urls.searchRecipeURL)
            //RecipesListView(url: Constants.Urls.searchRecipeMealTypeURL(mealType: "Breakfast"))
                 .tabItem ({
                     Image(systemName: "book.pages.fill")
@@ -49,12 +38,9 @@ struct AppView: View {
                     Text("Menu")
                 }
         }
-        //.background(Color.yellow)
-        .accentColor(Color.primary)
+        .accentColor(Color("ColorGreenAdaptive"))
             
     }
 }
 
-#Preview {
-    AppView()
-}
+

@@ -9,42 +9,39 @@ import SwiftUI
 
 struct FilterMenuView: View {
     @Binding var isMenuVisible1: Bool
+    var doneAction: (([String]) -> Void)? // Closure to be called when "Done" button is pressed
     // Arrays to store the selected items in each section
-        @State private var selectedAllergies: [String] = []
+        @State var selectedFilters: [String] = []
         @State private var selectedDiets: [String] = []
         @State private var selectedCalories: Int?
     
     var body: some View {
         ZStack {
-                    if isMenuVisible1 {
-                        Color.black.opacity(0.5)
-                            .edgesIgnoringSafeArea(.all)
-                            .onTapGesture {
-                                // Close the menu when tapping outside
-                                withAnimation {
-                                    isMenuVisible1 = false
-                                }
+                if isMenuVisible1 {
+                    Color.black .opacity(0.5)
+                        .navigationBarBackButtonHidden(true)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                                isMenuVisible1 = false
                             }
-                        HStack {
+                    HStack {
                             Spacer()
                             NavigationView {
-                                        List {
-                                            Section(header: Text("Allergies")) {
-                                                ForEach(Constants.allergies, id: \.self) { allergy in
+                                List {
+                                    Section(header: Text("Allergies")) {
+                                        ForEach(Constants.allergies, id: \.self) { allergy in
                                                     HStack {
                                                         Text(allergy)
                                                             .onTapGesture {
-                                                                toggleSelection(&selectedAllergies, item: allergy)
-                                                                print (selectedAllergies)
+                                                                toggleSelection(&selectedFilters, item: allergy)
+                                                                print (selectedFilters)
                                                             }
-                                                        
-                                                        if selectedAllergies.contains(allergy) {
+                                                        if selectedFilters.contains(allergy) {
                                                             Spacer()
                                                             Image(systemName: "checkmark")
                                                                 .foregroundColor(.blue)
                                                         }
                                                     }
-                                                    
                                                 }
                                             }
                                             Section(header: Text("Diets")) {
@@ -61,9 +58,10 @@ struct FilterMenuView: View {
                                         .navigationBarItems(trailing:
                                             HStack {
                                                 Button("Done") {
-                                                    withAnimation{
+                                                    handleDoneButton()
+                                                   /* withAnimation{
                                                         isMenuVisible1 = false
-                                                    }
+                                                    }*/
                                                 }
                                                 Button("Clear") {
                                                     clearSelections()
@@ -71,6 +69,7 @@ struct FilterMenuView: View {
                                             }
                                         )
                                     }
+                            .navigationBarBackButtonHidden(true)
                             .frame(width: UIScreen.main.bounds.width * 0.75)
                             .offset(x: isMenuVisible1 ? 0 : UIScreen.main.bounds.width)
                             .animation(.easeInOut)
@@ -90,17 +89,25 @@ struct FilterMenuView: View {
         
         // Function to clear all selections
         private func clearSelections() {
-            selectedAllergies.removeAll()
-            print ("Cleared allergy list: \(selectedAllergies)")
+            selectedFilters.removeAll()
+            print ("Cleared allergy list: \(selectedFilters)")
             selectedDiets.removeAll()
             selectedCalories = nil
+        }
+    
+    // Function to handle "Done" button action
+        private func handleDoneButton() {
+            // Call the done action closure if provided
+            doneAction?(selectedFilters)
+            // Close the menu
+            isMenuVisible1 = false
         }
 
 }
 
 
-struct FilterMenuView_Previews: PreviewProvider {
+/*struct FilterMenuView_Previews: PreviewProvider {
     static var previews: some View {
         FilterMenuView(isMenuVisible1: .constant(true))
     }
-}
+}*/

@@ -41,6 +41,7 @@ class RecipeListViewModel: ObservableObject {
             print(error)
         }
     }
+    
 }
 
 struct RecipeViewModel: Identifiable{
