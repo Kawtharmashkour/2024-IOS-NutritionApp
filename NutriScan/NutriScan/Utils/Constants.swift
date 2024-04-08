@@ -12,7 +12,7 @@
 import Foundation
 
 struct Constants {
-    static let allergies = ["Peanut", "gluten-free", "Shellfish"]
+    static let allergies = ["vegan", "gluten-free", "vegetarian", "egg-free"]
     static let diets = ["balanced", "high-fiber", "high-protein", "low-carb", "low-fat", "low-sodium"]
     
     struct Urls {

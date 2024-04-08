@@ -14,6 +14,7 @@ struct RecipesListView: View {
     @State private var searchText = ""
     @State private var filteredRecipes: [RecipeViewModel] = []
     @State private var isMenuVisible1 = false
+    @AppStorage("selectedFilters") var selectedFilters: String = ""
     
     var body: some View {
         VStack {
@@ -24,7 +25,7 @@ struct RecipesListView: View {
                     if isMenuVisible1 {
                         FilterMenuView(isMenuVisible1: $isMenuVisible1, doneAction: {allergies in
                             print(allergies)
-                            let apiUrl = "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac&health=\(allergies[0])&health=vegan"
+                            let apiUrl = "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac\(allergies)"
                             
                             guard let url = URL(string: apiUrl) else {
                                 print("Invalid URL")
@@ -76,6 +77,7 @@ struct RecipesListView: View {
         .onAppear {
             isLoading = true
             fetchData(url: url)
+           selectedFilters = ""
             isLoading = false
         }
         .onChange(of: searchText) {

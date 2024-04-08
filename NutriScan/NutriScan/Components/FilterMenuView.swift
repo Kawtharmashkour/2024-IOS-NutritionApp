@@ -9,11 +9,11 @@ import SwiftUI
 
 struct FilterMenuView: View {
     @Binding var isMenuVisible1: Bool
-    var doneAction: (([String]) -> Void)? // Closure to be called when "Done" button is pressed
+    var doneAction: ((String) -> Void)? // Closure to be called when "Done" button is pressed
     // Arrays to store the selected items in each section
-        @State var selectedFilters: [String] = []
+    @AppStorage("selectedFilters") var selectedFilters: String = ""
         @State private var selectedDiets: [String] = []
-        @State private var selectedCalories: Int?
+       // @State private var selectedCalories: Int?
     
     var body: some View {
         ZStack {
@@ -28,12 +28,12 @@ struct FilterMenuView: View {
                             Spacer()
                             NavigationView {
                                 List {
-                                    Section(header: Text("Allergies")) {
+                                    Section(header: Text("Health")) {
                                         ForEach(Constants.allergies, id: \.self) { allergy in
                                                     HStack {
                                                         Text(allergy)
                                                             .onTapGesture {
-                                                                toggleSelection(&selectedFilters, item: allergy)
+                                                                toggleSelection(item: ("&health=" + allergy))
                                                                 print (selectedFilters)
                                                             }
                                                         if selectedFilters.contains(allergy) {
@@ -46,13 +46,24 @@ struct FilterMenuView: View {
                                             }
                                             Section(header: Text("Diets")) {
                                                 ForEach(Constants.diets, id: \.self) { diet in
-                                                    Text(diet)
+                                                    HStack {
+                                                        Text(diet)
+                                                            .onTapGesture {
+                                                                toggleSelection(item: ("&diet=" + diet))
+                                                                print (selectedFilters)
+                                                            }
+                                                        if selectedFilters.contains(diet) {
+                                                            Spacer()
+                                                            Image(systemName: "checkmark")
+                                                                .foregroundColor(.blue)
+                                                        }
+                                                    }
                                                 }
                                             }
-                                            Section(header: Text("Calories")) {
+                                            /*Section(header: Text("Calories")) {
                                                 TextField("Enter Max. Calories", value: $selectedCalories, formatter: NumberFormatter())
                                                         .keyboardType(.numberPad)
-                                            }
+                                            }*/
                                         }
                                         .navigationBarTitle("Filters")
                                         .navigationBarItems(trailing:
@@ -79,11 +90,12 @@ struct FilterMenuView: View {
                 }
     }
     // Function to toggle selection of an item in the array
-        private func toggleSelection(_ array: inout [String], item: String) {
-            if let index = array.firstIndex(of: item) {
-                array.remove(at: index)
+        private func toggleSelection(item: String) {
+            if selectedFilters.contains(item) {
+                selectedFilters = selectedFilters.replacingOccurrences(of: (item), with: "")
+                print("selectedFilter after remove")
             } else {
-                array.append(item)
+                selectedFilters += item
             }
         }
         
@@ -92,7 +104,7 @@ struct FilterMenuView: View {
             selectedFilters.removeAll()
             print ("Cleared allergy list: \(selectedFilters)")
             selectedDiets.removeAll()
-            selectedCalories = nil
+           // selectedCalories = nil
         }
     
     // Function to handle "Done" button action
