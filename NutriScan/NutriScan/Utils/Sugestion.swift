@@ -3,7 +3,7 @@
 //  NutriScan
 //
 //  Created by Shadan Farahbakhsh on 2024-04-06.
-//
+// Giving Suggestion to user a bout their allowed calories daily
 
 import Foundation
 
