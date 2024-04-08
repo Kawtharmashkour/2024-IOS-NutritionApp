@@ -14,6 +14,7 @@ struct RecipeCardView: View {
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModel: Bool = false
     @State private var showActionSheet = false
+    @State private var showAlert = false
     
     var body: some View {
         // Image card
@@ -82,18 +83,21 @@ struct RecipeCardView: View {
                                             Text("Breakfast"),
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "breakfast")
+                                                showAlert = true
                                             }
                                         ),
                                         .default(
                                             Text("Lunch"),
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "lunch")
+                                                showAlert = true
                                             }
                                         ),
                                         .default(
                                             Text("Diner"),
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "diner")
+                                                showAlert = true
                                             }
                                         )
                                         ,
@@ -101,6 +105,7 @@ struct RecipeCardView: View {
                                             Text("Snack"),
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "snack")
+                                                showAlert = true
                                             }
                                         )
                                     ]
@@ -113,7 +118,9 @@ struct RecipeCardView: View {
         .background(Color("ColorAppearanceAdaptive"))
         .cornerRadius(12)
         .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x:0, y:0)
-        //.padding()
+        .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Confirmation"), message: Text("Meal added successfully"), dismissButton: .default(Text("OK")))
+                }
     }
     
     
