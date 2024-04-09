@@ -49,8 +49,10 @@ struct LoginView: View {
                                     try await viewModel.signIn(withEmail: email, password: password)
                                     isLoggedIn = true
                                 } catch {
-                                    let errorCode = (error as NSError).code
-                                    errorMessage = errorMessage(for: errorCode)
+                                    DispatchQueue.main.async {
+                                                   let errorCode = (error as NSError).code
+                                                   errorMessage = errorMessage(for: errorCode)
+                                               }
                                 }
                             }
                         } label: {
@@ -127,6 +129,7 @@ struct LoginView: View {
     }// body
     
     func errorMessage(for errorCode: Int) -> String {
+        print("Received error code:", errorCode)
         switch errorCode {
         case AuthErrorCode.wrongPassword.rawValue:
             return "Incorrect password. Please try again."
@@ -138,6 +141,7 @@ struct LoginView: View {
             return "An error occurred. Please try again later."
         }
     }
+
 
 }
 
