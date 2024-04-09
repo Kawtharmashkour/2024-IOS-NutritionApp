@@ -25,6 +25,7 @@ struct HomeView: View {
                 VStack {
                     DishesView()
                         .frame(maxWidth: 640)
+                        .fontWeight(.bold)
                 }
                 Spacer()
                     

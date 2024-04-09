@@ -300,6 +300,32 @@ Day: 15
 2- To do/ - Testing light-mode & dark-mode
 3- Need assistance/ NA
 
+Day: 16
+2024/04/09 Kawthar
+1- Done/ -Testing filtering recipe functionality
+	- confirmation message when Meal added
+	- elimination user selection of meal type when recipeListView opened from mealSectionview
+2- To do/ - Adjust UI and navigation of app menu slide
+	  - solve issue of not having same code as others when pull from GitHub
+	  - general app testing
+	  - Project presentation
+3- Need assistance/ NA
+
+2024/04/09 Behnaze
+1- Done/ - Testing Meal section view functionality
+	  - Trying to work on unit testing
+	 - Project presentation 
+2- To do/ - Correct functionality of Dinner section in meal plan page
+	  - General navigation test
+3- Need assistance/ NA
+
+2024/04/09 Shadan
+1- Done/ - Testing light-mode & dark-mode
+	- app orientation
+2- To do/ - continue on app orientation for home page
+	 - Presentation project
+3- Need assistance/ NA
+
 
 
 
