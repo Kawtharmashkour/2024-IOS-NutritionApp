@@ -20,6 +20,7 @@ struct DishesView: View {
                                 .modifier(IconModifier())
                             Spacer()
                             Text("Toasts")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                         }
                     }
                     Divider()
@@ -30,6 +31,7 @@ struct DishesView: View {
                                 .modifier(IconModifier())
                             Spacer()
                             Text("Tacos")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                         }
                     }
                     Divider()
@@ -40,6 +42,7 @@ struct DishesView: View {
                                 .modifier(IconModifier())
                             Spacer()
                             Text("Salads")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                         }
                     }
                     Divider()
@@ -50,6 +53,7 @@ struct DishesView: View {
                                 .modifier(IconModifier())
                             Spacer()
                             Text("Spreads")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                         }
                     }
                 }
@@ -63,6 +67,7 @@ struct DishesView: View {
                 Image(systemName: "heart.circle")
                     // to change system image size
                     .font(Font.title.weight(.ultraLight))
+                    .foregroundColor(.red)
                     .imageScale(.large)
                 HStack {
                     Divider()
@@ -74,6 +79,7 @@ struct DishesView: View {
                             NavigationLink(destination: RecipesListView(url: Constants.Urls.searchRecipeURL)) {
                         HStack {
                             Text("Meals")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                             Spacer()
                             Image("icon-guacamole")
                                 .resizable()
@@ -84,6 +90,7 @@ struct DishesView: View {
                     NavigationLink(destination: RecipesListView(url: Constants.Urls.searchRecipeDishTypeURL(dishType: "sandwiches"))) {
                         HStack {
                             Text("Sandwitch")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                             Spacer()
                             Image("icon-sandwiches")
                                 .resizable()
@@ -94,6 +101,7 @@ struct DishesView: View {
                     NavigationLink(destination: RecipesListView(url: Constants.Urls.searchRecipeDishTypeURL(dishType: "soup"))) {
                         HStack {
                             Text("Soup")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                             Spacer()
                             Image("icon-soup")
                                 .resizable()
@@ -104,6 +112,7 @@ struct DishesView: View {
                     NavigationLink(destination: RecipesListView(url: Constants.Urls.GeneralSearchRecipe(text: "smoothie"))) {
                         HStack {
                             Text("Smoothie")
+                                .foregroundColor(Color("ColorGreenAdaptive"))
                             Spacer()
                             Image("icon-smoothies")
                                 .resizable()

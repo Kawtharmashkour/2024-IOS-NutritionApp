@@ -59,7 +59,7 @@ struct HeaderView: View {
           .padding(.vertical, 0)
           .padding(.horizontal, 20)
           .frame(width: 281, height: 105)
-          .background(Color("ColorBlackTransparentLight"))
+          .background(Color("ColorBlackTransparentFix"))
         }
         .frame(width: 285, height: 105, alignment: .center)
         .offset(x: -66, y: showHeadline ? 75 : 220)
