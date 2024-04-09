@@ -111,7 +111,7 @@ struct NutritionView: View {
                             print("Lunch data: \(lunchData)")
                         }
                         MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "dinner") { meals in
-                            lunchData = meals
+                            dinnerData = meals
                             print("dinner data: \(dinnerData)")
                         }
                         MealDataManager.fetchMealData(userId: userId, date: dateString, mealType: "snack") { meals in
