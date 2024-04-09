@@ -16,7 +16,7 @@ import SwiftData
 struct NutriScanApp: App {
     @StateObject var viewModel = AuthViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @AppStorage("navMealType") var navMealType: String = ""
    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([

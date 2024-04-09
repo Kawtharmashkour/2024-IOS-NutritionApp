@@ -15,6 +15,8 @@ struct RecipeCardView: View {
     @State private var showModel: Bool = false
     @State private var showActionSheet = false
     @State private var showAlert = false
+    //@State var mealType: String = ""
+    @AppStorage("navMealType") var navMealType: String = ""
     
     var body: some View {
         // Image card
@@ -36,7 +38,7 @@ struct RecipeCardView: View {
                         .multilineTextAlignment(.leading)
                     
                     //Rates
-                    RecipeRatingView(recipe: recipe)
+                  //  RecipeRatingView(recipe: recipe)
                 }
                 .padding()
             }
@@ -65,9 +67,15 @@ struct RecipeCardView: View {
                 
                 Spacer()
                 Button(action: {
-                    print("Buton pressed")
-
-                    showActionSheet = true
+                    print("Buton pressed ,navMealType = ")
+                    
+                    if(navMealType == "") {
+                        showActionSheet = true
+                    }else {
+                        MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: navMealType)
+                        navMealType = ""
+                        showAlert = true
+                    }
                 },label:  {
                     Image(systemName: "plus.circle")
                         .resizable()
@@ -75,6 +83,7 @@ struct RecipeCardView: View {
                         .foregroundColor(Color("ColorGreenAdaptive"))
                 })
                 .actionSheet(isPresented: $showActionSheet) {
+                    
                         ActionSheet(title: Text("Choose Meal destination"),
                                     message: Text(""),
                                     buttons: [

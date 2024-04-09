@@ -23,9 +23,9 @@ struct RecipesListView: View {
             } else {
                 ZStack{
                     if isMenuVisible1 {
-                        FilterMenuView(isMenuVisible1: $isMenuVisible1, doneAction: {allergies in
-                            print(allergies)
-                            let apiUrl = "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac\(allergies)"
+                        FilterMenuView(isMenuVisible1: $isMenuVisible1, doneAction: {filters in
+                            print(filters)
+                            let apiUrl = "https://api.edamam.com/api/recipes/v2?type=public&app_id=b6bfd343&app_key=9f8b9dde8d42741c7dd5f9dbfeb447ac\(filters)"
                             
                             guard let url = URL(string: apiUrl) else {
                                 print("Invalid URL")
@@ -71,6 +71,7 @@ struct RecipesListView: View {
                         
                     }
                     .navigationBarTitleDisplayMode(.inline)
+                    .padding(.top, 20)
                 }
             }
         }

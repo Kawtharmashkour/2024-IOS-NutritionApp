@@ -8,6 +8,7 @@ struct MealSectionView: View {
     @State private var showScanner = false
     @Binding var currentMealType: String
     let userId: String
+    @AppStorage("navMealType") var navMealType: String = ""
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,6 +33,7 @@ struct MealSectionView: View {
                 Button(action: {
                     print("Setting currentMealType to: \(mealType)")
                     currentMealType = mealType
+                    navMealType = mealType
                     showAddMealView = true
                 }) {
                     Image(systemName: "plus.circle")
