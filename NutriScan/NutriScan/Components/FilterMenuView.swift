@@ -18,8 +18,8 @@ struct FilterMenuView: View {
     var body: some View {
         ZStack {
                 if isMenuVisible1 {
-                    Color.black .opacity(0.5)
-                        .navigationBarBackButtonHidden(true)// comment
+                    Color.black .opacity(0.5)//comment
+                        .navigationBarBackButtonHidden(true)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
                                 isMenuVisible1 = false
