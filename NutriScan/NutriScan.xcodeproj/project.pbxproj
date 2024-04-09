@@ -46,6 +46,11 @@
 		D76F9AD22BB06BCC00AD97BE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F9AD12BB06BCC00AD97BE /* SettingView.swift */; };
 		D77D76272BBE4A3200F62B00 /* TextScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D76262BBE4A3200F62B00 /* TextScannerView.swift */; };
 		D77D76292BBE508800F62B00 /* TextRecognitionUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D76282BBE508800F62B00 /* TextRecognitionUtilities.swift */; };
+		D77D76912BC363D500F62B00 /* Sugestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695CB96E2BC1E7B8009E7235 /* Sugestion.swift */; };
+		D77D76962BC365CD00F62B00 /* BMRCalculationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D76952BC365CD00F62B00 /* BMRCalculationTests.swift */; };
+		D77D76972BC3806300F62B00 /* SugestionTest.xctest in Resources */ = {isa = PBXBuildFile; fileRef = D77D76752BC3611000F62B00 /* SugestionTest.xctest */; };
+		D77D76992BC5771900F62B00 /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D76982BC5771900F62B00 /* ValidationTests.swift */; };
+		D77D769B2BC5798200F62B00 /* TextRecognitionUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D769A2BC5798200F62B00 /* TextRecognitionUtilitiesTests.swift */; };
 		D7D6AA0C2BA89ACE0011E276 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7D6AA0B2BA89ACE0011E276 /* FirebaseAnalyticsSwift */; };
 		D7F4742C2BAC93CB0058B0EC /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */; };
 		D7F4742E2BAC94050058B0EC /* NutritionalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */; };
@@ -80,6 +85,30 @@
 		EFE240D12BBF57F000879A53 /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE240D02BBF57F000879A53 /* FilterMenuView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D77D76682BC3583900F62B00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF5FD2EF2BA54F9A0033987F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5FD2F62BA54F9A0033987F;
+			remoteInfo = NutriScan;
+		};
+		D77D76792BC3611000F62B00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF5FD2EF2BA54F9A0033987F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5FD2F62BA54F9A0033987F;
+			remoteInfo = NutriScan;
+		};
+		D77D768A2BC363A500F62B00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF5FD2EF2BA54F9A0033987F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5FD2F62BA54F9A0033987F;
+			remoteInfo = NutriScan;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		691796302BB8EF8B002EE129 /* EditInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInputView.swift; sourceTree = "<group>"; };
 		691796322BB9DDF8002EE129 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
@@ -111,6 +140,12 @@
 		D76F9AD12BB06BCC00AD97BE /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		D77D76262BBE4A3200F62B00 /* TextScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
 		D77D76282BBE508800F62B00 /* TextRecognitionUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionUtilities.swift; sourceTree = "<group>"; };
+		D77D76642BC3583900F62B00 /* NutriScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D77D76752BC3611000F62B00 /* SugestionTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugestionTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D77D76862BC363A400F62B00 /* NutriScanTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriScanTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D77D76952BC365CD00F62B00 /* BMRCalculationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRCalculationTests.swift; sourceTree = "<group>"; };
+		D77D76982BC5771900F62B00 /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
+		D77D769A2BC5798200F62B00 /* TextRecognitionUtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionUtilitiesTests.swift; sourceTree = "<group>"; };
 		D7F4742B2BAC93CB0058B0EC /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
 		D7F4742D2BAC94050058B0EC /* NutritionalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalGraphView.swift; sourceTree = "<group>"; };
 		D7F4742F2BAC94420058B0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -146,6 +181,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D77D76612BC3583900F62B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77D76722BC3611000F62B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77D76832BC363A400F62B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF5FD2F42BA54F9A0033987F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +327,16 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		D77D76872BC363A400F62B00 /* NutriScanTest */ = {
+			isa = PBXGroup;
+			children = (
+				D77D76952BC365CD00F62B00 /* BMRCalculationTests.swift */,
+				D77D76982BC5771900F62B00 /* ValidationTests.swift */,
+				D77D769A2BC5798200F62B00 /* TextRecognitionUtilitiesTests.swift */,
+			);
+			path = NutriScanTest;
+			sourceTree = "<group>";
+		};
 		D7D6AA0A2BA89ACE0011E276 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5FD2F92BA54F9A0033987F /* NutriScan */,
+				D77D76872BC363A400F62B00 /* NutriScanTest */,
 				EF5FD2F82BA54F9A0033987F /* Products */,
 				D7D6AA0A2BA89ACE0011E276 /* Frameworks */,
 			);
@@ -307,6 +374,9 @@
 			isa = PBXGroup;
 			children = (
 				EF5FD2F72BA54F9A0033987F /* NutriScan.app */,
+				D77D76642BC3583900F62B00 /* NutriScanTests.xctest */,
+				D77D76752BC3611000F62B00 /* SugestionTest.xctest */,
+				D77D76862BC363A400F62B00 /* NutriScanTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -414,6 +484,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D77D76632BC3583900F62B00 /* NutriScanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D77D766C2BC3583900F62B00 /* Build configuration list for PBXNativeTarget "NutriScanTests" */;
+			buildPhases = (
+				D77D76602BC3583900F62B00 /* Sources */,
+				D77D76612BC3583900F62B00 /* Frameworks */,
+				D77D76622BC3583900F62B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D77D76692BC3583900F62B00 /* PBXTargetDependency */,
+			);
+			name = NutriScanTests;
+			productName = NutriScanTests;
+			productReference = D77D76642BC3583900F62B00 /* NutriScanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D77D76742BC3611000F62B00 /* SugestionTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D77D767B2BC3611000F62B00 /* Build configuration list for PBXNativeTarget "SugestionTest" */;
+			buildPhases = (
+				D77D76712BC3611000F62B00 /* Sources */,
+				D77D76722BC3611000F62B00 /* Frameworks */,
+				D77D76732BC3611000F62B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D77D767A2BC3611000F62B00 /* PBXTargetDependency */,
+			);
+			name = SugestionTest;
+			productName = SugestionTest;
+			productReference = D77D76752BC3611000F62B00 /* SugestionTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D77D76852BC363A400F62B00 /* NutriScanTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D77D768C2BC363A500F62B00 /* Build configuration list for PBXNativeTarget "NutriScanTest" */;
+			buildPhases = (
+				D77D76822BC363A400F62B00 /* Sources */,
+				D77D76832BC363A400F62B00 /* Frameworks */,
+				D77D76842BC363A400F62B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D77D768B2BC363A500F62B00 /* PBXTargetDependency */,
+			);
+			name = NutriScanTest;
+			productName = NutriScanTest;
+			productReference = D77D76862BC363A400F62B00 /* NutriScanTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EF5FD2F62BA54F9A0033987F /* NutriScan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF5FD3072BA54F9E0033987F /* Build configuration list for PBXNativeTarget "NutriScan" */;
@@ -454,9 +578,21 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					D77D76632BC3583900F62B00 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = EF5FD2F62BA54F9A0033987F;
+					};
+					D77D76742BC3611000F62B00 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = EF5FD2F62BA54F9A0033987F;
+					};
+					D77D76852BC363A400F62B00 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = EF5FD2F62BA54F9A0033987F;
+					};
 					EF5FD2F62BA54F9A0033987F = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -480,11 +616,36 @@
 			projectRoot = "";
 			targets = (
 				EF5FD2F62BA54F9A0033987F /* NutriScan */,
+				D77D76632BC3583900F62B00 /* NutriScanTests */,
+				D77D76742BC3611000F62B00 /* SugestionTest */,
+				D77D76852BC363A400F62B00 /* NutriScanTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D77D76622BC3583900F62B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77D76732BC3611000F62B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77D76842BC363A400F62B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D77D76972BC3806300F62B00 /* SugestionTest.xctest in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF5FD2F52BA54F9A0033987F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,6 +661,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D77D76602BC3583900F62B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77D76712BC3611000F62B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77D76822BC363A400F62B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D77D769B2BC5798200F62B00 /* TextRecognitionUtilitiesTests.swift in Sources */,
+				D77D76962BC365CD00F62B00 /* BMRCalculationTests.swift in Sources */,
+				D77D76912BC363D500F62B00 /* Sugestion.swift in Sources */,
+				D77D76992BC5771900F62B00 /* ValidationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF5FD2F32BA54F9A0033987F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,7 +750,133 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D77D76692BC3583900F62B00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF5FD2F62BA54F9A0033987F /* NutriScan */;
+			targetProxy = D77D76682BC3583900F62B00 /* PBXContainerItemProxy */;
+		};
+		D77D767A2BC3611000F62B00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF5FD2F62BA54F9A0033987F /* NutriScan */;
+			targetProxy = D77D76792BC3611000F62B00 /* PBXContainerItemProxy */;
+		};
+		D77D768B2BC363A500F62B00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF5FD2F62BA54F9A0033987F /* NutriScan */;
+			targetProxy = D77D768A2BC363A500F62B00 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D77D766A2BC3583900F62B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Map08.NutriScanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriScan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NutriScan";
+			};
+			name = Debug;
+		};
+		D77D766B2BC3583900F62B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Map08.NutriScanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriScan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NutriScan";
+			};
+			name = Release;
+		};
+		D77D767C2BC3611000F62B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Map08.SugestionTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriScan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NutriScan";
+			};
+			name = Debug;
+		};
+		D77D767D2BC3611000F62B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Map08.SugestionTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriScan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NutriScan";
+			};
+			name = Release;
+		};
+		D77D768D2BC363A500F62B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Map08.NutriScanTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriScan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NutriScan";
+			};
+			name = Debug;
+		};
+		D77D768E2BC363A500F62B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Map08.NutriScanTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriScan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NutriScan";
+			};
+			name = Release;
+		};
 		EF5FD3052BA54F9E0033987F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -751,6 +1063,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D77D766C2BC3583900F62B00 /* Build configuration list for PBXNativeTarget "NutriScanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D77D766A2BC3583900F62B00 /* Debug */,
+				D77D766B2BC3583900F62B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D77D767B2BC3611000F62B00 /* Build configuration list for PBXNativeTarget "SugestionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D77D767C2BC3611000F62B00 /* Debug */,
+				D77D767D2BC3611000F62B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D77D768C2BC363A500F62B00 /* Build configuration list for PBXNativeTarget "NutriScanTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D77D768D2BC363A500F62B00 /* Debug */,
+				D77D768E2BC363A500F62B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EF5FD2F22BA54F9A0033987F /* Build configuration list for PBXProject "NutriScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
