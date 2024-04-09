@@ -17,11 +17,12 @@ struct SettingsRowView: View {
             Image(systemName: imageName)
                 .imageScale(.small)
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .foregroundColor(tintcolor)
+             .foregroundColor(tintcolor)
             
             Text(title)
                 .font(.subheadline)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
+            
             
             
             

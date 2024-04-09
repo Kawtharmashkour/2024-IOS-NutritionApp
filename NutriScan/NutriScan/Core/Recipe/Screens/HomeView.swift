@@ -9,30 +9,32 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack{
-            // Header
-            HeaderView()
-            
-            // MARK: - DISHES
-            
-            Text("NutriScan Dishes")
-                .fontWeight(.bold)
-                .padding(30)
-                .foregroundColor(Color("ColorGreenAdaptive"))
-
-            //.modifier(TitleModifier())
-            
-            VStack {
-                DishesView()
-                    .frame(maxWidth: 640)
+      
+            VStack{
+                // Header
+                HeaderView()
+                
+                // MARK: - DISHES
+                Text("NutriScan Dishes")
+                    .fontWeight(.bold)
+                    .padding(30)
+                    .foregroundColor(Color("ColorGreenAdaptive"))
+                
+                //.modifier(TitleModifier())
+                
+                VStack {
+                    DishesView()
+                        .frame(maxWidth: 640)
+                }
+                Spacer()
+                    
+                
             }
-            Spacer()
-        }
-        .edgesIgnoringSafeArea(.all)
-        .padding(0)
-              
+            .edgesIgnoringSafeArea(.all)
+            .padding(0)
+      }
     }
-}
+
 
 #Preview {
     HomeView()

@@ -63,33 +63,26 @@ struct ProfileView: View {
                         
                         
                     }
-                    Section("general"){
-                        HStack{
-                            SettingsRowView(imageName: "gear", title: "Version", tintcolor: Color(.systemGray))
-                            Spacer()
-                            
-                            Text("1.0.0")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                            
-                        }
-                    }
                     
                     Section( "Account"){
                         Button  {
                             viewModel.signOut()
                         } label: {
                             SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintcolor: .red)
+                                .foregroundColor(.primary)
                         }
                         
                         Button  {
                             print ("Sign Out ...")
                         } label: {
                             SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintcolor: .red)
+                                .foregroundColor(.primary)
+                                
                         }
                         
                         
                     }
+                    .foregroundColor(.primary)
                     
                     Section("BMI Calculation"){
                         VStack(alignment: .leading, spacing: 4){
@@ -99,6 +92,8 @@ struct ProfileView: View {
                             Text ("Your goal : \(user.targetWeight) kg")
                             
                         }
+                    .foregroundColor(.primary)
+                        
                         
                         HStack {
                             Image ("BMI")
@@ -113,11 +108,13 @@ struct ProfileView: View {
                                 Text("BMI: \(String(format: "%.2f", calculatedBMI))")
                                 Text("Feedback : \(feedback)")
                             }
+                            .foregroundColor(.primary)
                         }
                     }
                     .font(.system(size: 14))
                     .foregroundColor(.black)
                     .font(.subheadline)
+                
                     
                     
                     
