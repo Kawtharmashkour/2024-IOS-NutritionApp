@@ -29,6 +29,41 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D77D76632BC3583900F62B00"
+               BuildableName = "NutriScanTests.xctest"
+               BlueprintName = "NutriScanTests"
+               ReferencedContainer = "container:NutriScan.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D77D76742BC3611000F62B00"
+               BuildableName = "SugestionTest.xctest"
+               BlueprintName = "SugestionTest"
+               ReferencedContainer = "container:NutriScan.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D77D76852BC363A400F62B00"
+               BuildableName = "NutriScanTest.xctest"
+               BlueprintName = "NutriScanTest"
+               ReferencedContainer = "container:NutriScan.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
