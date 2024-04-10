@@ -17,6 +17,7 @@ struct RecipeCardView: View {
     @State private var showAlert = false
     //@State var mealType: String = ""
     @AppStorage("navMealType") var navMealType: String = ""
+   
     
     var body: some View {
         // Image card
@@ -47,9 +48,13 @@ struct RecipeCardView: View {
                 self.hapticImpact.impactOccurred()
                 self.showModel = true
             }
-            .sheet(isPresented: self.$showModel){
+            .sheet(isPresented: self.$showModel) {
                 RecipeDetailView(recipe: self.recipe)
+                    .onDisappear {
+                        self.showModel = false
+                    }
             }
+
             //Nutrition facts
             HStack (alignment: .center) {
                 NutritionFact(text: "Calories", number: recipe.totalNutrients.ENERC_KCAL.quantity)
@@ -75,6 +80,7 @@ struct RecipeCardView: View {
                         MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: navMealType)
                         navMealType = ""
                         showAlert = true
+                        
                     }
                 },label:  {
                     Image(systemName: "plus.circle")
@@ -93,6 +99,7 @@ struct RecipeCardView: View {
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "breakfast")
                                                 showAlert = true
+                                                
                                             }
                                         ),
                                         .default(
@@ -100,13 +107,14 @@ struct RecipeCardView: View {
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "lunch")
                                                 showAlert = true
+                                                
                                             }
                                         ),
                                         .default(
                                             Text("Diner"),
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "diner")
-                                                showAlert = true
+                                                
                                             }
                                         )
                                         ,
@@ -115,6 +123,7 @@ struct RecipeCardView: View {
                                             action: {
                                                 MealDataManager.insertMealData(userId: authViewModel.userId ?? "", mealData: self.recipe, mealType: "snack")
                                                 showAlert = true
+                                                
                                             }
                                         )
                                     ]
@@ -129,9 +138,13 @@ struct RecipeCardView: View {
         .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x:0, y:0)
         .alert(isPresented: $showAlert) {
                     Alert(title: Text("Confirmation"), message: Text("Meal added successfully"), dismissButton: .default(Text("OK")))
+            
+            
                 }
+        
+        
+        
     }
-    
     
 }
 

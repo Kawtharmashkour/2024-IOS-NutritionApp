@@ -70,7 +70,7 @@ struct LoginView: View {
                         .opacity(formIsValid ? 1 : 0.5)
                         .cornerRadius(10)
                         .padding(.top, 24)
-                        
+                        .navigationBarBackButtonHidden(true)
                         
                         if let errorMessage = errorMessage {
                             Text(errorMessage)
@@ -100,16 +100,15 @@ struct LoginView: View {
                         }
                         .padding(.bottom, -10)
                         .padding(.top, 10)
-                        .scenePadding(Edge.Set(rawValue: 10))
+                        
                         
                         
                         //SignUp with Google
                         SignupItemGroupView()
                         
                         
-                        NavigationLink{
-                            RegistrationView()
-                        } label :{
+                        NavigationLink(destination: RegistrationView().navigationBarBackButtonHidden(true)) {
+                        
                             HStack{
                                 Text("Don't have an account?")
                                     .foregroundColor(.primary)
@@ -121,7 +120,7 @@ struct LoginView: View {
                             .font(.system(size: 16))
                             
                         }
-                        .navigationBarHidden(true)
+                        .navigationBarBackButtonHidden(true)
                     }
                     .padding(.horizontal, 20)
                 }

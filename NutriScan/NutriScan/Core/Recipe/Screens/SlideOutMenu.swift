@@ -53,20 +53,22 @@ struct SlideMenuView: View {
         NavigationStack{
             Spacer()
             VStack {
-                NavigationLink(destination: ProfileView()) {
+                NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
                                     Text("Account")
                                         .foregroundColor(.black)
                                         .padding()
                                 }
-               // .navigationBarBackButtonHidden(true)
+              
                 Button  {
                     viewModel.signOut()
+                    LoginView()
                     isMenuOpen = false
                 } label: {
                     Text("Sign Out")
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .padding()
                 }
+                
                 /*NavigationLink(destination: viewModel.signOut()) {
                                     Text("Sign Out")
                                         .foregroundColor(.black)
