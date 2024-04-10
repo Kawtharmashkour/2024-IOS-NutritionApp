@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import FirebaseAuth
 
 protocol AuthenticationFormProtocol {
     var formIsValid: Bool { get }

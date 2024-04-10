@@ -9,11 +9,13 @@ import SwiftUI
 
 struct AppView: View {
     var gmail :String?
+    @State private var isOverlayVisible = false
     
     var body: some View {
             
             TabView {
                 HomeView()
+                    .tag(1)
                     .tabItem({
                         Image(systemName: "house.fill")
                         Text("Home")
@@ -31,14 +33,27 @@ struct AppView: View {
                             .renderingMode(.template) // Set rendering mode to template
                         Text("Meals Plan")
                     }
-                SlideOutMenu()
-                    .tabItem {
-                        Image("tabicon-menu")
-                            .renderingMode(.template) // Set rendering mode to template
-                        Text("Menu")
-                    }
+                Button("Present!") {
+                    isOverlayVisible.toggle()
+                }
+                               .tabItem {
+                                   Image("tabicon-menu")
+                                       .renderingMode(.template) // Set rendering mode to template
+                                   Text("Menu")
+                               }
+                               .onAppear{
+                                isOverlayVisible = true
+                               }
             }
             .accentColor(Color("ColorGreenAdaptive"))
+            .overlay(
+                          Group {
+                              if isOverlayVisible {
+                                  SlideOutMenu(isOverlayVisible: $isOverlayVisible)
+                                      .background(Color("ColorBlackTransparentLight"))
+                              }
+                          }
+                      )
             
         }
     }

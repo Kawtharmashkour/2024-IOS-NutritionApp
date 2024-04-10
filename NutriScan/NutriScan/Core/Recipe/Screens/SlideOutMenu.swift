@@ -10,85 +10,64 @@ import SwiftUI
 
 struct SlideOutMenu: View {
     @State private var isMenuOpen = true
+    @EnvironmentObject var viewModel: AuthViewModel
+    @Binding var isOverlayVisible: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
-            Color.gray.opacity(0.3)
-               // .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    withAnimation {
+            if isMenuOpen {
+                Color.black .opacity(0.5)//comment
+                    .navigationBarBackButtonHidden(true)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
                         isMenuOpen = false
+                        isOverlayVisible = false
+                        //presentationMode.wrappedValue.dismiss()
                     }
-                }
-            
-            SlideMenuView(isMenuOpen: $isMenuOpen)
-                .offset(x: isMenuOpen ? 0 : UIScreen.main.bounds.width * 0.75)
-                .background(.green)
-                //.animation(.easeInOut)
-        }
-        .frame(width: UIScreen.main.bounds.width * 0.75)
-        .offset(x: isMenuOpen ? 0 : UIScreen.main.bounds.width * 0.75)
-        //.background(.green)
-        .gesture(
-            DragGesture()
-                .onEnded { value in
-                    if value.translation.width < -50 {
-                        withAnimation {
-                            isMenuOpen = false
-                        }
-                    }
-                }
-        )
-        .ignoresSafeArea(.keyboard)
-    }
-}
-
-struct SlideMenuView: View {
-    @Binding var isMenuOpen: Bool
-    @EnvironmentObject var viewModel: AuthViewModel
-    
-    
-    var body: some View {
-        
-        NavigationStack{
-            Spacer()
-            VStack {
-                NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
+                HStack {
+                    Spacer()
+                    NavigationView {
+                        List {
+                            
+                            VStack {
+                                
+                                NavigationLink(destination: ProfileView()) {
                                     Text("Account")
-                                        .foregroundColor(.black)
                                         .padding()
                                 }
-              
-                Button  {
-                    viewModel.signOut()
-                    LoginView()
-                    isMenuOpen = false
-                } label: {
-                    Text("Sign Out")
-                        .foregroundColor(.primary)
-                        .padding()
+                                
+                                NavigationLink(destination: SettingView()) {
+                                    Text("Settings")
+                                    //.foregroundColor(.black)
+                                        .padding()
+                                }
+                                HStack{
+                                    Button  {
+                                        viewModel.signOut()
+                                        isMenuOpen = false
+                                    } label: {
+                                        Text("Sign Out")
+                                            .foregroundColor(Color(.label)) // Default color
+                                            .padding()
+                                    }
+                                    
+                                    Spacer()
+                                }
+                            }
+                        }
+                        .navigationBarTitle("Menu")
+                        
+                    }
+                    .frame(width: UIScreen.main.bounds.width * 0.75)
+                    .offset(x: isMenuOpen ? 0 : UIScreen.main.bounds.width)
                 }
                 
-                /*NavigationLink(destination: viewModel.signOut()) {
-                                    Text("Sign Out")
-                                        .foregroundColor(.black)
-                                        .padding()
-                                }*/
-                NavigationLink(destination: SettingView()) {
-                                    Text("Settings")
-                                        .foregroundColor(.black)
-                                        .padding()
-                                }
             }
-            .cornerRadius(10)
-            .padding()
-            Spacer()
+        }
+        .onDisappear{
+            presentationMode.wrappedValue.dismiss()
         }
     }
-}
-
-struct SlideOutMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        SlideOutMenu()
     }
-}
+

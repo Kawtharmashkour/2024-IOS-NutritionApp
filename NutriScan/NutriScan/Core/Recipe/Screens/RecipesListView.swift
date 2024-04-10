@@ -71,7 +71,7 @@ struct RecipesListView: View {
                         
                     }
                     .navigationBarTitleDisplayMode(.inline)
-                    .padding(.top, 20)
+                    //.padding(.top, 20)
                 }
             }
         }
