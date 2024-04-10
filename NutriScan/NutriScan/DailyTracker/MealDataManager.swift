@@ -29,6 +29,34 @@ struct MealDataManager {
                 completion(meals)
             }
     }
+    
+    static func observeMealData(userId: String, date: String, mealType: String, completion: @escaping ([MealData]) -> Void) -> ListenerRegistration {
+        let db = Firestore.firestore()
+        return db.collection("users").document(userId).collection("meals")
+            .whereField("date", isEqualTo: date)
+            .whereField("type", isEqualTo: mealType)
+            .addSnapshotListener { (querySnapshot, error) in
+                var meals: [MealData] = []
+
+                if let documents = querySnapshot?.documents {
+                    for document in documents {
+                        let data = document.data()
+                        let meal = MealData(
+                            id: document.documentID,
+                            carbs: data["carbs"] as? Double ?? 0,
+                            fats: data["fats"] as? Double ?? 0,
+                            proteins: data["proteins"] as? Double ?? 0,
+                            calories: data["calories"] as? Double ?? 0,
+                            name: data["name"] as? String ?? "",
+                            type: data["type"] as? String ?? ""
+                        )
+                        meals.append(meal)
+                    }
+                }
+
+                completion(meals)
+            }
+    }
 
     
     static func insertMealData(userId: String , mealData: RecipeViewModel, mealType: String) {
