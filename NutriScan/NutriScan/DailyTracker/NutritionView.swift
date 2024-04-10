@@ -9,7 +9,7 @@ struct NutritionView: View {
     @State private var teaData: [MealData] = []
     @State private var currentMealType: String = ""
     @State private var showAddMealView = false
-    @State private var showSettings = false
+    @State private var showProfile = false
     @State private var mealdataManager = MealDataManager()
     @EnvironmentObject var authViewModel: AuthViewModel
     var allMeals: [MealData] {
@@ -87,13 +87,12 @@ struct NutritionView: View {
 //                        }
                     }
                 }.padding()
-                .navigationTitle("Today")
                 .toolbar {
-                    NavigationLink(destination: SettingView(), isActive: $showSettings) {
+                    NavigationLink(destination: ProfileView(), isActive: $showProfile) {
                                            Button(action: {
-                                               showSettings = true
+                                               showProfile = true
                                            }) {
-                                               Image(systemName: "gearshape")
+                                               Image(systemName: "person.circle.fill")
                                                    .foregroundColor(Color("ColorGreenAdaptive"))
                                            }
                                        }
