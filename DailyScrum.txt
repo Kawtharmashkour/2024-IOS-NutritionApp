@@ -326,6 +326,29 @@ Day: 16
 	 - Presentation project
 3- Need assistance/ NA
 
+Day: 17
+2024/04/10 Kawthar
+1- Done/ - Adjust UI of app menu slide
+	 - adjust main app navigation 
+2- To do/ - Correct navigation of app menu slide
+	  - solve issue of Xcode for the error caused by the error handling asynchronous execution
+	  - correct navigation in home page
+	  - Project presentation
+3- Need assistance/ NA
+
+2024/04/10 Behnaze
+1- Done/ - Correct functionality of Dinner section in meal plan page
+	 - Adjust UI to automatic update when data inserted in DB in meal plan view
+2- To do/ - General navigation test
+	  - Project presentation
+3- Need assistance/ NA
+
+2024/04/10 Shadan
+1- Done/ - continue on app orientation for home page
+	 - update calories in profile page
+2- To do/ - testing on app orientation 
+	  - Presentation project
+3- Need assistance/ NA
 
 
 
