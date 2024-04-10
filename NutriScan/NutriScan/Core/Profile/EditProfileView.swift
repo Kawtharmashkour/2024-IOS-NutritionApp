@@ -95,7 +95,7 @@ struct EditProfileView: View {
                 
                 Text("Gender")
                     .font(.subheadline)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 
                 HStack{
                     ForEach(genders, id: \.self) { gender in
@@ -112,7 +112,7 @@ struct EditProfileView: View {
                             }
                         }
                         .font(.subheadline)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     }
                 }
             }//VStack

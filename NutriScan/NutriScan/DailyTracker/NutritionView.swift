@@ -82,7 +82,7 @@ struct NutritionView: View {
                     }
                     .padding()
                     .toolbar {
-                        NavigationLink(destination: ProfileView(), isActive: $showProfile) {
+                        NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true), isActive: $showProfile) {
                             Button(action: {
                                 showProfile = true
                             }) {
