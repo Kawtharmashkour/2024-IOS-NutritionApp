@@ -23,6 +23,7 @@ struct ProfileView: View {
     @AppStorage("proteinGoal") private var proteinGoal: Double = 50
     @AppStorage("fatGoal") private var fatGoal: Double = 70
     @AppStorage("carbGoal") private var carbGoal: Double = 300
+    @State private var tdeeValue: Double?
     
     var suggestion : String = ""
     var body: some View {
@@ -113,12 +114,14 @@ struct ProfileView: View {
                             }
                            
                             if let tdee = Sugestion.TDEE(bmr: bmr, activityLevel: user.activityLevel) {
+                               
                                 VStack(alignment: .leading, spacing: 5){
                                     Text("Your maximum daily calorie intake based on your activity level is: ")
                                     Text(String(format: "%.2f", tdee) + " calories")
                                         .foregroundColor(.red)
-                            
+                           // tdeeValue = tdee
                                 }
+                                
                             } else {
                                 Text("Invalid activity level")
                             }
