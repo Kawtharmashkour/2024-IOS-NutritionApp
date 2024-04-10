@@ -24,7 +24,7 @@ struct NutritionView: View {
                     // Calendar navigation bar
                     CalendarView(days: generateDays(), selectedDate: $selectedDate)
 
-                    Text("Selected Date: \(selectedDate, formatter: dateFormatter)")
+                    Text("Selected Date: \(selectedDate, formatter: displayDateFormatter)")
                         .padding()
 
                     // Nutritional elements circular graph
@@ -140,6 +140,11 @@ struct NutritionView: View {
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
+        return formatter
+    }()
+    private let displayDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
         return formatter
     }()
 }
