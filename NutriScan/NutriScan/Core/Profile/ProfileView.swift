@@ -119,7 +119,7 @@ struct ProfileView: View {
                                     Text("Your maximum daily calorie intake based on your activity level is: ")
                                     Text(String(format: "%.2f", tdee) + " calories")
                                         .foregroundColor(.red)
-                           // tdeeValue = tdee
+                           /// tdeeValue = tdee
                                 }
                                 
                             } else {
