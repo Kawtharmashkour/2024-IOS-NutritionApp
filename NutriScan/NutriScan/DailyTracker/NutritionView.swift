@@ -1,20 +1,7 @@
 import SwiftUI
 
 struct NutritionView: View {
-//    @State private var selectedDate: Date = Date()
-//    @State private var breakfastData: [MealData] = []
-//    @State private var lunchData: [MealData] = []
-//    @State private var dinnerData: [MealData] = []
-//    @State private var snackData: [MealData] = []
-//    @State private var teaData: [MealData] = []
-//    @State private var currentMealType: String = ""
-//    @State private var showAddMealView = false
-//    @State private var showProfile = false
-//    @State private var mealdataManager = MealDataManager()
-//    @EnvironmentObject var authViewModel: AuthViewModel
-//    var allMeals: [MealData] {
-//           breakfastData + lunchData + dinnerData + snackData
-//       }
+
     @State private var selectedDate: Date = Date()
         @StateObject private var viewModel = NutritionViewModel(userId: AuthViewModel().userId ?? "")
         @State private var showAddMealView = false
@@ -82,17 +69,21 @@ struct NutritionView: View {
                     }
                     .padding()
                     .toolbar {
-                        NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true), isActive: $showProfile) {
-                            Button(action: {
-                                showProfile = true
-                            }) {
-                                Image(systemName: "person.circle.fill")
+                        HStack {
+                            NavigationLink(destination: ProfileView(), isActive: $showProfile) {
+                                Button(action: {
+                                    showProfile = true
+                                }) {
+                                    Image(systemName: "person.circle.fill")
+                                        .foregroundColor(Color("ColorGreenAdaptive"))
+                                }
+                            }
+
+                            NavigationLink(destination: SettingView()) {  
+                                Image(systemName: "gearshape")
                                     .foregroundColor(Color("ColorGreenAdaptive"))
                             }
                         }
-                    }
-                    .onChange(of: selectedDate) { newValue in
-                        viewModel.fetchMeals(for: newValue)
                     }
                 }
             }

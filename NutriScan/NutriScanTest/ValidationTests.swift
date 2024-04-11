@@ -19,6 +19,7 @@ final class ValidationTests: XCTestCase {
         func testIsValidEmail() {
             XCTAssertFalse(Validation.isValidEmail("invalidemail"))
             XCTAssertTrue(Validation.isValidEmail("valid.email@example.com"))
+            
         }
 
         func testValidateFullName() {

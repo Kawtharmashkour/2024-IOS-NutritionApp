@@ -125,10 +125,11 @@ struct MealSectionView: View {
 
     private func deleteMeal(at offsets: IndexSet) {
         for index in offsets {
-            if let mealId = meals[index].id {
-                MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
-                    if success {
-                        meals.remove(at: index)
+            guard let mealId = meals[index].id else { continue }
+            MealDataManager.deleteMealData(userId: userId, mealId: mealId) { success in
+                if success {
+                    DispatchQueue.main.async {
+                        meals.remove(atOffsets: offsets)  // Use remove(atOffsets:) to safely delete multiple items
                     }
                 }
             }
